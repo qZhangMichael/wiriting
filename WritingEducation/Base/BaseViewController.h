@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DefineMacro.h"
+#import "Masonry.h"
 
 @interface BaseViewController : UIViewController
 
