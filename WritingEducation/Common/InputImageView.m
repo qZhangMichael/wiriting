@@ -15,7 +15,7 @@
     if ([super initWithFrame:frame]) {
         
         CGFloat height = 45*kPROPORTION;
-        CGFloat  sizeContent = 35*kPROPORTION;
+        CGFloat  sizeContent = 30*kPROPORTION;
         CGFloat  gap = 4*kPROPORTION;
         
         _backImgView = [[UIImageView alloc]initWithFrame:CGRectZero];
@@ -30,7 +30,7 @@
         [self addSubview:_contentImgView];
         [_contentImgView  mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);
-            make.left.equalTo(self).with.offset(gap);
+            make.left.equalTo(self).with.offset(gap*2);
             make.size.mas_equalTo(CGSizeMake(sizeContent, sizeContent));
         }];
         

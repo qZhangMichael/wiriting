@@ -22,7 +22,8 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     nav.navigationBar.barTintColor = NavigationColor;
 //    nav.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    [nav.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+//    [nav.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     nav.navigationBar.translucent = NO;
 //    nav.interactivePopGestureRecognizer.enabled = YES;
     [self.window setRootViewController:nav];
