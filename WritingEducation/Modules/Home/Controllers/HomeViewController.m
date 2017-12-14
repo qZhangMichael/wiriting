@@ -7,12 +7,16 @@
 //
 
 #import "HomeViewController.h"
+#import "CloudButton.h"
+#import "LoginViewController.h"
 
-@interface HomeViewController ()
+static CGFloat TabBarHeight = 70;
 
-@property(nonatomic,strong)UIButton*updateBtn;
-@property(nonatomic,strong)UIButton*writingBtn;
-@property(nonatomic,strong)UIButton*browseBtn;
+@interface HomeViewController ()<CloudButtonDelegate>
+
+@property(nonatomic,strong)CloudButton*updateBtn;
+@property(nonatomic,strong)CloudButton*writingBtn;
+@property(nonatomic,strong)CloudButton*browseBtn;
 
 @end
 
@@ -30,7 +34,6 @@
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"photo-1.png"] forState:UIControlStateNormal ];
-    leftBtn.frame= CGRectMake(0, 0, 20, 20);
     [leftBtn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -41,51 +44,62 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
+    UIImageView *imageView = [UIImageView new];
+    imageView.image = [UIImage imageNamed:@"bg_upload.png"];
+    [self.view addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    UIImageView *cameraImageView = [UIImageView new];
+    cameraImageView.image = [UIImage imageNamed:@"bg_camera.png"];
+    [self.view addSubview:cameraImageView];
+    [cameraImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view).with.offset(200);
+        make.size.mas_equalTo(CGSizeMake(200, 150));
+    }];
 }
 
 -(void)initWithTabBarView{
-    
-    CGFloat height = 70;
-    
-    _updateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_updateBtn setImage:[UIImage imageNamed:@"photo-6"] forState:UIControlStateNormal];
-    [_updateBtn setImage:[UIImage imageNamed:@"photo-5"] forState:UIControlStateSelected];
-    [_updateBtn addTarget:self action:@selector(tabBarClick:) forControlEvents:UIControlEventTouchUpInside];
+
+    _updateBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"上传作文" normalImg:@"photo-12-1.png" selectImg:@"photo-9-1.png"];
     [self.view addSubview:_updateBtn];
     _updateBtn.selected = YES;
     _updateBtn.tag = 111;
+    _updateBtn.delegate =self;
     [_updateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.bottom.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, height));
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, TabBarHeight));
     }];
-    _writingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_writingBtn setImage:[UIImage imageNamed:@"photo-6"] forState:UIControlStateNormal];
-    [_writingBtn setImage:[UIImage imageNamed:@"photo-5"] forState:UIControlStateSelected];
-    [_writingBtn addTarget:self action:@selector(tabBarClick:) forControlEvents:UIControlEventTouchUpInside];
+
+    _writingBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"我的作品" normalImg:@"photo-8.png" selectImg:@"photo-11.png"];
     [self.view addSubview:_writingBtn];
     _writingBtn.tag = 222;
+    _writingBtn.delegate = self;
     [_writingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_updateBtn.mas_right);
         make.bottom.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, height));
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, TabBarHeight));
     }];
-    _browseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_browseBtn setImage:[UIImage imageNamed:@"photo-6"] forState:UIControlStateNormal];
-    [_browseBtn setImage:[UIImage imageNamed:@"photo-5"] forState:UIControlStateSelected];
-    [_browseBtn addTarget:self action:@selector(tabBarClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _browseBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"浏览" normalImg:@"photo-10.png" selectImg:@"photo-13.png"];
     [self.view addSubview:_browseBtn];
-     _browseBtn.tag = 333;
+    _browseBtn.delegate = self;
+    _browseBtn.tag = 333;
     [_browseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_writingBtn.mas_right);
         make.bottom.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, height));
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, TabBarHeight));
     }];
 }
 
--(void)tabBarClick:(id)action{
+
+
+-(void)cloudButtonClick:(id)action{
     
-    UIButton *btn = (UIButton *)action;
+    CloudButton*btn = (CloudButton *)action;
     if (btn.tag == 111) {
         _updateBtn.selected=YES;
         _writingBtn.selected=NO;
@@ -106,6 +120,9 @@
 
 -(void)leftBtnClick:(id)action{
     
+    LoginViewController *vc = [LoginViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(void)rightBtnClick:(id)action{
