@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,14 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    LoginViewController *vc = [[LoginViewController alloc]init];
+    HomeViewController *vc = [[HomeViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     nav.navigationBar.barTintColor = NavigationColor;
-//    nav.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-//    [nav.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     nav.navigationBar.translucent = NO;
-//    nav.interactivePopGestureRecognizer.enabled = YES;
     [self.window setRootViewController:nav];
     self.window.backgroundColor = [UIColor purpleColor];
     [self.window makeKeyAndVisible];
