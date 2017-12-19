@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "HomeViewController.h"
+#import <RESideMenu/RESideMenu.h>
+#import "LeftMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +26,20 @@
     nav.navigationBar.barTintColor = NavigationColor;
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     nav.navigationBar.translucent = NO;
-    [self.window setRootViewController:nav];
+    
+    LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
+ 
+    
+    UIViewController *rightMenuViewController = [[UIViewController alloc] init];
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:nav
+                                                                    leftMenuViewController:leftMenuViewController
+                                                                   rightMenuViewController:rightMenuViewController];
+    sideMenuViewController.scaleContentView = NO;
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"photo-3.png"];
+    // Make it a root controller
+    //
+    self.window.rootViewController = sideMenuViewController;
+    [self.window setRootViewController:sideMenuViewController];
     self.window.backgroundColor = [UIColor purpleColor];
     [self.window makeKeyAndVisible];
     

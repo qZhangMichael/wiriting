@@ -9,6 +9,10 @@
 #import "HomeViewController.h"
 #import "CloudButton.h"
 #import "LoginViewController.h"
+#import <RESideMenu/RESideMenu.h>
+#import "UpdatePhotoViewController.h"
+#import "MyProductListViewController.h"
+#import "BrowseListViewController.h"
 
 static CGFloat TabBarHeight = 70;
 
@@ -17,6 +21,11 @@ static CGFloat TabBarHeight = 70;
 @property(nonatomic,strong)CloudButton*updateBtn;
 @property(nonatomic,strong)CloudButton*writingBtn;
 @property(nonatomic,strong)CloudButton*browseBtn;
+
+@property(nonatomic,strong)UINavigationController *updatePhotoNav;
+@property(nonatomic,strong)UINavigationController *myProductListNav;
+@property(nonatomic,strong)UINavigationController *browseListNav;
+
 
 @end
 
@@ -116,17 +125,58 @@ static CGFloat TabBarHeight = 70;
         _browseBtn.selected=YES;
         self.title =@"浏览";
     }
+    [self toViewController:btn.tag];
+}
+
+-(void)toViewController:(NSInteger)tag{
+    
+    if (tag ==111) {
+////        self.navigationController.childViewControllers
+////        [self.navigationController addChildViewController:self.updatePhotoNav];
+//        [self.navigationController pushViewController:self.navigationController animated:YES];
+    }else if (tag ==222){
+        
+    }
 }
 
 -(void)leftBtnClick:(id)action{
     
-    LoginViewController *vc = [LoginViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
-//    [self presentViewController:vc animated:YES completion:nil];
+    [self.sideMenuViewController presentLeftMenuViewController];
+  
 }
 
 -(void)rightBtnClick:(id)action{
     
+    LoginViewController *vc = [LoginViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - getter
+-(UINavigationController*)updatePhotoNav{
+    
+    if (_updatePhotoNav == nil) {
+        UpdatePhotoViewController *vc = [UpdatePhotoViewController new];
+        _updatePhotoNav = [[UINavigationController alloc]initWithRootViewController:vc];
+    }
+    return _updatePhotoNav;
+}
+
+-(UINavigationController*)myProductListNav{
+    
+    if (_myProductListNav == nil) {
+        MyProductListViewController *vc = [MyProductListViewController new];
+        _myProductListNav = [[UINavigationController alloc]initWithRootViewController:vc];
+    }
+    return _myProductListNav;
+}
+
+-(UINavigationController*)browseListNav{
+    
+    if (_browseListNav == nil) {
+        BrowseListViewController *vc = [BrowseListViewController new];
+        _browseListNav = [[UINavigationController alloc]initWithRootViewController:vc];
+    }
+    return _browseListNav;
 }
 
 - (void)didReceiveMemoryWarning {

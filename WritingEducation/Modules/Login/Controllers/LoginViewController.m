@@ -10,7 +10,7 @@
 #import "SignInViewController.h"
 #import "InputImageView.h"
 #import "LongButton.h"
-
+#import "HomeViewController.h"
 
 @interface LoginViewController ()
 
@@ -72,11 +72,10 @@
         make.height.mas_equalTo(Height);
     }];
     
-//    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [loginBtn setImage:[UIImage imageNamed:@"6.png"] forState:UIControlStateNormal];
-//    [loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     LongButton *loginBtn =[LongButton buttonWithType:UIButtonTypeCustom title:@"登  录" image:@"6.png" handler:^(UIButton *sender) {
         NSLog(@"登  陆");
+        HomeViewController *vc = [HomeViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.view addSubview:loginBtn];
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -162,10 +161,6 @@
     
 }
 
--(void)loginBtnClick:(id)action{
-    
-    
-}
 -(void)forgetBtnClick:(id)action{
     
     

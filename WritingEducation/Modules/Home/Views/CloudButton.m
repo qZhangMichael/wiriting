@@ -19,6 +19,7 @@
     CloudButton *btn = [CloudButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed:@"bg_upload_btn_un_1.png"] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"bg_upload_btn_1.png"] forState:UIControlStateSelected];
+//    [btn setImage:[UIImage imageNamed:@"bg_upload_btn_1.png"] forState:UIControlStateHighlighted];
     [btn addTarget:btn action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.backgroundColor = [UIColor clearColor];
     btn.selectBtnImg = selectImg;
@@ -66,6 +67,11 @@
         self.imgView.image = [UIImage imageNamed:self.normalBtnImg];
         self.textLb.textColor = Color(108, 190, 221);;
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.
