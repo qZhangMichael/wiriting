@@ -28,16 +28,15 @@
     nav.navigationBar.translucent = NO;
     
     LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
- 
-    
     UIViewController *rightMenuViewController = [[UIViewController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:nav
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:rightMenuViewController];
     sideMenuViewController.scaleContentView = NO;
+//    sideMenuViewController.scaleMenuView = NO;
+//    sideMenuViewController.contentViewShadowEnabled = YES;
+//    sideMenuViewController.contentViewShadowOpacity  = 0.5;
     sideMenuViewController.backgroundImage = [UIImage imageNamed:@"photo-3.png"];
-    // Make it a root controller
-    //
     self.window.rootViewController = sideMenuViewController;
     [self.window setRootViewController:sideMenuViewController];
     self.window.backgroundColor = [UIColor purpleColor];

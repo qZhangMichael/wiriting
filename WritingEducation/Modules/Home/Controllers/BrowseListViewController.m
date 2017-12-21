@@ -7,8 +7,12 @@
 //
 
 #import "BrowseListViewController.h"
+#import "BrowseListCell.h"
 
-@interface BrowseListViewController ()
+@interface BrowseListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -17,8 +21,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor greenColor];
 }
 
+-(void)initWithView{
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+}
+
+-(void)initWithData{
+    
+    _dataArray = [NSMutableArray array];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return _dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellStr = @"cellStr";
+    BrowseListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellStr];
+    if (cell==nil) {
+        cell = [[BrowseListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+    }
+    
+    return cell;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

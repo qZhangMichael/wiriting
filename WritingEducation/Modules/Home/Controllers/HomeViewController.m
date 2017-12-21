@@ -22,11 +22,15 @@ static CGFloat TabBarHeight = 70;
 @property(nonatomic,strong)CloudButton*writingBtn;
 @property(nonatomic,strong)CloudButton*browseBtn;
 
-@property(nonatomic,strong)UINavigationController *updatePhotoNav;
-@property(nonatomic,strong)UINavigationController *myProductListNav;
-@property(nonatomic,strong)UINavigationController *browseListNav;
+@property(nonatomic,strong)UpdatePhotoViewController *updatePhotoViewController;
+@property(nonatomic,strong)MyProductListViewController *myProductListViewController;
+@property(nonatomic,strong)BrowseListViewController *browseListViewController;
 
+//@property(nonatomic,strong)UpdatePhotoView *updatePhotoView;
+//@property(nonatomic,strong)MyProductListView *myProductListView;
+//@property(nonatomic,strong)BrowseListView *browseListView;
 
+@property(nonatomic,strong)BaseViewController *currentViewController;
 @end
 
 @implementation HomeViewController
@@ -68,7 +72,30 @@ static CGFloat TabBarHeight = 70;
         make.top.equalTo(self.view).with.offset(200);
         make.size.mas_equalTo(CGSizeMake(200, 150));
     }];
+    
+    _currentViewController = [BaseViewController new];
+    [self addChildViewController:_currentViewController];
+    
+    _updatePhotoViewController = [UpdatePhotoViewController new];
+    [self addChildViewController:_updatePhotoViewController];
+//    [_updatePhotoViewController didMoveToParentViewController:self];
+    [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+    
+    _myProductListViewController = [MyProductListViewController new];
+    [self addChildViewController:_myProductListViewController];
+    [_myProductListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+    
+    _browseListViewController = [BrowseListViewController new];
+    [self addChildViewController:_browseListViewController];
+    [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
 }
+
+#pragma mark - 切换viewController
+//- (void)changeControllerFromOldController:(UIViewController *)oldController toNewController:(UIViewController *)newController{
+//
+//    [self addChildViewController:newController];
+
+//}
 
 -(void)initWithTabBarView{
 
@@ -130,13 +157,18 @@ static CGFloat TabBarHeight = 70;
 
 -(void)toViewController:(NSInteger)tag{
     
+
     if (tag ==111) {
-////        self.navigationController.childViewControllers
-////        [self.navigationController addChildViewController:self.updatePhotoNav];
-//        [self.navigationController pushViewController:self.navigationController animated:YES];
-    }else if (tag ==222){
-        
+        self.currentViewController = _updatePhotoViewController;
+    }else if (tag == 222){
+        self.currentViewController = _myProductListViewController;
+    }else if (tag ==333){
+        self.currentViewController = _browseListViewController;
     }
+    [self.view addSubview:self.currentViewController.view];
+    
+   
+
 }
 
 -(void)leftBtnClick:(id)action{
@@ -151,33 +183,6 @@ static CGFloat TabBarHeight = 70;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#pragma mark - getter
--(UINavigationController*)updatePhotoNav{
-    
-    if (_updatePhotoNav == nil) {
-        UpdatePhotoViewController *vc = [UpdatePhotoViewController new];
-        _updatePhotoNav = [[UINavigationController alloc]initWithRootViewController:vc];
-    }
-    return _updatePhotoNav;
-}
-
--(UINavigationController*)myProductListNav{
-    
-    if (_myProductListNav == nil) {
-        MyProductListViewController *vc = [MyProductListViewController new];
-        _myProductListNav = [[UINavigationController alloc]initWithRootViewController:vc];
-    }
-    return _myProductListNav;
-}
-
--(UINavigationController*)browseListNav{
-    
-    if (_browseListNav == nil) {
-        BrowseListViewController *vc = [BrowseListViewController new];
-        _browseListNav = [[UINavigationController alloc]initWithRootViewController:vc];
-    }
-    return _browseListNav;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
