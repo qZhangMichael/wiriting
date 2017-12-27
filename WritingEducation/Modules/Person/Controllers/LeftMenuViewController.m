@@ -12,8 +12,8 @@
 #import "LeftMenuCell.h"
 #import "PersonCenterViewController.h"
 
-static NSString * LABLE_TEXT = @"text";
-static NSString * LABLE_ICON = @"icon";
+static NSString *LABLE_TEXT = @"text";
+static NSString *LABLE_ICON = @"icon";
 
 @interface LeftMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -139,7 +139,6 @@ static NSString * LABLE_ICON = @"icon";
     nav.navigationBar.translucent = NO;
     [self.sideMenuViewController setContentViewController:nav animated:YES];
     [self.sideMenuViewController hideMenuViewController];
-
 }
 
 -(void)didReceiveMemoryWarning {

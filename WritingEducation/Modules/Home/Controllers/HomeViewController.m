@@ -91,11 +91,6 @@ static CGFloat TabBarHeight = 70;
 }
 
 #pragma mark - 切换viewController
-//- (void)changeControllerFromOldController:(UIViewController *)oldController toNewController:(UIViewController *)newController{
-//
-//    [self addChildViewController:newController];
-
-//}
 
 -(void)initWithTabBarView{
 
@@ -157,7 +152,6 @@ static CGFloat TabBarHeight = 70;
 
 -(void)toViewController:(NSInteger)tag{
     
-
     if (tag ==111) {
         self.currentViewController = _updatePhotoViewController;
     }else if (tag == 222){
@@ -166,15 +160,11 @@ static CGFloat TabBarHeight = 70;
         self.currentViewController = _browseListViewController;
     }
     [self.view addSubview:self.currentViewController.view];
-    
-   
-
 }
 
 -(void)leftBtnClick:(id)action{
     
     [self.sideMenuViewController presentLeftMenuViewController];
-  
 }
 
 -(void)rightBtnClick:(id)action{

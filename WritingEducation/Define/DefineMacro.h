@@ -20,8 +20,8 @@
 #define TITLE_COLOR [UIColor blackColor]//标题颜色
 #define TEXT_COLOR [UIColor grayColor]//正文颜色
 #define TIPTEXT_COLOR UIColorFromRGB(0x888888)//提示语文本颜色
-#define MAIN_GROUNDCOLOR  Color(164,225,241)//背景颜色
-#define NavigationColor  Color(108,190,221)//导航栏颜色
+#define MAIN_GROUNDCOLOR  Color(164,224,239)//背景颜色
+#define NavigationColor  Color(109,190,220)//导航栏颜色
 
 //字体大小
 #define TITLEFONT [UIFont systemFontOfSize:18]

@@ -150,7 +150,7 @@
     [self.view addSubview:signInBtn];
     [signInBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, topGap*2, aroundGap));
-        make.height.mas_equalTo(Height);
+        make.height.mas_equalTo(45*kPROPORTION);
     }];
 }
 
