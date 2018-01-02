@@ -12,6 +12,7 @@
 #import "LongButton.h"
 #import "HomeViewController.h"
 
+
 @interface LoginViewController ()
 
 @property(nonatomic,strong)UITextField *usertTf;
@@ -74,8 +75,7 @@
     
     LongButton *loginBtn =[LongButton buttonWithType:UIButtonTypeCustom title:@"登  录" image:@"6.png" handler:^(UIButton *sender) {
         NSLog(@"登  陆");
-        HomeViewController *vc = [HomeViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self clickLogin];
     }];
     [self.view addSubview:loginBtn];
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,7 +111,7 @@
     }];
     
     UIButton *weixBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    [weixBtn addTarget:self action:@selector(forgetBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [weixBtn addTarget:self action:@selector(didWeiXinBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [weixBtn setImage:[UIImage imageNamed:@"7.png"] forState:UIControlStateNormal];
     [self.view addSubview:weixBtn];
     [weixBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -165,6 +165,18 @@
     
     
 }
+
+-(void)didWeiXinBtnClick:(id)action{
+    
+    
+}
+
+-(void)clickLogin{
+    
+    HomeViewController *vc =[HomeViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

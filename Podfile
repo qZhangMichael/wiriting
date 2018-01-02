@@ -5,6 +5,9 @@ target 'WritingEducation' do
   # use_frameworks!
   pod 'Masonry', '~> 1.1.0'
   pod 'RESideMenu', '~> 4.0.7'
+  pod 'AFNetworking', '~> 3.0'
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'WechatOpenSDK'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing

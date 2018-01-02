@@ -97,6 +97,7 @@
 		804661791FEAA72F009A0904 /* PersonCenter_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661681FEAA72E009A0904 /* PersonCenter_18.png */; };
 		8046617A1FEAA72F009A0904 /* PersonCenter_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661691FEAA72E009A0904 /* PersonCenter_8.png */; };
 		80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80727E2C1FF3DA6800956825 /* PersonCenterCell.m */; };
+		80727E301FF5251200956825 /* RequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 80727E2F1FF5251200956825 /* RequestHelp.m */; };
 		80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */; };
 		80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A101FE94E7600C7FBDE /* BrowseListCell.m */; };
 		80C07A131FE9561400C7FBDE /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A121FE9561400C7FBDE /* list.png */; };
@@ -249,6 +250,8 @@
 		804661691FEAA72E009A0904 /* PersonCenter_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PersonCenter_8.png; sourceTree = "<group>"; };
 		80727E2B1FF3DA6800956825 /* PersonCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterCell.h; sourceTree = "<group>"; };
 		80727E2C1FF3DA6800956825 /* PersonCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonCenterCell.m; sourceTree = "<group>"; };
+		80727E2E1FF5251200956825 /* RequestHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestHelp.h; sourceTree = "<group>"; };
+		80727E2F1FF5251200956825 /* RequestHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestHelp.m; sourceTree = "<group>"; };
 		80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowseListCell.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 		8036C9DE1FDE815D00AD2341 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				80727E2E1FF5251200956825 /* RequestHelp.h */,
+				80727E2F1FF5251200956825 /* RequestHelp.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1122,6 +1127,7 @@
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
+				80727E301FF5251200956825 /* RequestHelp.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
 				80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */,
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DefineMacro.h"
 #import "Masonry.h"
+#import "MBProgressHUD.h"
 
 @interface BaseViewController : UIViewController
 
