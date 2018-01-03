@@ -36,7 +36,7 @@
     CGFloat topGap = 10*kPROPORTION;
     CGFloat aroundGap = 30*kPROPORTION;
     CGFloat Height = 45*kPROPORTION;
-    CGFloat  gap = 4*kPROPORTION;
+    CGFloat  gap = 4;
     
     _studentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_studentBtn setImage:[UIImage imageNamed:@"8.png"] forState:UIControlStateSelected];

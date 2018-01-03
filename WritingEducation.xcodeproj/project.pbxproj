@@ -97,7 +97,6 @@
 		804661791FEAA72F009A0904 /* PersonCenter_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661681FEAA72E009A0904 /* PersonCenter_18.png */; };
 		8046617A1FEAA72F009A0904 /* PersonCenter_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661691FEAA72E009A0904 /* PersonCenter_8.png */; };
 		80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80727E2C1FF3DA6800956825 /* PersonCenterCell.m */; };
-		80727E301FF5251200956825 /* RequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 80727E2F1FF5251200956825 /* RequestHelp.m */; };
 		80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */; };
 		80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A101FE94E7600C7FBDE /* BrowseListCell.m */; };
 		80C07A131FE9561400C7FBDE /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A121FE9561400C7FBDE /* list.png */; };
@@ -108,6 +107,9 @@
 		80C07A211FEA869300C7FBDE /* leftMesu_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A1A1FEA869300C7FBDE /* leftMesu_4.png */; };
 		80C07A221FEA869300C7FBDE /* leftMesu_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A1B1FEA869300C7FBDE /* leftMesu_6.png */; };
 		80C07A241FEA8F0F00C7FBDE /* leftMesu_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A231FEA8F0F00C7FBDE /* leftMesu_7.png */; };
+		80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C80C321FFBBC440008BDED /* PersonInfoViewController.m */; };
+		80C80C3C1FFD04E40008BDED /* PhotoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C80C3B1FFD04E40008BDED /* PhotoCollectionView.m */; };
+		80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C80C3E1FFD0F750008BDED /* PhotoCollectionViewCell.m */; };
 		80D1B9A21FDD7A3D00B751A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D1B9A01FDD7A3D00B751A9 /* LaunchScreen.storyboard */; };
 		80D1B9AF1FDD7A3E00B751A9 /* WritingEducationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D1B9AE1FDD7A3E00B751A9 /* WritingEducationTests.m */; };
 		80D1B9BA1FDD7A3E00B751A9 /* WritingEducationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D1B9B91FDD7A3E00B751A9 /* WritingEducationUITests.m */; };
@@ -250,8 +252,6 @@
 		804661691FEAA72E009A0904 /* PersonCenter_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PersonCenter_8.png; sourceTree = "<group>"; };
 		80727E2B1FF3DA6800956825 /* PersonCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterCell.h; sourceTree = "<group>"; };
 		80727E2C1FF3DA6800956825 /* PersonCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonCenterCell.m; sourceTree = "<group>"; };
-		80727E2E1FF5251200956825 /* RequestHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestHelp.h; sourceTree = "<group>"; };
-		80727E2F1FF5251200956825 /* RequestHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestHelp.m; sourceTree = "<group>"; };
 		80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowseListCell.h; sourceTree = "<group>"; };
@@ -264,6 +264,12 @@
 		80C07A1A1FEA869300C7FBDE /* leftMesu_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftMesu_4.png; sourceTree = "<group>"; };
 		80C07A1B1FEA869300C7FBDE /* leftMesu_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftMesu_6.png; sourceTree = "<group>"; };
 		80C07A231FEA8F0F00C7FBDE /* leftMesu_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftMesu_7.png; sourceTree = "<group>"; };
+		80C80C311FFBBC440008BDED /* PersonInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
+		80C80C321FFBBC440008BDED /* PersonInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
+		80C80C3A1FFD04E40008BDED /* PhotoCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionView.h; sourceTree = "<group>"; };
+		80C80C3B1FFD04E40008BDED /* PhotoCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionView.m; sourceTree = "<group>"; };
+		80C80C3D1FFD0F750008BDED /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		80C80C3E1FFD0F750008BDED /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		80D1B9921FDD7A3D00B751A9 /* WritingEducation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritingEducation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D1B9A11FDD7A3D00B751A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80D1B9AA1FDD7A3D00B751A9 /* WritingEducationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritingEducationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -349,6 +355,8 @@
 				8035D9641FE7E08F00D56B5E /* LeftMenuViewController.m */,
 				804661551FEAA4E8009A0904 /* PersonCenterViewController.h */,
 				804661561FEAA4E8009A0904 /* PersonCenterViewController.m */,
+				80C80C311FFBBC440008BDED /* PersonInfoViewController.h */,
+				80C80C321FFBBC440008BDED /* PersonInfoViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -411,8 +419,6 @@
 		8036C9DE1FDE815D00AD2341 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				80727E2E1FF5251200956825 /* RequestHelp.h */,
-				80727E2F1FF5251200956825 /* RequestHelp.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -483,6 +489,10 @@
 				8036CA341FE018FC00AD2341 /* InputImageView.m */,
 				8036CA371FE0194D00AD2341 /* LongButton.h */,
 				8036CA381FE0194D00AD2341 /* LongButton.m */,
+				80C80C3A1FFD04E40008BDED /* PhotoCollectionView.h */,
+				80C80C3B1FFD04E40008BDED /* PhotoCollectionView.m */,
+				80C80C3D1FFD0F750008BDED /* PhotoCollectionViewCell.h */,
+				80C80C3E1FFD0F750008BDED /* PhotoCollectionViewCell.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1121,18 +1131,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C80C3C1FFD04E40008BDED /* PhotoCollectionView.m in Sources */,
 				8036CA331FE0093C00AD2341 /* SignInViewController.m in Sources */,
 				8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */,
+				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
-				80727E301FF5251200956825 /* RequestHelp.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
 				80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */,
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,
 				8036CA391FE0194D00AD2341 /* LongButton.m in Sources */,
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
+				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
 				802D41781FDD7C860056FDF6 /* AppDelegate.m in Sources */,
 				8035D96A1FE7F25A00D56B5E /* UpdatePhotoViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "HomeViewController.h"
 #import <RESideMenu/RESideMenu.h>
 #import "LeftMenuViewController.h"
+#import "PersonInfoViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    HomeViewController *vc = [[HomeViewController alloc]init];
+    PersonInfoViewController *vc = [[PersonInfoViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     nav.navigationBar.barTintColor = NavigationColor;
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];

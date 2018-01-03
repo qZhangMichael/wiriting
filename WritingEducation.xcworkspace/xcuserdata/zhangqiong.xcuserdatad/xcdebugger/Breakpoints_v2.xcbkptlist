@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Person/Controllers/PersonCenterViewController.m"
-            timestampString = "536080143.880747"
+            filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
+            timestampString = "536681314.150822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-initWithView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

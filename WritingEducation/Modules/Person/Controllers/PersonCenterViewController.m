@@ -10,6 +10,7 @@
 #import "LongButton.h"
 #import "PersonCenterCell.h"
 #import <RESideMenu/RESideMenu.h>
+#import "PersonInfoViewController.h"
 
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
@@ -152,12 +153,18 @@ static NSString *LABLE_ICON = @"icon";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  
-
+    if (indexPath.row == 0) {
+        PersonInfoViewController *vc =[PersonInfoViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     return  60*kPROPORTION;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

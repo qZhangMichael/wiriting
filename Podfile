@@ -7,7 +7,8 @@ target 'WritingEducation' do
   pod 'RESideMenu', '~> 4.0.7'
   pod 'AFNetworking', '~> 3.0'
   pod 'MBProgressHUD', '~> 1.1.0'
-  pod 'WechatOpenSDK'
+  pod 'WechatOpenSDK', '~> 1.8.1'
+  pod 'YYModel', '~> 1.0.4'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing
