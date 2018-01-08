@@ -88,6 +88,7 @@ static CGFloat TabBarHeight = 70;
     _browseListViewController = [BrowseListViewController new];
     [self addChildViewController:_browseListViewController];
     [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+   
 }
 
 #pragma mark - 切换viewController

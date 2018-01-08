@@ -41,7 +41,6 @@
 		8036CA291FDEBA3400AD2341 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CA121FDEBA3400AD2341 /* 5.png */; };
 		8036CA2A1FDEBA3400AD2341 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CA131FDEBA3400AD2341 /* 7.png */; };
 		8036CA2B1FDEBA3400AD2341 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CA141FDEBA3400AD2341 /* 15.png */; };
-		8036CA331FE0093C00AD2341 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8036CA321FE0093C00AD2341 /* SignInViewController.m */; };
 		8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8036CA341FE018FC00AD2341 /* InputImageView.m */; };
 		8036CA391FE0194D00AD2341 /* LongButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8036CA381FE0194D00AD2341 /* LongButton.m */; };
 		8036CA4C1FE15ED200AD2341 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8036CA4B1FE15ED200AD2341 /* HomeViewController.m */; };
@@ -77,6 +76,12 @@
 		8036CAA11FE2CA9500AD2341 /* bg_upload_btn_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CAA01FE2CA9500AD2341 /* bg_upload_btn_1.png */; };
 		8036CAA31FE2CBBE00AD2341 /* photo-12-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CAA21FE2CBBE00AD2341 /* photo-12-1.png */; };
 		8036CAA51FE2CC3D00AD2341 /* photo-9-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8036CAA41FE2CC3D00AD2341 /* photo-9-1.png */; };
+		80463A19200388620088E821 /* RequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A18200388620088E821 /* RequestHelp.m */; };
+		80463A2020038A610088E821 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A1F20038A610088E821 /* NSString+Base64.m */; };
+		80463A2420038F960088E821 /* TokenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A2320038F960088E821 /* TokenModel.m */; };
+		80463A3220039A010088E821 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3020039A010088E821 /* BaseModel.m */; };
+		80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3720039AEA0088E821 /* SignStudentModel.m */; };
+		80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A392003BDA60088E821 /* SignInViewController.m */; };
 		804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661531FEA906A009A0904 /* LeftMenuCell.m */; };
 		804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661561FEAA4E8009A0904 /* PersonCenterViewController.m */; };
 		8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661591FEAA72E009A0904 /* PersonCenter_11.png */; };
@@ -187,7 +192,6 @@
 		8036CA131FDEBA3400AD2341 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		8036CA141FDEBA3400AD2341 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
 		8036CA311FE0093C00AD2341 /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
-		8036CA321FE0093C00AD2341 /* SignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		8036CA341FE018FC00AD2341 /* InputImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageView.m; sourceTree = "<group>"; };
 		8036CA351FE018FC00AD2341 /* InputImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageView.h; sourceTree = "<group>"; };
 		8036CA371FE0194D00AD2341 /* LongButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LongButton.h; sourceTree = "<group>"; };
@@ -229,6 +233,18 @@
 		8036CAA01FE2CA9500AD2341 /* bg_upload_btn_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_upload_btn_1.png; sourceTree = "<group>"; };
 		8036CAA21FE2CBBE00AD2341 /* photo-12-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-12-1.png"; sourceTree = "<group>"; };
 		8036CAA41FE2CC3D00AD2341 /* photo-9-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-9-1.png"; path = "Photo/photo-9-1.png"; sourceTree = "<group>"; };
+		80463A17200388620088E821 /* RequestHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestHelp.h; sourceTree = "<group>"; };
+		80463A18200388620088E821 /* RequestHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestHelp.m; sourceTree = "<group>"; };
+		80463A1A200388800088E821 /* RequestUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestUrl.h; sourceTree = "<group>"; };
+		80463A1E20038A610088E821 /* NSString+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		80463A1F20038A610088E821 /* NSString+Base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		80463A2220038F960088E821 /* TokenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenModel.h; sourceTree = "<group>"; };
+		80463A2320038F960088E821 /* TokenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenModel.m; sourceTree = "<group>"; };
+		80463A3020039A010088E821 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		80463A3120039A010088E821 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		80463A3620039AEA0088E821 /* SignStudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignStudentModel.h; sourceTree = "<group>"; };
+		80463A3720039AEA0088E821 /* SignStudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignStudentModel.m; sourceTree = "<group>"; };
+		80463A392003BDA60088E821 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		804661521FEA906A009A0904 /* LeftMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuCell.h; sourceTree = "<group>"; };
 		804661531FEA906A009A0904 /* LeftMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuCell.m; sourceTree = "<group>"; };
 		804661551FEAA4E8009A0904 /* PersonCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterViewController.h; sourceTree = "<group>"; };
@@ -394,6 +410,8 @@
 		8036C9D91FDE815D00AD2341 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80463A3620039AEA0088E821 /* SignStudentModel.h */,
+				80463A3720039AEA0088E821 /* SignStudentModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,7 +422,7 @@
 				8036C9EF1FDE829800AD2341 /* LoginViewController.h */,
 				8036C9F01FDE829800AD2341 /* LoginViewController.m */,
 				8036CA311FE0093C00AD2341 /* SignInViewController.h */,
-				8036CA321FE0093C00AD2341 /* SignInViewController.m */,
+				80463A392003BDA60088E821 /* SignInViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +437,10 @@
 		8036C9DE1FDE815D00AD2341 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				80463A2120038F790088E821 /* Models */,
+				80463A17200388620088E821 /* RequestHelp.h */,
+				80463A18200388620088E821 /* RequestHelp.m */,
+				80463A1A200388800088E821 /* RequestUrl.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -441,6 +463,8 @@
 		8036C9E11FDE815D00AD2341 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				80463A1E20038A610088E821 /* NSString+Base64.h */,
+				80463A1F20038A610088E821 /* NSString+Base64.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -448,6 +472,7 @@
 		8036C9F21FDE830000AD2341 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				80463A2F20039A010088E821 /* Models */,
 				8036C9F51FDE830000AD2341 /* BaseView.h */,
 				8036C9F31FDE830000AD2341 /* BaseView.m */,
 				80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */,
@@ -656,6 +681,24 @@
 				8036CA5A1FE161E900AD2341 /* photo-21.png */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		80463A2120038F790088E821 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80463A2220038F960088E821 /* TokenModel.h */,
+				80463A2320038F960088E821 /* TokenModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80463A2F20039A010088E821 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80463A3120039A010088E821 /* BaseModel.h */,
+				80463A3020039A010088E821 /* BaseModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		804661581FEAA72E009A0904 /* PersonCenter */ = {
@@ -1131,24 +1174,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80463A2020038A610088E821 /* NSString+Base64.m in Sources */,
 				80C80C3C1FFD04E40008BDED /* PhotoCollectionView.m in Sources */,
-				8036CA331FE0093C00AD2341 /* SignInViewController.m in Sources */,
 				8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
+				80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
+				80463A3220039A010088E821 /* BaseModel.m in Sources */,
 				80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */,
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,
 				8036CA391FE0194D00AD2341 /* LongButton.m in Sources */,
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
 				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
+				80463A2420038F960088E821 /* TokenModel.m in Sources */,
 				802D41781FDD7C860056FDF6 /* AppDelegate.m in Sources */,
 				8035D96A1FE7F25A00D56B5E /* UpdatePhotoViewController.m in Sources */,
+				80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */,
 				8035D9651FE7E08F00D56B5E /* LeftMenuViewController.m in Sources */,
+				80463A19200388620088E821 /* RequestHelp.m in Sources */,
 				8036CA4C1FE15ED200AD2341 /* HomeViewController.m in Sources */,
 				8036C9F11FDE829800AD2341 /* LoginViewController.m in Sources */,
 				8036C9F81FDE830000AD2341 /* BaseViewController.m in Sources */,
