@@ -20,4 +20,7 @@
 @property(nonatomic,strong)NSString *registeredTime;
 @property(nonatomic,strong)NSString *schoolName;
 
+@property(nonatomic,strong)NSString *flag;
+@property(nonatomic,strong)NSString *msg;
+
 @end

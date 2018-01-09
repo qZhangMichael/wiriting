@@ -13,4 +13,8 @@
 
 @interface BaseViewController : UIViewController
 
+-(void)showAlert:(NSString *)msg;
+
+-(void)showLoading;
+-(void)hideLoading;
 @end

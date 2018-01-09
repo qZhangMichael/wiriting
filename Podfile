@@ -9,6 +9,7 @@ target 'WritingEducation' do
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'WechatOpenSDK', '~> 1.8.1'
   pod 'YYModel', '~> 1.0.4'
+  pod 'IQKeyboardManager', '~> 5.0.7'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing

@@ -7,8 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
-@interface BaseViewController ()
+#import "RequestHelp.h"
+@interface BaseViewController ()<RequestHelpDelegate,UIAlertViewDelegate>
 
 @end
 
@@ -38,6 +38,36 @@
 -(void)returnButtonPressed{
     
      [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)requestError:(NSError *)error{
+    
+    [self hideLoading];
+    NSString *errStr = [NSString stringWithFormat:@"%@",error.userInfo];
+    [self showAlert:errStr];
+}
+
+
+
+-(void)showAlert:(NSString *)msg{
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"title"
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles: nil];
+    [alertView show];
+
+}
+
+-(void)showLoading{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+-(void)hideLoading{
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

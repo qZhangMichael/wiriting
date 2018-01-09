@@ -82,6 +82,7 @@
 		80463A3220039A010088E821 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3020039A010088E821 /* BaseModel.m */; };
 		80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3720039AEA0088E821 /* SignStudentModel.m */; };
 		80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A392003BDA60088E821 /* SignInViewController.m */; };
+		80463A432004F6400088E821 /* SignTeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A422004F6400088E821 /* SignTeacherModel.m */; };
 		804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661531FEA906A009A0904 /* LeftMenuCell.m */; };
 		804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661561FEAA4E8009A0904 /* PersonCenterViewController.m */; };
 		8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661591FEAA72E009A0904 /* PersonCenter_11.png */; };
@@ -245,6 +246,8 @@
 		80463A3620039AEA0088E821 /* SignStudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignStudentModel.h; sourceTree = "<group>"; };
 		80463A3720039AEA0088E821 /* SignStudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignStudentModel.m; sourceTree = "<group>"; };
 		80463A392003BDA60088E821 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		80463A412004F6400088E821 /* SignTeacherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignTeacherModel.h; sourceTree = "<group>"; };
+		80463A422004F6400088E821 /* SignTeacherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignTeacherModel.m; sourceTree = "<group>"; };
 		804661521FEA906A009A0904 /* LeftMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuCell.h; sourceTree = "<group>"; };
 		804661531FEA906A009A0904 /* LeftMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuCell.m; sourceTree = "<group>"; };
 		804661551FEAA4E8009A0904 /* PersonCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterViewController.h; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 			children = (
 				80463A3620039AEA0088E821 /* SignStudentModel.h */,
 				80463A3720039AEA0088E821 /* SignStudentModel.m */,
+				80463A412004F6400088E821 /* SignTeacherModel.h */,
+				80463A422004F6400088E821 /* SignTeacherModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1125,9 +1130,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WritingEducation/Pods-WritingEducation-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1189,6 +1197,7 @@
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,
 				8036CA391FE0194D00AD2341 /* LongButton.m in Sources */,
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
+				80463A432004F6400088E821 /* SignTeacherModel.m in Sources */,
 				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
 				80463A2420038F960088E821 /* TokenModel.m in Sources */,

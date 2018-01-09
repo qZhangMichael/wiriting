@@ -17,18 +17,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^GetBlock)(id _Nullable  responseObject,NSError *error);
-typedef void(^PostBlock)(id  responseObject,NSError *error);
+typedef void(^PostBlock)(id  responseObject);
 
 typedef void(^ErrorBlock)(NSError *error);
 typedef void(^SuccessBlock)(NSError *error);
 
+@protocol RequestHelpDelegate <NSObject>
+
+-(void)requestError:(NSError *)error;
+
+@end
+
 @interface RequestHelp : NSObject
 
-//-(void)requestToken:(NSString *)user password:(NSString*)password tokenBlock:(TokenBlock)tokenBlock;
+@property(nonatomic,weak)id<RequestHelpDelegate>delegate;
 
 -(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock;
 
--(void)postUrl:(NSString *)url parameters:(id)parameters postBlock:(PostBlock)postBlock;
+-(void)postUrl:(NSString *)url parameters:(id)parameters postBlock:(PostBlock)postBlock delegate:(id)delegate;
 
 @end
 

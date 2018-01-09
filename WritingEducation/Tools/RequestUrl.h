@@ -13,6 +13,6 @@
 
 #define URI_TOKEN   @"/soundapp/oauth/token"
 #define SIGN_STUDENT  @"/soundapp/writer/register/student"
-
+#define SIGN_TEACHER  @"/soundapp/writer/register/teacher/withfiles"
 
 #endif /* RequestUrl_h */
