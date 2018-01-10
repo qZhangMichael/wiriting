@@ -10,6 +10,8 @@ target 'WritingEducation' do
   pod 'WechatOpenSDK', '~> 1.8.1'
   pod 'YYModel', '~> 1.0.4'
   pod 'IQKeyboardManager', '~> 5.0.7'
+ pod 'TZImagePickerController', '~> 1.9.8'
+ pod 'SDWebImage', '~> 4.2.3'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing

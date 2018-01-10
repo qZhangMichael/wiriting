@@ -9,7 +9,8 @@
 #import "PhotoCollectionView.h"
 #import "PhotoCollectionViewCell.h"
 
-static NSString *identify = @"cell";
+static NSString * identify = @"cell";
+NSString *const defaultImg = @"bg_register_certificate.png";
 
 @implementation PhotoCollectionView
 
@@ -24,7 +25,7 @@ static NSString *identify = @"cell";
         self.dataSource = self;
         self.delegate =self;
         [self registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:identify];
-        _dataArray = dataArray;
+        _dataArray = [NSMutableArray array];
     }
     return self;
 }
@@ -45,6 +46,9 @@ static NSString *identify = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     PhotoCollectionViewCell *cell = (PhotoCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    if ([_dataArray[indexPath.row] isKindOfClass:[UIImage class]]) {
+        cell.imgView.image = _dataArray[indexPath.row];
+    }
     return cell;
 }
 
@@ -91,6 +95,13 @@ static NSString *identify = @"cell";
     return YES;
 }
 
+-(void)reloadData{
+    if (_dataArray.count<3) {
+        NSString * str = defaultImg;
+        [_dataArray addObject:str];
+    }
+    [super reloadData];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -11,5 +11,5 @@
 @interface PhotoCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic,strong)UIImageView *imgView;
-
+@property(nonatomic,strong)UIImageView *bgImgView;
 @end

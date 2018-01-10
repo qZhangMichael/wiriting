@@ -10,7 +10,7 @@
 #import "DefineMacro.h"
 #import "Masonry.h"
 #import "MBProgressHUD.h"
-
+#import "RequestHelp.h"
 @interface BaseViewController : UIViewController
 
 -(void)showAlert:(NSString *)msg;

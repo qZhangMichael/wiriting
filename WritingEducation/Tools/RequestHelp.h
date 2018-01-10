@@ -11,6 +11,7 @@
 #import "AFNetWorking.h"
 #import "RequestUrl.h"
 #import "DefineMacro.h"
+#import "NSString+RequestHelp.h"
 
 //typedef void(^TokenBlock)(NSString *token,NSError *error);
 

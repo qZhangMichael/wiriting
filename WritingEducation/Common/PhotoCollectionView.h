@@ -15,7 +15,7 @@
 @end
 @interface PhotoCollectionView : UICollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,weak)id<PhotoCollectionViewDelegate>photoCollectionDelegate;
 -(instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)dataArray;
 

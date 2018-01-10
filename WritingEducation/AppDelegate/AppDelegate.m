@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    SignInViewController *vc = [[SignInViewController alloc]init];
+    LoginViewController *vc = [[LoginViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     nav.navigationBar.barTintColor = NavigationColor;
     [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];

@@ -99,7 +99,6 @@ static NSString *const tokenRequestStr = @"tokenStr";
         NSData *body  =[parameters dataUsingEncoding:NSUTF8StringEncoding];
         [request setHTTPBody:body];
         [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *_Nonnull response, id _Nullable responseObject,NSError * _Nullable error){
-           
             NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
             if([str containsString:@"invalid_token"]){
@@ -107,15 +106,10 @@ static NSString *const tokenRequestStr = @"tokenStr";
                 [self requestToken];
                 return ;
             }
-           
             if (error) {
-//                if (error.code == -1011) {
-//                    [self requestToken];
-//                }else{
-                    if ([self.delegate respondsToSelector:@selector(requestError:)]) {
-                        [self.delegate performSelector:@selector(requestError:) withObject:error];
-                    }
-//                }
+                if ([self.delegate respondsToSelector:@selector(requestError:)]) {
+                    [self.delegate performSelector:@selector(requestError:) withObject:error];
+                }
                 return ;
             }
             if (_postBlock) {

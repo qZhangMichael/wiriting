@@ -6,9 +6,9 @@
 //  Copyright © 2018年 qzhangmichael. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "RequestModel.h"
 
-@interface SignStudentModel : BaseModel
+@interface SignStudentModel : RequestModel
 
 @property(nonatomic,strong)NSString *accountType;
 @property(nonatomic,assign)NSInteger age; //0
@@ -19,8 +19,5 @@
 @property(nonatomic,strong)NSString *phoneNumber;
 @property(nonatomic,strong)NSString *registeredTime;
 @property(nonatomic,strong)NSString *schoolName;
-
-@property(nonatomic,strong)NSString *flag;
-@property(nonatomic,strong)NSString *msg;
 
 @end

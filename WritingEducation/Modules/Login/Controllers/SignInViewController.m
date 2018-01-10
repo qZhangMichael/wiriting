@@ -13,8 +13,9 @@
 #import "RequestHelp.h"
 #import "PhotoCollectionView.h"
 #import "SignTeacherModel.h"
+#import "TZImagePickerController.h"
 
-@interface SignInViewController ()<PhotoCollectionViewDelegate>
+@interface SignInViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
 
 @property(nonatomic,strong)UIButton *studentBtn;
 @property(nonatomic,strong)UIButton *teacherBtn;
@@ -158,7 +159,7 @@
         make.size.mas_equalTo(CGSizeMake(Height, Height));
     }];
     
-    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:@[@{},@{},@{}]];
+    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:nil];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -210,8 +211,13 @@
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
-    NSLog(@"%@",indexPath);
-    
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        self.collectionView.dataArray =  [photos mutableCopy];
+        [self.collectionView reloadData];
+    }];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
+
 }
 
 -(void)switchSignPerson:(BOOL)isStudent{

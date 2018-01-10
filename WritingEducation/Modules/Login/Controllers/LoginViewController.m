@@ -11,6 +11,7 @@
 #import "InputImageView.h"
 #import "LongButton.h"
 #import "HomeViewController.h"
+#import "LoginUnamePassModel.h"
 
 
 @interface LoginViewController ()
@@ -53,6 +54,7 @@
     
     InputImageView *userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
     userImgView.textField.placeholder = @"请输入用户名/手机号码";
+    userImgView.textField.text = @"18100680066";
     [self.view addSubview:userImgView];
     [userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -64,6 +66,8 @@
     
     InputImageView *passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"4.png"];
     passImgView.textField.placeholder = @"请输入登录密码";
+    passImgView.textField.secureTextEntry = YES;
+    passImgView.textField.text = @"zhangq94";
     [self.view addSubview:passImgView];
     [passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -155,10 +159,9 @@
 
 
 -(void)signin:(id)action{
-    
+
     SignInViewController *vc = [SignInViewController new];
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 -(void)forgetBtnClick:(id)action{
@@ -173,10 +176,28 @@
 
 -(void)clickLogin{
     
-    HomeViewController *vc =[HomeViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self showLoading];
+    RequestHelp *requestHelp = [RequestHelp new];
+    LoginUnamePassModel *model = [LoginUnamePassModel new];
+    model.phoneNumber = _usertTf.text;
+    model.password = _passTf.text;
+    NSString *requestStr = [model yy_modelToJSONString];
+    [requestHelp postUrl:LOGIN_UNAMEPASS parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
+        [self hideLoading];
+        LoginUnamePassModel *model = [LoginUnamePassModel yy_modelWithJSON:responseObject];
+        if ([model verificationReturnParms]) {
+            [self showAlert:model.msg];
+            HomeViewController *vc =[HomeViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [self showAlert:[NSString stringWithFormat:@"%@%@",model.error_description,model.msg]];
+        }
+    } delegate:self];
 }
 
+-(void)dealloc{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

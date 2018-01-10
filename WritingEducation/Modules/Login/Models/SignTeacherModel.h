@@ -6,9 +6,9 @@
 //  Copyright © 2018年 qzhangmichael. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "RequestModel.h"
 
-@interface SignTeacherModel : BaseModel
+@interface SignTeacherModel : RequestModel
 
 @property(nonatomic,strong)NSString *phoneNumber;
 @property(nonatomic,strong)NSString *password;

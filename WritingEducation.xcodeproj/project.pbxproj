@@ -83,6 +83,9 @@
 		80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3720039AEA0088E821 /* SignStudentModel.m */; };
 		80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A392003BDA60088E821 /* SignInViewController.m */; };
 		80463A432004F6400088E821 /* SignTeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A422004F6400088E821 /* SignTeacherModel.m */; };
+		80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A48200636620088E821 /* LoginUnamePassModel.m */; };
+		80463A4C200637940088E821 /* RequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A4B200637940088E821 /* RequestModel.m */; };
+		80463A4F20063B270088E821 /* NSString+RequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A4E20063B270088E821 /* NSString+RequestHelp.m */; };
 		804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661531FEA906A009A0904 /* LeftMenuCell.m */; };
 		804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661561FEAA4E8009A0904 /* PersonCenterViewController.m */; };
 		8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661591FEAA72E009A0904 /* PersonCenter_11.png */; };
@@ -248,6 +251,12 @@
 		80463A392003BDA60088E821 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		80463A412004F6400088E821 /* SignTeacherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignTeacherModel.h; sourceTree = "<group>"; };
 		80463A422004F6400088E821 /* SignTeacherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignTeacherModel.m; sourceTree = "<group>"; };
+		80463A47200636620088E821 /* LoginUnamePassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUnamePassModel.h; sourceTree = "<group>"; };
+		80463A48200636620088E821 /* LoginUnamePassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUnamePassModel.m; sourceTree = "<group>"; };
+		80463A4A200637940088E821 /* RequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestModel.h; sourceTree = "<group>"; };
+		80463A4B200637940088E821 /* RequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestModel.m; sourceTree = "<group>"; };
+		80463A4D20063B270088E821 /* NSString+RequestHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RequestHelp.h"; sourceTree = "<group>"; };
+		80463A4E20063B270088E821 /* NSString+RequestHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RequestHelp.m"; sourceTree = "<group>"; };
 		804661521FEA906A009A0904 /* LeftMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuCell.h; sourceTree = "<group>"; };
 		804661531FEA906A009A0904 /* LeftMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuCell.m; sourceTree = "<group>"; };
 		804661551FEAA4E8009A0904 /* PersonCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterViewController.h; sourceTree = "<group>"; };
@@ -413,6 +422,8 @@
 		8036C9D91FDE815D00AD2341 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80463A47200636620088E821 /* LoginUnamePassModel.h */,
+				80463A48200636620088E821 /* LoginUnamePassModel.m */,
 				80463A3620039AEA0088E821 /* SignStudentModel.h */,
 				80463A3720039AEA0088E821 /* SignStudentModel.m */,
 				80463A412004F6400088E821 /* SignTeacherModel.h */,
@@ -446,6 +457,8 @@
 				80463A17200388620088E821 /* RequestHelp.h */,
 				80463A18200388620088E821 /* RequestHelp.m */,
 				80463A1A200388800088E821 /* RequestUrl.h */,
+				80463A4D20063B270088E821 /* NSString+RequestHelp.h */,
+				80463A4E20063B270088E821 /* NSString+RequestHelp.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -693,6 +706,8 @@
 			children = (
 				80463A2220038F960088E821 /* TokenModel.h */,
 				80463A2320038F960088E821 /* TokenModel.m */,
+				80463A4A200637940088E821 /* RequestModel.h */,
+				80463A4B200637940088E821 /* RequestModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1132,6 +1147,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WritingEducation/Pods-WritingEducation-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1185,17 +1201,20 @@
 				80463A2020038A610088E821 /* NSString+Base64.m in Sources */,
 				80C80C3C1FFD04E40008BDED /* PhotoCollectionView.m in Sources */,
 				8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */,
+				80463A4C200637940088E821 /* RequestModel.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
 				80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
+				80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
 				80463A3220039A010088E821 /* BaseModel.m in Sources */,
 				80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */,
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,
 				8036CA391FE0194D00AD2341 /* LongButton.m in Sources */,
+				80463A4F20063B270088E821 /* NSString+RequestHelp.m in Sources */,
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
 				80463A432004F6400088E821 /* SignTeacherModel.m in Sources */,
 				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,

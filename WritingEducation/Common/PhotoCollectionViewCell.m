@@ -14,14 +14,27 @@
     
     self = [super initWithFrame:frame];
     if (self){
+        
+        [self addSubview:self.bgImgView];
+        [self.bgImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.bottom.equalTo(self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
         _imgView  = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _imgView.image = [UIImage imageNamed:@"PersonCenter_3.png"];
         [self addSubview:_imgView];
         [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.bottom.equalTo(self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+            make.top.left.right.bottom.equalTo(_bgImgView).with.insets(UIEdgeInsetsMake(8, 10,20,10));
         }];
     }
     return self;
+}
+
+-(UIImageView *)bgImgView{
+    if (_bgImgView ==nil) {
+        _bgImgView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _bgImgView.image = [UIImage imageNamed:@"bg_register_certificate.png"];
+    }
+    return _bgImgView;
 }
 
 @end
