@@ -8,8 +8,9 @@
 #import "PersonInfoViewController.h"
 #import "InputImageView.h"
 #import "PhotoCollectionView.h"
+#import "TZImagePickerController.h"
 
-@interface PersonInfoViewController ()<PhotoCollectionViewDelegate>
+@interface PersonInfoViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
 
 @property(nonatomic,strong)InputImageView *phoneImgView;
 @property(nonatomic,strong)InputImageView *cardImgView;
@@ -39,6 +40,7 @@
     
     _phoneImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"15.png"];
     _phoneImgView.textField.placeholder = @"请输入手机号码";
+    _phoneImgView.textField.text = self.appdelegate.personInfoModel.phoneNumber;
     [self.view addSubview:_phoneImgView];
     [_phoneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(topGap, aroundGap, 0, aroundGap));
@@ -47,6 +49,7 @@
     
     _cardImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png"  contentImg:@"16.png"];
     _cardImgView.textField.placeholder = @"XXXXXXXXXXXXXXXXXXX";
+    _cardImgView.textField.text = self.appdelegate.personInfoModel.identificationNumber;
     [self.view addSubview:_cardImgView];
     [_cardImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -56,6 +59,7 @@
     
     _schoolImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"11.png"  contentImg:@"17.png"];
     _schoolImgView.textField.placeholder = @"XX学校";
+    _schoolImgView.textField.text = self.appdelegate.personInfoModel.schoolName;
     [self.view addSubview:_schoolImgView];
     [_schoolImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -65,6 +69,7 @@
     
     _levelImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png"  contentImg:@"19.png"];
     _levelImgView.textField.placeholder = @"金牌老师";
+    _levelImgView.textField.text = self.appdelegate.personInfoModel.jobTitle;
     [self.view addSubview:_levelImgView];
     [_levelImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -72,19 +77,35 @@
         make.height.mas_equalTo(Height);
     }];
     
-    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:@[@{},@{},@{}]];
+    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:nil];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
-        make.top.mas_equalTo(_levelImgView.mas_bottom).with.offset(topGap/3);
+        make.top.mas_equalTo(_levelImgView.mas_bottom).with.offset(topGap);
         make.height.mas_equalTo(Height*2);
     }];
     _collectionView.photoCollectionDelegate = self;
+    
+    
+//    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:@[@{},@{},@{}]];
+//    [self.view addSubview:_collectionView];
+//    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
+//        make.top.mas_equalTo(_levelImgView.mas_bottom).with.offset(topGap/3);
+//        make.height.mas_equalTo(Height*2);
+//    }];
+//    _collectionView.photoCollectionDelegate = self;
 
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        self.collectionView.dataArray =  [photos mutableCopy];
+        [self.collectionView reloadData];
+    }];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

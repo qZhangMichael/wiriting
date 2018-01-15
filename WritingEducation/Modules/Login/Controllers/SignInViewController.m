@@ -9,10 +9,10 @@
 #import "SignInViewController.h"
 #import "InputImageView.h"
 #import "LongButton.h"
-#import "SignStudentModel.h"
+#import "StudentInfoModel.h"
 #import "RequestHelp.h"
 #import "PhotoCollectionView.h"
-#import "SignTeacherModel.h"
+#import "TeacherInfoModel.h"
 #import "TZImagePickerController.h"
 
 @interface SignInViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
@@ -205,7 +205,6 @@
         _studentBtn.selected = NO;
         _teacherBtn.selected = YES;
         [self switchSignPerson:NO];
-        
     }
 }
 
@@ -249,7 +248,7 @@
     dateFor.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSString *requestStr;
     if(_studentBtn.selected){
-        SignStudentModel*model = [SignStudentModel new];
+        StudentInfoModel*model = [StudentInfoModel new];
         model.accountType = @"student";
         //   model.age =11;
         //    model.gradeCode=2;
@@ -262,7 +261,7 @@
         requestStr = [model yy_modelToJSONString];
         [self requestData:requestStr WithURL:SIGN_STUDENT];
     }else{
-        SignTeacherModel*model = [SignTeacherModel new];
+        TeacherInfoModel*model = [TeacherInfoModel new];
         model.accountType = @"teacher";
         //   model.age =11;
         //    model.gradeCode=2;
@@ -286,7 +285,7 @@
         [self hideLoading];
         NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"1111111%@",str);
-        SignStudentModel *model = [SignStudentModel yy_modelWithJSON:responseObject];
+        StudentInfoModel *model = [StudentInfoModel yy_modelWithJSON:responseObject];
         [self showAlert:model.msg];
     } delegate:self];
 }

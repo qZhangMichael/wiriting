@@ -27,7 +27,7 @@ static NSString *const tokenRequestStr = @"tokenStr";
 
 -(void)requestToken{
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSString *userStr = @"service-account-1";
@@ -48,32 +48,38 @@ static NSString *const tokenRequestStr = @"tokenStr";
             [self getUrl:_requestUrl parameters:_requestObject getBlock:_getBlock];
         }
         if (_postBlock) {
-            [self postUrl:_requestUrl parameters:_requestObject postBlock:_postBlock delegate:_delegate];
+            RequestHelp *request =[RequestHelp new];
+            [request postUrl:_requestUrl parameters:_requestObject postBlock:_postBlock delegate:_delegate];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
-        if(_errorBlock){
-            _errorBlock(error);
-        }
+        [self executeError:error];
     }];
 }
 
 -(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock{
     
     NSString *token = [KUserDefaults objectForKey:tokenRequestStr];
-    _requestUrl = [NSString stringWithFormat:@"%@/%@",HEADER_URI,url];
+    _requestUrl = url;
     _requestObject = parameters;
     _getBlock = getBlock;
     if (!IsEmptyStr(token)) {
         AFHTTPSessionManager *afManager = [AFHTTPSessionManager manager];
         afManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         afManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [afManager.requestSerializer setValue:token  forHTTPHeaderField:@"token_type"];
-        [afManager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        [afManager.requestSerializer setValue: [NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+        NSString *urlStr =[NSString stringWithFormat:@"%@%@",HEADER_URI,url];
+        [afManager GET:urlStr parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
             NSLog(@"");
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"%@",responseObject);
+           
+            if ([self verificationResponse:responseObject error:nil]) {
+                if (_getBlock) {
+                    _getBlock(responseObject);
+                }
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self verificationResponse:nil error:error];
             NSLog(@"%@",error);
         }];
     }else{
@@ -84,7 +90,7 @@ static NSString *const tokenRequestStr = @"tokenStr";
 -(void)postUrl:(NSString *)url parameters:(id)parameters postBlock:(PostBlock)postBlock delegate:(id)delegate{
     
     NSString *token = [KUserDefaults objectForKey:tokenRequestStr];
-    _requestUrl = [NSString stringWithFormat:@"%@%@",HEADER_URI,url];
+    _requestUrl = url;
     _requestObject = parameters;
     _postBlock = postBlock;
     _delegate = delegate;
@@ -93,32 +99,55 @@ static NSString *const tokenRequestStr = @"tokenStr";
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
         [manager.requestSerializer setValue: [NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
-        NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:_requestUrl parameters:nil error:nil];
+      NSString *urlStr =[NSString stringWithFormat:@"%@%@",HEADER_URI,url];
+        NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
         [request addValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
         [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
         NSData *body  =[parameters dataUsingEncoding:NSUTF8StringEncoding];
         [request setHTTPBody:body];
         [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *_Nonnull response, id _Nullable responseObject,NSError * _Nullable error){
-            NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",str);
-            if([str containsString:@"invalid_token"]){
-                //token失效时返回了一个页面
-                [self requestToken];
-                return ;
-            }
-            if (error) {
-                if ([self.delegate respondsToSelector:@selector(requestError:)]) {
-                    [self.delegate performSelector:@selector(requestError:) withObject:error];
+            
+            if ([self verificationResponse:responseObject error:error]) {
+                if (_postBlock) {
+                    _postBlock(responseObject);
                 }
-                return ;
-            }
-            if (_postBlock) {
-                _postBlock(responseObject);
             }
         }] resume];
     }else{
         [self requestToken];
     }
+}
+
+//验证返回信息
+-(BOOL)verificationResponse:(id)responseObject error:(NSError *)error{
+    NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",str);
+    if([str containsString:@"invalid_token"]){
+        //token失效时返回了一个页面
+        [self requestToken];
+        return  NO;
+    }
+    NSString * errStr = [NSString stringWithFormat:@"%@",error];
+    if (!IsEmptyStr(errStr)&&error) {
+        if ([errStr containsString:@"unauthorized"]) {
+            [self requestToken];
+            return NO ;
+        }else{
+            [self executeError:error];
+            return NO ;
+        }
+    }
+    return YES;
+}
+
+//执行报错
+-(void)executeError:(NSError *)error{
+    
+    NSLog(@"%@",error);
+    if ([self.delegate respondsToSelector:@selector(requestError:)]) {
+        [self.delegate performSelector:@selector(requestError:) withObject:error];
+    }
+
 }
 
 @end

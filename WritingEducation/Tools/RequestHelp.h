@@ -17,7 +17,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^GetBlock)(id _Nullable  responseObject,NSError *error);
+typedef void(^GetBlock)(id  responseObject);
 typedef void(^PostBlock)(id  responseObject);
 
 typedef void(^ErrorBlock)(NSError *error);

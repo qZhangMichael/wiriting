@@ -8,11 +8,20 @@
 
 #import "BaseViewController.h"
 #import "RequestHelp.h"
-@interface BaseViewController ()<RequestHelpDelegate,UIAlertViewDelegate>
+@interface BaseViewController ()<RequestHelpDelegate,UIAlertViewDelegate,UIApplicationDelegate>
+
+
 
 @end
 
 @implementation BaseViewController
+
+-(instancetype)init{
+    if ([super init]) {
+        self.appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

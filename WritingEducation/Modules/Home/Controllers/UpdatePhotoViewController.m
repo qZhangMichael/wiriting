@@ -7,8 +7,9 @@
 //
 
 #import "UpdatePhotoViewController.h"
+#import "TZImagePickerController.h"
 
-@interface UpdatePhotoViewController ()
+@interface UpdatePhotoViewController ()<UITabBarDelegate,TZImagePickerControllerDelegate>
 
 @end
 
@@ -18,7 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"111";
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor clearColor];
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        [self removeFromParentViewController];
+    }];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,7 +11,11 @@
 #import "Masonry.h"
 #import "MBProgressHUD.h"
 #import "RequestHelp.h"
+#import "AppDelegate.h"
+
 @interface BaseViewController : UIViewController
+
+@property(nonatomic,assign)AppDelegate *appdelegate;
 
 -(void)showAlert:(NSString *)msg;
 

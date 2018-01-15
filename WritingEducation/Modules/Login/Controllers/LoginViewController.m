@@ -16,8 +16,8 @@
 
 @interface LoginViewController ()
 
-@property(nonatomic,strong)UITextField *usertTf;
-@property(nonatomic,strong)UITextField *passTf;
+@property(nonatomic,strong)InputImageView *userImgView;
+@property(nonatomic,strong)InputImageView *passImgView;
 
 @end
 
@@ -52,11 +52,11 @@
         make.size.mas_equalTo(CGSizeMake(120*kPROPORTION, 120*kPROPORTION));
     }];
     
-    InputImageView *userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
-    userImgView.textField.placeholder = @"请输入用户名/手机号码";
-    userImgView.textField.text = @"18100680066";
-    [self.view addSubview:userImgView];
-    [userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
+    _userImgView.textField.placeholder = @"请输入用户名/手机号码";
+    _userImgView.textField.text = @"13787262399";
+    [self.view addSubview:_userImgView];
+    [_userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(imgView.mas_bottom).with.offset(topGap*4);
         make.left.equalTo(self.view).with.offset(leftGap);
@@ -64,14 +64,14 @@
         make.height.mas_equalTo(Height);
     }];
     
-    InputImageView *passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"4.png"];
-    passImgView.textField.placeholder = @"请输入登录密码";
-    passImgView.textField.secureTextEntry = YES;
-    passImgView.textField.text = @"zhangq94";
-    [self.view addSubview:passImgView];
-    [passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"4.png"];
+    _passImgView.textField.placeholder = @"请输入登录密码";
+    _passImgView.textField.secureTextEntry = YES;
+    _passImgView.textField.text = @"123456";
+    [self.view addSubview:_passImgView];
+    [_passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(userImgView.mas_bottom).with.offset(topGap);
+        make.top.equalTo(_userImgView.mas_bottom).with.offset(topGap);
         make.left.equalTo(self.view).with.offset(leftGap);
         make.right.equalTo(self.view).with.offset(-leftGap);
         make.height.mas_equalTo(Height);
@@ -83,9 +83,9 @@
     }];
     [self.view addSubview:loginBtn];
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(passImgView);
+        make.size.equalTo(_passImgView);
         make.centerX.equalTo(self.view);
-        make.top.equalTo(passImgView.mas_bottom).with.offset(topGap);
+        make.top.equalTo(_passImgView.mas_bottom).with.offset(topGap);
     }];
     
     UIButton *forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -179,13 +179,15 @@
     [self showLoading];
     RequestHelp *requestHelp = [RequestHelp new];
     LoginUnamePassModel *model = [LoginUnamePassModel new];
-    model.phoneNumber = _usertTf.text;
-    model.password = _passTf.text;
+    model.phoneNumber = _userImgView.textField.text;
+    model.password = _passImgView.textField.text;
     NSString *requestStr = [model yy_modelToJSONString];
     [requestHelp postUrl:LOGIN_UNAMEPASS parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
         [self hideLoading];
         LoginUnamePassModel *model = [LoginUnamePassModel yy_modelWithJSON:responseObject];
         if ([model verificationReturnParms]) {
+            
+            self.appdelegate.personInfoModel = [model convertToPersonInfoModel];
             [self showAlert:model.msg];
             HomeViewController *vc =[HomeViewController new];
             [self.navigationController pushViewController:vc animated:YES];
@@ -198,6 +200,8 @@
 -(void)dealloc{
     
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

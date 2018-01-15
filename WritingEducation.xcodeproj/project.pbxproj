@@ -80,12 +80,26 @@
 		80463A2020038A610088E821 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A1F20038A610088E821 /* NSString+Base64.m */; };
 		80463A2420038F960088E821 /* TokenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A2320038F960088E821 /* TokenModel.m */; };
 		80463A3220039A010088E821 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3020039A010088E821 /* BaseModel.m */; };
-		80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A3720039AEA0088E821 /* SignStudentModel.m */; };
 		80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A392003BDA60088E821 /* SignInViewController.m */; };
-		80463A432004F6400088E821 /* SignTeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A422004F6400088E821 /* SignTeacherModel.m */; };
 		80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A48200636620088E821 /* LoginUnamePassModel.m */; };
 		80463A4C200637940088E821 /* RequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A4B200637940088E821 /* RequestModel.m */; };
 		80463A4F20063B270088E821 /* NSString+RequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A4E20063B270088E821 /* NSString+RequestHelp.m */; };
+		80463A522006623B0088E821 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A512006623A0088E821 /* BaseNavigationViewController.m */; };
+		80463A5C200797410088E821 /* MyWorksListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A5B200797410088E821 /* MyWorksListModel.m */; };
+		80463A60200798B00088E821 /* MyProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A5E200798B00088E821 /* MyProductListCell.m */; };
+		80463A632007A2B10088E821 /* MyProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80463A622007A2B10088E821 /* MyProductListCell.xib */; };
+		80463A66200A08B90088E821 /* StudentInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A65200A08B90088E821 /* StudentInfoModel.m */; };
+		80463A69200A08D30088E821 /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A68200A08D30088E821 /* TeacherInfoModel.m */; };
+		80463A75200AF7A00088E821 /* PersonInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A74200AF7A00088E821 /* PersonInfoModel.m */; };
+		80463A78200B0A8A0088E821 /* PersonUndoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A77200B0A8A0088E821 /* PersonUndoViewController.m */; };
+		80463A7F200B0F920088E821 /* PersonUndoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80463A7D200B0F920088E821 /* PersonUndoCell.m */; };
+		80463A80200B0F920088E821 /* PersonUndoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80463A7E200B0F920088E821 /* PersonUndoCell.xib */; };
+		80463A88200B11670088E821 /* readed_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A82200B11660088E821 /* readed_select.png */; };
+		80463A89200B11670088E821 /* undo_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A83200B11660088E821 /* undo_normal.png */; };
+		80463A8A200B11670088E821 /* chat_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A84200B11660088E821 /* chat_normal.png */; };
+		80463A8B200B11670088E821 /* chat_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A85200B11670088E821 /* chat_select.png */; };
+		80463A8C200B11670088E821 /* readed_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A86200B11670088E821 /* readed_normal.png */; };
+		80463A8D200B11670088E821 /* undo_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 80463A87200B11670088E821 /* undo_select.png */; };
 		804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661531FEA906A009A0904 /* LeftMenuCell.m */; };
 		804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 804661561FEAA4E8009A0904 /* PersonCenterViewController.m */; };
 		8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 804661591FEAA72E009A0904 /* PersonCenter_11.png */; };
@@ -246,17 +260,37 @@
 		80463A2320038F960088E821 /* TokenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenModel.m; sourceTree = "<group>"; };
 		80463A3020039A010088E821 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		80463A3120039A010088E821 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		80463A3620039AEA0088E821 /* SignStudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignStudentModel.h; sourceTree = "<group>"; };
-		80463A3720039AEA0088E821 /* SignStudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignStudentModel.m; sourceTree = "<group>"; };
 		80463A392003BDA60088E821 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		80463A412004F6400088E821 /* SignTeacherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignTeacherModel.h; sourceTree = "<group>"; };
-		80463A422004F6400088E821 /* SignTeacherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignTeacherModel.m; sourceTree = "<group>"; };
 		80463A47200636620088E821 /* LoginUnamePassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUnamePassModel.h; sourceTree = "<group>"; };
 		80463A48200636620088E821 /* LoginUnamePassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUnamePassModel.m; sourceTree = "<group>"; };
 		80463A4A200637940088E821 /* RequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestModel.h; sourceTree = "<group>"; };
 		80463A4B200637940088E821 /* RequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestModel.m; sourceTree = "<group>"; };
 		80463A4D20063B270088E821 /* NSString+RequestHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RequestHelp.h"; sourceTree = "<group>"; };
 		80463A4E20063B270088E821 /* NSString+RequestHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RequestHelp.m"; sourceTree = "<group>"; };
+		80463A502006623A0088E821 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
+		80463A512006623A0088E821 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
+		80463A5A200797410088E821 /* MyWorksListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWorksListModel.h; sourceTree = "<group>"; };
+		80463A5B200797410088E821 /* MyWorksListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWorksListModel.m; sourceTree = "<group>"; };
+		80463A5D200798B00088E821 /* MyProductListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProductListCell.h; sourceTree = "<group>"; };
+		80463A5E200798B00088E821 /* MyProductListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProductListCell.m; sourceTree = "<group>"; };
+		80463A622007A2B10088E821 /* MyProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProductListCell.xib; sourceTree = "<group>"; };
+		80463A64200A08B90088E821 /* StudentInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentInfoModel.h; sourceTree = "<group>"; };
+		80463A65200A08B90088E821 /* StudentInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentInfoModel.m; sourceTree = "<group>"; };
+		80463A67200A08D30088E821 /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
+		80463A68200A08D30088E821 /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
+		80463A73200AF7A00088E821 /* PersonInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonInfoModel.h; sourceTree = "<group>"; };
+		80463A74200AF7A00088E821 /* PersonInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfoModel.m; sourceTree = "<group>"; };
+		80463A76200B0A8A0088E821 /* PersonUndoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonUndoViewController.h; sourceTree = "<group>"; };
+		80463A77200B0A8A0088E821 /* PersonUndoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonUndoViewController.m; sourceTree = "<group>"; };
+		80463A7C200B0F920088E821 /* PersonUndoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonUndoCell.h; sourceTree = "<group>"; };
+		80463A7D200B0F920088E821 /* PersonUndoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonUndoCell.m; sourceTree = "<group>"; };
+		80463A7E200B0F920088E821 /* PersonUndoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonUndoCell.xib; sourceTree = "<group>"; };
+		80463A82200B11660088E821 /* readed_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readed_select.png; sourceTree = "<group>"; };
+		80463A83200B11660088E821 /* undo_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo_normal.png; sourceTree = "<group>"; };
+		80463A84200B11660088E821 /* chat_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_normal.png; sourceTree = "<group>"; };
+		80463A85200B11670088E821 /* chat_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_select.png; sourceTree = "<group>"; };
+		80463A86200B11670088E821 /* readed_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readed_normal.png; sourceTree = "<group>"; };
+		80463A87200B11670088E821 /* undo_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo_select.png; sourceTree = "<group>"; };
 		804661521FEA906A009A0904 /* LeftMenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuCell.h; sourceTree = "<group>"; };
 		804661531FEA906A009A0904 /* LeftMenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuCell.m; sourceTree = "<group>"; };
 		804661551FEAA4E8009A0904 /* PersonCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCenterViewController.h; sourceTree = "<group>"; };
@@ -365,6 +399,9 @@
 				804661531FEA906A009A0904 /* LeftMenuCell.m */,
 				80727E2B1FF3DA6800956825 /* PersonCenterCell.h */,
 				80727E2C1FF3DA6800956825 /* PersonCenterCell.m */,
+				80463A7C200B0F920088E821 /* PersonUndoCell.h */,
+				80463A7D200B0F920088E821 /* PersonUndoCell.m */,
+				80463A7E200B0F920088E821 /* PersonUndoCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +409,8 @@
 		8035D9611FE7DFC600D56B5E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80463A73200AF7A00088E821 /* PersonInfoModel.h */,
+				80463A74200AF7A00088E821 /* PersonInfoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +424,8 @@
 				804661561FEAA4E8009A0904 /* PersonCenterViewController.m */,
 				80C80C311FFBBC440008BDED /* PersonInfoViewController.h */,
 				80C80C321FFBBC440008BDED /* PersonInfoViewController.m */,
+				80463A76200B0A8A0088E821 /* PersonUndoViewController.h */,
+				80463A77200B0A8A0088E821 /* PersonUndoViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -424,10 +465,10 @@
 			children = (
 				80463A47200636620088E821 /* LoginUnamePassModel.h */,
 				80463A48200636620088E821 /* LoginUnamePassModel.m */,
-				80463A3620039AEA0088E821 /* SignStudentModel.h */,
-				80463A3720039AEA0088E821 /* SignStudentModel.m */,
-				80463A412004F6400088E821 /* SignTeacherModel.h */,
-				80463A422004F6400088E821 /* SignTeacherModel.m */,
+				80463A64200A08B90088E821 /* StudentInfoModel.h */,
+				80463A65200A08B90088E821 /* StudentInfoModel.m */,
+				80463A67200A08D30088E821 /* TeacherInfoModel.h */,
+				80463A68200A08D30088E821 /* TeacherInfoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -499,6 +540,8 @@
 				8036C9F41FDE830000AD2341 /* BaseViewController.m */,
 				8036CA971FE2A52C00AD2341 /* BaseButton.h */,
 				8036CA981FE2A52C00AD2341 /* BaseButton.m */,
+				80463A502006623A0088E821 /* BaseNavigationViewController.h */,
+				80463A512006623A0088E821 /* BaseNavigationViewController.m */,
 			);
 			name = Base;
 			path = WritingEducation/Base;
@@ -528,6 +571,7 @@
 		8036C9FB1FDE8B4200AD2341 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				80463A59200796A70088E821 /* models */,
 				8036CA351FE018FC00AD2341 /* InputImageView.h */,
 				8036CA341FE018FC00AD2341 /* InputImageView.m */,
 				8036CA371FE0194D00AD2341 /* LongButton.h */,
@@ -543,6 +587,7 @@
 		8036C9FD1FDEB9EE00AD2341 /* Picture */ = {
 			isa = PBXGroup;
 			children = (
+				80463A81200B11560088E821 /* PersonUndo */,
 				804661581FEAA72E009A0904 /* PersonCenter */,
 				80C07A141FEA866900C7FBDE /* leftMenu */,
 				80C07A121FE9561400C7FBDE /* list.png */,
@@ -646,6 +691,9 @@
 				8036CA951FE29DB100AD2341 /* CloudButton.m */,
 				80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */,
 				80C07A101FE94E7600C7FBDE /* BrowseListCell.m */,
+				80463A5D200798B00088E821 /* MyProductListCell.h */,
+				80463A5E200798B00088E821 /* MyProductListCell.m */,
+				80463A622007A2B10088E821 /* MyProductListCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -668,6 +716,8 @@
 		8036CA491FE15EAF00AD2341 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80463A5A200797410088E821 /* MyWorksListModel.h */,
+				80463A5B200797410088E821 /* MyWorksListModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -719,6 +769,26 @@
 				80463A3020039A010088E821 /* BaseModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		80463A59200796A70088E821 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		80463A81200B11560088E821 /* PersonUndo */ = {
+			isa = PBXGroup;
+			children = (
+				80463A84200B11660088E821 /* chat_normal.png */,
+				80463A85200B11670088E821 /* chat_select.png */,
+				80463A86200B11670088E821 /* readed_normal.png */,
+				80463A82200B11660088E821 /* readed_select.png */,
+				80463A83200B11660088E821 /* undo_normal.png */,
+				80463A87200B11670088E821 /* undo_select.png */,
+			);
+			path = PersonUndo;
 			sourceTree = "<group>";
 		};
 		804661581FEAA72E009A0904 /* PersonCenter */ = {
@@ -969,14 +1039,18 @@
 				8036CA671FE161EA00AD2341 /* photo-15.png in Resources */,
 				8036CA251FDEBA3400AD2341 /* 8.png in Resources */,
 				8035D9671FE7EE7500D56B5E /* photo-3.png in Resources */,
+				80463A632007A2B10088E821 /* MyProductListCell.xib in Resources */,
 				8046616C1FEAA72F009A0904 /* PersonCenter_3.png in Resources */,
 				8036CA751FE161EA00AD2341 /* photo-10.png in Resources */,
 				8036CA691FE161EA00AD2341 /* photo-4.png in Resources */,
+				80463A8D200B11670088E821 /* undo_select.png in Resources */,
 				8036CA211FDEBA3400AD2341 /* 21.png in Resources */,
+				80463A80200B0F920088E821 /* PersonUndoCell.xib in Resources */,
 				8036CA6A1FE161EA00AD2341 /* photo-8.png in Resources */,
 				8036CA1A1FDEBA3400AD2341 /* 19.png in Resources */,
 				8036CA291FDEBA3400AD2341 /* 5.png in Resources */,
 				8036CA9C1FE2B4A600AD2341 /* bg_upload_btn.png in Resources */,
+				80463A8B200B11670088E821 /* chat_select.png in Resources */,
 				804661751FEAA72F009A0904 /* PersonCenter_15.png in Resources */,
 				80C07A1E1FEA869300C7FBDE /* leftMesu_2.png in Resources */,
 				8036CA1B1FDEBA3400AD2341 /* 3.png in Resources */,
@@ -992,6 +1066,7 @@
 				8036CA911FE297E100AD2341 /* bg_register_certificate.png in Resources */,
 				804661731FEAA72F009A0904 /* PersonCenter_7.png in Resources */,
 				8036CA711FE161EA00AD2341 /* photo-14.png in Resources */,
+				80463A88200B11670088E821 /* readed_select.png in Resources */,
 				8036CA651FE161EA00AD2341 /* photo-6.png in Resources */,
 				80C07A1F1FEA869300C7FBDE /* leftMesu_5.png in Resources */,
 				8036CA701FE161EA00AD2341 /* photo-16.png in Resources */,
@@ -1007,6 +1082,8 @@
 				8036CA2A1FDEBA3400AD2341 /* 7.png in Resources */,
 				8036CA161FDEBA3400AD2341 /* 14.png in Resources */,
 				8036CA271FDEBA3400AD2341 /* 11.png in Resources */,
+				80463A8C200B11670088E821 /* readed_normal.png in Resources */,
+				80463A89200B11670088E821 /* undo_normal.png in Resources */,
 				8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */,
 				8036CA171FDEBA3400AD2341 /* 2.png in Resources */,
 				8036CA9F1FE2C9C400AD2341 /* bg_upload_btn_un_1.png in Resources */,
@@ -1022,6 +1099,7 @@
 				8036CAA11FE2CA9500AD2341 /* bg_upload_btn_1.png in Resources */,
 				8036CA1C1FDEBA3400AD2341 /* 16.png in Resources */,
 				804661721FEAA72F009A0904 /* PersonCenter_17.png in Resources */,
+				80463A8A200B11670088E821 /* chat_normal.png in Resources */,
 				804661781FEAA72F009A0904 /* PersonCenter_9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1198,25 +1276,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80463A7F200B0F920088E821 /* PersonUndoCell.m in Sources */,
 				80463A2020038A610088E821 /* NSString+Base64.m in Sources */,
 				80C80C3C1FFD04E40008BDED /* PhotoCollectionView.m in Sources */,
 				8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */,
+				80463A522006623B0088E821 /* BaseNavigationViewController.m in Sources */,
 				80463A4C200637940088E821 /* RequestModel.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
-				80463A3820039AEA0088E821 /* SignStudentModel.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
 				80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
+				80463A5C200797410088E821 /* MyWorksListModel.m in Sources */,
+				80463A69200A08D30088E821 /* TeacherInfoModel.m in Sources */,
+				80463A78200B0A8A0088E821 /* PersonUndoViewController.m in Sources */,
 				80463A3220039A010088E821 /* BaseModel.m in Sources */,
 				80727E2D1FF3DA6800956825 /* PersonCenterCell.m in Sources */,
+				80463A66200A08B90088E821 /* StudentInfoModel.m in Sources */,
 				80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */,
 				8036CA391FE0194D00AD2341 /* LongButton.m in Sources */,
 				80463A4F20063B270088E821 /* NSString+RequestHelp.m in Sources */,
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
-				80463A432004F6400088E821 /* SignTeacherModel.m in Sources */,
 				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
 				80463A2420038F960088E821 /* TokenModel.m in Sources */,
@@ -1227,9 +1309,11 @@
 				80463A19200388620088E821 /* RequestHelp.m in Sources */,
 				8036CA4C1FE15ED200AD2341 /* HomeViewController.m in Sources */,
 				8036C9F11FDE829800AD2341 /* LoginViewController.m in Sources */,
+				80463A60200798B00088E821 /* MyProductListCell.m in Sources */,
 				8036C9F81FDE830000AD2341 /* BaseViewController.m in Sources */,
 				8036CA7D1FE1695700AD2341 /* TabBarView.m in Sources */,
 				8036CA991FE2A52C00AD2341 /* BaseButton.m in Sources */,
+				80463A75200AF7A00088E821 /* PersonInfoModel.m in Sources */,
 				8036C9F71FDE830000AD2341 /* BaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

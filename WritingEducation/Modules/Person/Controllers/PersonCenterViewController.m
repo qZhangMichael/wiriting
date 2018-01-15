@@ -30,7 +30,7 @@ static NSString *LABLE_ICON = @"icon";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"文龙老师";
+    self.title = @"个人中心";
     [self initWithData];
     [self initWithView];
 }
@@ -83,7 +83,7 @@ static NSString *LABLE_ICON = @"icon";
     
     CGFloat lbHeight = 20*kPROPORTION;
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    _nameLabel.text = @"文龙";
+    _nameLabel.text = self.appdelegate.personInfoModel.name;
     [self.view addSubview:_nameLabel];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_infoImgView.mas_right).with.offset(leftGap/2);
@@ -93,7 +93,7 @@ static NSString *LABLE_ICON = @"icon";
     
     _levelLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     [self.view addSubview:_levelLabel];
-    _levelLabel.text = @"特级";
+    _levelLabel.text = self.appdelegate.personInfoModel.identificationNumber;
     [_levelLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_infoImgView.mas_right).with.offset(leftGap/2);
         make.right.equalTo(bgImgView.mas_right);
@@ -125,7 +125,6 @@ static NSString *LABLE_ICON = @"icon";
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(headerHeight, 0, headerHeight, 0));
     }];
-    
 }
 
 -(void)returnButtonPressed{

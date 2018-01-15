@@ -7,8 +7,14 @@
 //
 
 #import "MyProductListViewController.h"
+#import "MyProductListCell.h"
+#import "MyWorksListModel.h"
 
-@interface MyProductListViewController ()
+@interface MyProductListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArr;
+@property(nonatomic,strong)MyWorksListModel *work_Model;
 
 @end
 
@@ -17,8 +23,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"222";
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.title = @"作品列表";
+    self.view.backgroundColor = [UIColor clearColor];
+    [self initWithData];
+    [self initWithView];
+    [self requestData];
+}
+
+-(void)initWithData{
+    
+    _dataArr = [NSMutableArray array];
+}
+
+-(void)initWithView{
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    _tableView.backgroundColor = [UIColor clearColor];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+}
+
+-(void)requestData{
+    
+    [self showLoading];
+    RequestHelp *requestHelp = [RequestHelp new];
+    [requestHelp getUrl:MYWORKS_LIST parameters:nil getBlock:^(id  _Nonnull responseObject) {
+        [self hideLoading];
+         self.work_Model  = [MyWorksListModel yy_modelWithJSON:responseObject];
+        if ([self.work_Model verificationReturnParms]) {
+            _dataArr =  [self.work_Model.myWorksMList mutableCopy];
+            [self.tableView reloadData];
+        }
+
+    }];
+}
+
+#pragma mark  ====== UITableViewDelegate =========
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return _dataArr.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellStr = @"cellStr";
+    MyProductListCell *cell  =[tableView dequeueReusableCellWithIdentifier:cellStr];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"MyProductListCell" owner:nil options:nil]lastObject];
+    }
+    MyWorks_MyWorksListModel *model = _dataArr[indexPath.row];
+    cell.writingTitleLb.text = model.taskTitle;
+    cell.scoreLb.text = [NSString stringWithFormat:@"%ld",model.changeTheResult.worksScore];
+    cell.teacherNameLb.text = model.teacher.name;
+    cell.statusLb.text = model.evaluationStatus;
+    cell.priceLb.text = [NSString stringWithFormat:@"%ld",model.costInfo.amount];
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 120;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
 }
 
 - (void)didReceiveMemoryWarning {

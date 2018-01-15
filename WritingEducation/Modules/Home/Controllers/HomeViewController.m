@@ -16,6 +16,12 @@
 
 static CGFloat TabBarHeight = 70;
 
+typedef NS_ENUM(NSInteger, HomeViewType){
+    HomeViewTypeUpdatePhoto = 0,
+    HomeViewTypeMyProductList,
+    HomeViewTypeBrowseList
+};
+
 @interface HomeViewController ()<CloudButtonDelegate>
 
 @property(nonatomic,strong)CloudButton*updateBtn;
@@ -26,9 +32,7 @@ static CGFloat TabBarHeight = 70;
 @property(nonatomic,strong)MyProductListViewController *myProductListViewController;
 @property(nonatomic,strong)BrowseListViewController *browseListViewController;
 
-//@property(nonatomic,strong)UpdatePhotoView *updatePhotoView;
-//@property(nonatomic,strong)MyProductListView *myProductListView;
-//@property(nonatomic,strong)BrowseListView *browseListView;
+@property(nonatomic,assign)HomeViewType homeViewType;
 
 @property(nonatomic,strong)BaseViewController *currentViewController;
 @end
@@ -73,22 +77,6 @@ static CGFloat TabBarHeight = 70;
         make.size.mas_equalTo(CGSizeMake(200, 150));
     }];
     
-    _currentViewController = [BaseViewController new];
-    [self addChildViewController:_currentViewController];
-    
-    _updatePhotoViewController = [UpdatePhotoViewController new];
-    [self addChildViewController:_updatePhotoViewController];
-//    [_updatePhotoViewController didMoveToParentViewController:self];
-    [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
-    
-    _myProductListViewController = [MyProductListViewController new];
-    [self addChildViewController:_myProductListViewController];
-    [_myProductListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
-    
-    _browseListViewController = [BrowseListViewController new];
-    [self addChildViewController:_browseListViewController];
-    [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
-   
 }
 
 #pragma mark - 切换viewController
@@ -98,7 +86,7 @@ static CGFloat TabBarHeight = 70;
     _updateBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"上传作文" normalImg:@"photo-12-1.png" selectImg:@"photo-9-1.png"];
     [self.view addSubview:_updateBtn];
     _updateBtn.selected = YES;
-    _updateBtn.tag = 111;
+    _updateBtn.tag = HomeViewTypeUpdatePhoto;
     _updateBtn.delegate =self;
     [_updateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
@@ -108,7 +96,7 @@ static CGFloat TabBarHeight = 70;
 
     _writingBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"我的作品" normalImg:@"photo-8.png" selectImg:@"photo-11.png"];
     [self.view addSubview:_writingBtn];
-    _writingBtn.tag = 222;
+    _writingBtn.tag = HomeViewTypeMyProductList;
     _writingBtn.delegate = self;
     [_writingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_updateBtn.mas_right);
@@ -119,7 +107,7 @@ static CGFloat TabBarHeight = 70;
     _browseBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"浏览" normalImg:@"photo-10.png" selectImg:@"photo-13.png"];
     [self.view addSubview:_browseBtn];
     _browseBtn.delegate = self;
-    _browseBtn.tag = 333;
+    _browseBtn.tag = HomeViewTypeBrowseList;
     [_browseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_writingBtn.mas_right);
         make.bottom.equalTo(self.view);
@@ -132,17 +120,17 @@ static CGFloat TabBarHeight = 70;
 -(void)cloudButtonClick:(id)action{
     
     CloudButton*btn = (CloudButton *)action;
-    if (btn.tag == 111) {
+    if (btn.tag == HomeViewTypeUpdatePhoto) {
         _updateBtn.selected=YES;
         _writingBtn.selected=NO;
         _browseBtn.selected=NO;
         self.title =@"上传作文";
-    }else if (btn.tag == 222){
+    }else if (btn.tag == HomeViewTypeMyProductList){
         _updateBtn.selected=NO;
         _writingBtn.selected=YES;
         _browseBtn.selected=NO;
         self.title =@"我的作品";
-    }else if (btn.tag == 333){
+    }else if (btn.tag == HomeViewTypeBrowseList){
         _updateBtn.selected=NO;
         _writingBtn.selected=NO;
         _browseBtn.selected=YES;
@@ -153,14 +141,22 @@ static CGFloat TabBarHeight = 70;
 
 -(void)toViewController:(NSInteger)tag{
     
-    if (tag ==111) {
-        self.currentViewController = _updatePhotoViewController;
-    }else if (tag == 222){
-        self.currentViewController = _myProductListViewController;
-    }else if (tag ==333){
-        self.currentViewController = _browseListViewController;
-    }
-    [self.view addSubview:self.currentViewController.view];
+//    if(tag == self.homeViewType&&self.currentViewController){
+        [self.currentViewController willMoveToParentViewController:nil];
+        [self.currentViewController removeFromParentViewController];
+        [self.currentViewController.view removeFromSuperview];
+        self.currentViewController = nil;
+//    }else{
+        if (tag == HomeViewTypeUpdatePhoto) {
+            self.currentViewController = self.updatePhotoViewController;
+        }else if (tag == HomeViewTypeMyProductList){
+            self.currentViewController = self.myProductListViewController;
+        }else if (tag ==HomeViewTypeBrowseList){
+            self.currentViewController = self.browseListViewController;
+        }
+        self.homeViewType = tag;
+        [self.view addSubview:self.currentViewController.view];
+//    }
 }
 
 -(void)leftBtnClick:(id)action{
@@ -175,6 +171,36 @@ static CGFloat TabBarHeight = 70;
 }
 
 
+-(MyProductListViewController*)myProductListViewController{
+    
+    if (!_myProductListViewController) {
+        _myProductListViewController = [MyProductListViewController new];
+        [self addChildViewController:_myProductListViewController];
+        [_myProductListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+    }
+    return _myProductListViewController;
+}
+
+-(UpdatePhotoViewController*)updatePhotoViewController{
+    
+    if (!_updatePhotoViewController) {
+        _updatePhotoViewController = [UpdatePhotoViewController new];
+        [self addChildViewController:_updatePhotoViewController];
+        //    [_updatePhotoViewController didMoveToParentViewController:self];
+        [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+    }
+    return _updatePhotoViewController;
+}
+
+-(BrowseListViewController*)browseListViewController{
+    
+    if (_browseListViewController) {
+        _browseListViewController = [BrowseListViewController new];
+        [self addChildViewController:_browseListViewController];
+        [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+    }
+    return _browseListViewController;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
