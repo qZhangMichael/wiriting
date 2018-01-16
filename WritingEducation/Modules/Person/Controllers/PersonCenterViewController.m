@@ -11,6 +11,7 @@
 #import "PersonCenterCell.h"
 #import <RESideMenu/RESideMenu.h>
 #import "PersonInfoViewController.h"
+#import "LoginViewController.h"
 
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
@@ -108,7 +109,7 @@ static NSString *LABLE_ICON = @"icon";
     }];
     
     LongButton *signInBtn = [LongButton buttonWithType:UIButtonTypeCustom title:@"退出登录" image:@"6.png" handler:^(UIButton *sender) {
-        NSLog(@"退出登录");
+        [self logOut];
     }];
     [self.view addSubview:signInBtn];
     [signInBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,6 +127,16 @@ static NSString *LABLE_ICON = @"icon";
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(headerHeight, 0, headerHeight, 0));
     }];
 }
+
+-(void)logOut{
+    
+    LoginViewController *vc =[ LoginViewController new];
+    [self presentViewController:vc animated:YES
+                     completion:nil];
+    
+}
+
+
 
 -(void)returnButtonPressed{
     

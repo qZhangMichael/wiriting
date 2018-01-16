@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoCollectionModel.h"
 
 @protocol PhotoCollectionViewDelegate <NSObject>
 

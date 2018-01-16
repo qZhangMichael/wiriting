@@ -9,6 +9,7 @@
 #import "InputImageView.h"
 #import "PhotoCollectionView.h"
 #import "TZImagePickerController.h"
+#import "TeacherResultListMModel.h"
 
 @interface PersonInfoViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
 
@@ -18,6 +19,8 @@
 @property(nonatomic,strong)InputImageView *levelImgView;
 
 @property(nonatomic,strong)PhotoCollectionView *collectionView;
+
+@property(nonatomic,strong)TeacherMModel *teacherMModel;
 
 
 @end
@@ -29,6 +32,7 @@
     // Do any additional setup after loading the view.
     self.title = @"基本信息";
     [self initWithView];
+    [self requestData];
    
 }
 
@@ -85,28 +89,63 @@
         make.height.mas_equalTo(Height*2);
     }];
     _collectionView.photoCollectionDelegate = self;
-    
-    
-//    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:@[@{},@{},@{}]];
-//    [self.view addSubview:_collectionView];
-//    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
-//        make.top.mas_equalTo(_levelImgView.mas_bottom).with.offset(topGap/3);
-//        make.height.mas_equalTo(Height*2);
-//    }];
-//    _collectionView.photoCollectionDelegate = self;
 
 }
+
+-(void)requestData{
+    
+    [self showLoading];
+    RequestHelp *request = [RequestHelp new];
+    TeacherResultListMModel *model = [TeacherResultListMModel new];
+    model.phoneNumber = self.appdelegate.personInfoModel.phoneNumber;
+    NSString * str = [model yy_modelToJSONString];
+    [request postUrl:TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
+            [self hideLoading];
+            TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
+        if ([responsemodel verificationReturnParms]&&responsemodel.teacherMList>0) {
+            self.teacherMModel = responsemodel.teacherMList.firstObject;
+            [self fillData];
+        }else{
+            [self showAlert:[NSString stringWithFormat:@"%@%@",responsemodel.msg,responsemodel.flag]];
+        }
+    } delegate:self];
+}
+
+
+-(void)fillData{
+    
+    for (QualificationCertificateModel *model in self.teacherMModel.qualificationCertificateList) {
+        PhotoCollectionModel *photoModel  = [PhotoCollectionModel new];
+        photoModel.photoType = PhotoTypeWeb;
+        photoModel.originalURL = model.certificatePathDownload;
+        photoModel.thumbURL = model.certificatePathView;
+        [self.collectionView.dataArray addObject:photoModel];
+    }
+    [self.collectionView reloadData];
+}
+
+
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        self.collectionView.dataArray =  [photos mutableCopy];
+        
+        for (UIImage *img in photos) {
+            PhotoCollectionModel *model = [PhotoCollectionModel new];
+            model.photoType = PhotoTypeLocal;
+            model.thumbUIImage = img;
+            [self.collectionView.dataArray addObject:model];
+        }
         [self.collectionView reloadData];
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

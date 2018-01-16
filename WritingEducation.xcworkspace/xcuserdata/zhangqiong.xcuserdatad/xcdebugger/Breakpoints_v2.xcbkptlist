@@ -10,13 +10,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-            timestampString = "537595592.684274"
+            timestampString = "537800312.523937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "217"
             endingLineNumber = "217"
             landmarkName = "-didClickCollectionItem:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[SignInViewController didClickCollectionItem:]_block_invoke"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.2303489"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.225"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.232988"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.226"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.2355829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +73,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-            timestampString = "537595592.684605"
+            timestampString = "537800312.524001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "290"
             endingLineNumber = "290"
             landmarkName = "-requestData:WithURL:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SignInViewController requestData:WithURL:]"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.290657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "202">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[SignInViewController requestData:WithURL:]_block_invoke"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.294003"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "299">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.304"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.297561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.305"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
+                  timestampString = "537808937.303212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,61 +198,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Home/Controllers/HomeViewController.m"
-            timestampString = "537595592.6885509"
+            filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
+            timestampString = "537808941.9498841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "-toViewController:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Login/Controllers/LoginViewController.m"
-            timestampString = "537595592.688729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "-clickLogin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Login/Models/LoginUnamePassModel.m"
-            timestampString = "537595592.688843"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-convertToPersonInfoModel"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Login/Models/LoginUnamePassModel.m"
-            timestampString = "537595592.688977"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-convertToPersonInfoModel"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-fillData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

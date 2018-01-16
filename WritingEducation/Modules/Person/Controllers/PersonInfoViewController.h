@@ -8,6 +8,11 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, PersonInfoViewType){
+    PersonInfoViewTypeRead,
+    PersonInfoViewTypeEdit
+};
+
 @interface PersonInfoViewController : BaseViewController
 
 @end

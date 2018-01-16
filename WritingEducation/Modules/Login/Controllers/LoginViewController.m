@@ -44,7 +44,7 @@
     CGFloat topGap = 10*kPROPORTION;
     
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectZero];
-    imgView.image = [UIImage imageNamed:@"1.png"];
+    imgView.image = [UIImage imageNamed:@"writing.png"];
     [self.view addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);

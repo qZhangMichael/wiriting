@@ -13,6 +13,7 @@
 #import "UpdatePhotoViewController.h"
 #import "MyProductListViewController.h"
 #import "BrowseListViewController.h"
+#import "MessageCenterViewController.h"
 
 static CGFloat TabBarHeight = 70;
 
@@ -166,7 +167,7 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 
 -(void)rightBtnClick:(id)action{
     
-    LoginViewController *vc = [LoginViewController new];
+    MessageCenterViewController *vc = [MessageCenterViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

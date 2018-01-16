@@ -8,6 +8,9 @@
 
 #import "PhotoCollectionView.h"
 #import "PhotoCollectionViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "RequestUrl.h"
+
 
 static NSString * identify = @"cell";
 NSString *const defaultImg = @"bg_register_certificate.png";
@@ -46,9 +49,23 @@ NSString *const defaultImg = @"bg_register_certificate.png";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     PhotoCollectionViewCell *cell = (PhotoCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    if ([_dataArray[indexPath.row] isKindOfClass:[UIImage class]]) {
-        cell.imgView.image = _dataArray[indexPath.row];
+    
+    PhotoCollectionModel *model = _dataArray[indexPath.row];
+    if (model.photoType == PhotoTypeWeb) {
+//        NSString *url = [NSString stringWithFormat:@"%@%@",HEADER_URI,model.thumbURL];
+//        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:url]
+//                        placeholderImage:nil];
+        [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+        
+        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:@"http://47.104.136.6/soundapp/images/13787262399/approved/20180116172637/magazine-unlock-03-2.3.858-_8f339702240e4afca8056ace33b8761b.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            NSLog(@"%@",error);
+        }];
+    }else if (model.photoType == PhotoTypeLocal){
+        cell.imgView.image = model.thumbUIImage;
+    }else {
+//       cell.imgView.image = [UIImage imageNamed:@"defaultImg"];
     }
+  
     return cell;
 }
 
@@ -95,13 +112,6 @@ NSString *const defaultImg = @"bg_register_certificate.png";
     return YES;
 }
 
--(void)reloadData{
-    if (_dataArray.count<3) {
-        NSString * str = defaultImg;
-        [_dataArray addObject:str];
-    }
-    [super reloadData];
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.
