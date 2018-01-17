@@ -177,7 +177,7 @@ typedef NS_ENUM(NSInteger, HomeViewType){
     if (!_myProductListViewController) {
         _myProductListViewController = [MyProductListViewController new];
         [self addChildViewController:_myProductListViewController];
-        [_myProductListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+        [_myProductListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight)];
     }
     return _myProductListViewController;
 }
@@ -188,7 +188,7 @@ typedef NS_ENUM(NSInteger, HomeViewType){
         _updatePhotoViewController = [UpdatePhotoViewController new];
         [self addChildViewController:_updatePhotoViewController];
         //    [_updatePhotoViewController didMoveToParentViewController:self];
-        [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+        [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight)];
     }
     return _updatePhotoViewController;
 }
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSInteger, HomeViewType){
     if (_browseListViewController) {
         _browseListViewController = [BrowseListViewController new];
         [self addChildViewController:_browseListViewController];
-        [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight-40-24)];
+        [_browseListViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight)];
     }
     return _browseListViewController;
 }

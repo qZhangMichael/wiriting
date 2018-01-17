@@ -7,6 +7,7 @@
 //
 
 #import "MyProductListViewController.h"
+#import "ProductDetailViewController.h"
 #import "MyProductListCell.h"
 #import "MyWorksListModel.h"
 
@@ -15,6 +16,8 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataArr;
 @property(nonatomic,strong)MyWorksListModel *work_Model;
+
+
 
 @end
 
@@ -82,6 +85,14 @@
     cell.statusLb.text = model.evaluationStatus;
     cell.priceLb.text = [NSString stringWithFormat:@"%ld",model.costInfo.amount];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MyWorks_MyWorksListModel *model = _dataArr[indexPath.row];
+    ProductDetailViewController *vc = [ProductDetailViewController new];
+    vc.productModel = model;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

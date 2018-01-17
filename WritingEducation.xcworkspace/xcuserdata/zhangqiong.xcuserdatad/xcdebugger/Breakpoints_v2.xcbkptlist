@@ -26,7 +26,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.2303489"
+                  timestampString = "537893992.5996"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "217"
@@ -41,7 +41,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.232988"
+                  timestampString = "537893992.604026"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "217"
@@ -56,7 +56,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.2355829"
+                  timestampString = "537893992.609148"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "217"
@@ -89,7 +89,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.290657"
+                  timestampString = "537893992.620491"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -104,7 +104,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.294003"
+                  timestampString = "537893992.6257271"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -119,7 +119,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.297561"
+                  timestampString = "537893992.629986"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -134,7 +134,7 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Login/Controllers/SignInViewController.m"
-                  timestampString = "537808937.303212"
+                  timestampString = "537893992.6363339"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -199,13 +199,141 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-            timestampString = "537808941.9498841"
+            timestampString = "537887277.8118809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
             endingLineNumber = "124"
             landmarkName = "-fillData"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Writing/Views/ScoreView.m"
+            timestampString = "537885686.167897"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-initWithFrame:content:edg:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Writing/Views/TextImageView.m"
+            timestampString = "537894267.383849"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-initWithFrame:backgroudImg:content:edg:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TextImageView initWithFrame:backgroudImg:content:edg:]"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Writing/Views/TextImageView.m"
+                  timestampString = "537889799.075538"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "421">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56-[TextImageView initWithFrame:backgroudImg:content:edg:]_block_invoke"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Writing/Views/TextImageView.m"
+                  timestampString = "537889799.0794899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Home/Controllers/MyProductListViewController.m"
+            timestampString = "537894267.384245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Home/Controllers/MyProductListViewController.m"
+            timestampString = "537894267.385276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MyProductListViewController requestData]"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Home/Controllers/MyProductListViewController.m"
+                  timestampString = "537893992.678696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[MyProductListViewController requestData]_block_invoke"
+                  moduleName = "WritingEducation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Home/Controllers/MyProductListViewController.m"
+                  timestampString = "537893992.68381"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

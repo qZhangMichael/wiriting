@@ -131,6 +131,15 @@
 		80AD8617200E31B200AB718A /* QualificationCertificateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD8616200E31B200AB718A /* QualificationCertificateModel.m */; };
 		80AD861A200E324000AB718A /* TeacherMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD8619200E324000AB718A /* TeacherMModel.m */; };
 		80AD861D200E405200AB718A /* PhotoCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD861C200E405200AB718A /* PhotoCollectionModel.m */; };
+		80AD8632200F79E400AB718A /* ProductDetail_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD862C200F79E400AB718A /* ProductDetail_3.png */; };
+		80AD8633200F79E400AB718A /* ProductDetail_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD862D200F79E400AB718A /* ProductDetail_2.png */; };
+		80AD8634200F79E400AB718A /* ProductDetail_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD862E200F79E400AB718A /* ProductDetail_1.png */; };
+		80AD8635200F79E400AB718A /* ProductDetail_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD862F200F79E400AB718A /* ProductDetail_5.png */; };
+		80AD8636200F79E400AB718A /* ProductDetail_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD8630200F79E400AB718A /* ProductDetail_4.png */; };
+		80AD8637200F79E400AB718A /* ProductDetail_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 80AD8631200F79E400AB718A /* ProductDetail_6.png */; };
+		80AD863E200F7A8100AB718A /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD863C200F7A8100AB718A /* ProductDetailViewController.m */; };
+		80AD8642200F7B5F00AB718A /* TextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD8641200F7B5F00AB718A /* TextImageView.m */; };
+		80AD8648200F91A000AB718A /* UITextView+Help.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AD8647200F91A000AB718A /* UITextView+Help.m */; };
 		80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */; };
 		80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A101FE94E7600C7FBDE /* BrowseListCell.m */; };
 		80C07A131FE9561400C7FBDE /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A121FE9561400C7FBDE /* list.png */; };
@@ -344,6 +353,18 @@
 		80AD8619200E324000AB718A /* TeacherMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherMModel.m; sourceTree = "<group>"; };
 		80AD861B200E405200AB718A /* PhotoCollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionModel.h; sourceTree = "<group>"; };
 		80AD861C200E405200AB718A /* PhotoCollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionModel.m; sourceTree = "<group>"; };
+		80AD862C200F79E400AB718A /* ProductDetail_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_3.png; sourceTree = "<group>"; };
+		80AD862D200F79E400AB718A /* ProductDetail_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_2.png; sourceTree = "<group>"; };
+		80AD862E200F79E400AB718A /* ProductDetail_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_1.png; sourceTree = "<group>"; };
+		80AD862F200F79E400AB718A /* ProductDetail_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_5.png; sourceTree = "<group>"; };
+		80AD8630200F79E400AB718A /* ProductDetail_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_4.png; sourceTree = "<group>"; };
+		80AD8631200F79E400AB718A /* ProductDetail_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProductDetail_6.png; sourceTree = "<group>"; };
+		80AD863B200F7A8100AB718A /* ProductDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		80AD863C200F7A8100AB718A /* ProductDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		80AD8640200F7B5F00AB718A /* TextImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextImageView.h; sourceTree = "<group>"; };
+		80AD8641200F7B5F00AB718A /* TextImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextImageView.m; sourceTree = "<group>"; };
+		80AD8646200F91A000AB718A /* UITextView+Help.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Help.h"; sourceTree = "<group>"; };
+		80AD8647200F91A000AB718A /* UITextView+Help.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Help.m"; sourceTree = "<group>"; };
 		80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowseListCell.h; sourceTree = "<group>"; };
@@ -564,6 +585,8 @@
 			children = (
 				80463A1E20038A610088E821 /* NSString+Base64.h */,
 				80463A1F20038A610088E821 /* NSString+Base64.m */,
+				80AD8646200F91A000AB718A /* UITextView+Help.h */,
+				80AD8647200F91A000AB718A /* UITextView+Help.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -627,6 +650,7 @@
 		8036C9FD1FDEB9EE00AD2341 /* Picture */ = {
 			isa = PBXGroup;
 			children = (
+				80AD862B200F79E400AB718A /* ProductDetail */,
 				8016C470200E21BB00EAC5D6 /* writing.png */,
 				80463A81200B11560088E821 /* PersonUndo */,
 				804661581FEAA72E009A0904 /* PersonCenter */,
@@ -680,6 +704,9 @@
 		8036CA411FE1590200AD2341 /* Writing */ = {
 			isa = PBXGroup;
 			children = (
+				80AD863A200F7A5300AB718A /* Controllers */,
+				80AD8639200F7A4600AB718A /* Views */,
+				80AD8638200F7A3A00AB718A /* Models */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -860,6 +887,44 @@
 				804661691FEAA72E009A0904 /* PersonCenter_8.png */,
 			);
 			path = PersonCenter;
+			sourceTree = "<group>";
+		};
+		80AD862B200F79E400AB718A /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				80AD862C200F79E400AB718A /* ProductDetail_3.png */,
+				80AD862D200F79E400AB718A /* ProductDetail_2.png */,
+				80AD862E200F79E400AB718A /* ProductDetail_1.png */,
+				80AD862F200F79E400AB718A /* ProductDetail_5.png */,
+				80AD8630200F79E400AB718A /* ProductDetail_4.png */,
+				80AD8631200F79E400AB718A /* ProductDetail_6.png */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		80AD8638200F7A3A00AB718A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80AD8639200F7A4600AB718A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80AD8640200F7B5F00AB718A /* TextImageView.h */,
+				80AD8641200F7B5F00AB718A /* TextImageView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80AD863A200F7A5300AB718A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				80AD863B200F7A8100AB718A /* ProductDetailViewController.h */,
+				80AD863C200F7A8100AB718A /* ProductDetailViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		80C07A141FEA866900C7FBDE /* leftMenu */ = {
@@ -1078,6 +1143,7 @@
 				8036CA721FE161EA00AD2341 /* photo-9.png in Resources */,
 				8036CA261FDEBA3400AD2341 /* 22.png in Resources */,
 				8036CA8F1FE297D700AD2341 /* bg_camera.png in Resources */,
+				80AD8637200F79E400AB718A /* ProductDetail_6.png in Resources */,
 				80C07A1D1FEA869300C7FBDE /* leftMesu_1.png in Resources */,
 				8046616F1FEAA72F009A0904 /* PersonCenter_2.png in Resources */,
 				8036CA181FDEBA3400AD2341 /* 10.png in Resources */,
@@ -1087,6 +1153,7 @@
 				804661711FEAA72F009A0904 /* PersonCenter_16.png in Resources */,
 				8036CA681FE161EA00AD2341 /* photo-17.png in Resources */,
 				8016C47E200E267300EAC5D6 /* message.png in Resources */,
+				80AD8635200F79E400AB718A /* ProductDetail_5.png in Resources */,
 				8036CA671FE161EA00AD2341 /* photo-15.png in Resources */,
 				8036CA251FDEBA3400AD2341 /* 8.png in Resources */,
 				8035D9671FE7EE7500D56B5E /* photo-3.png in Resources */,
@@ -1102,8 +1169,10 @@
 				8036CA1A1FDEBA3400AD2341 /* 19.png in Resources */,
 				8036CA291FDEBA3400AD2341 /* 5.png in Resources */,
 				8036CA9C1FE2B4A600AD2341 /* bg_upload_btn.png in Resources */,
+				80AD8633200F79E400AB718A /* ProductDetail_2.png in Resources */,
 				80463A8B200B11670088E821 /* chat_select.png in Resources */,
 				804661751FEAA72F009A0904 /* PersonCenter_15.png in Resources */,
+				80AD8632200F79E400AB718A /* ProductDetail_3.png in Resources */,
 				80C07A1E1FEA869300C7FBDE /* leftMesu_2.png in Resources */,
 				8036CA1B1FDEBA3400AD2341 /* 3.png in Resources */,
 				8036CA6F1FE161EA00AD2341 /* photo-21.png in Resources */,
@@ -1127,12 +1196,14 @@
 				8046616B1FEAA72F009A0904 /* PersonCenter_1.png in Resources */,
 				8036CA761FE161EA00AD2341 /* photo-11.png in Resources */,
 				80D1B9A21FDD7A3D00B751A9 /* LaunchScreen.storyboard in Resources */,
+				80AD8636200F79E400AB718A /* ProductDetail_4.png in Resources */,
 				804661771FEAA72F009A0904 /* PersonCenter_4.png in Resources */,
 				8046617A1FEAA72F009A0904 /* PersonCenter_8.png in Resources */,
 				8036CA9D1FE2B4A600AD2341 /* bg_upload_btn_un.png in Resources */,
 				8036CA2A1FDEBA3400AD2341 /* 7.png in Resources */,
 				8036CA161FDEBA3400AD2341 /* 14.png in Resources */,
 				8036CA271FDEBA3400AD2341 /* 11.png in Resources */,
+				80AD8634200F79E400AB718A /* ProductDetail_1.png in Resources */,
 				80463A8C200B11670088E821 /* readed_normal.png in Resources */,
 				80463A89200B11670088E821 /* undo_normal.png in Resources */,
 				8046616A1FEAA72F009A0904 /* PersonCenter_11.png in Resources */,
@@ -1337,6 +1408,7 @@
 				8016C486200E30BC00EAC5D6 /* UserAccountModel.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
+				80AD8642200F7B5F00AB718A /* TextImageView.m in Sources */,
 				8016C47B200E24BB00EAC5D6 /* MessageCenterCell.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
@@ -1355,6 +1427,7 @@
 				8036CA961FE29DB100AD2341 /* CloudButton.m in Sources */,
 				80C80C3F1FFD0F750008BDED /* PhotoCollectionViewCell.m in Sources */,
 				8016C489200E30EE00EAC5D6 /* TeacherPriceModel.m in Sources */,
+				80AD863E200F7A8100AB718A /* ProductDetailViewController.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
 				80463A2420038F960088E821 /* TokenModel.m in Sources */,
 				802D41781FDD7C860056FDF6 /* AppDelegate.m in Sources */,
@@ -1372,6 +1445,7 @@
 				8036CA991FE2A52C00AD2341 /* BaseButton.m in Sources */,
 				80AD861D200E405200AB718A /* PhotoCollectionModel.m in Sources */,
 				80AD861A200E324000AB718A /* TeacherMModel.m in Sources */,
+				80AD8648200F91A000AB718A /* UITextView+Help.m in Sources */,
 				8016C474200E235A00EAC5D6 /* MessageCenterViewController.m in Sources */,
 				80463A75200AF7A00088E821 /* PersonInfoModel.m in Sources */,
 				8036C9F71FDE830000AD2341 /* BaseView.m in Sources */,

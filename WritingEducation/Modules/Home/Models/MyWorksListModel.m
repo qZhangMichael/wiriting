@@ -8,7 +8,7 @@
 
 #import "MyWorksListModel.h"
 
-NSString *const MYWORKS_LIST = @"/soundapp/writer/myworks/list/18613952999";
+NSString *const MYWORKS_LIST = @"/soundapp/writer/myworks/list/15122223333";
 
 @implementation MyWorks_ApprovedWorksListModel
 

@@ -52,12 +52,9 @@ NSString *const defaultImg = @"bg_register_certificate.png";
     
     PhotoCollectionModel *model = _dataArray[indexPath.row];
     if (model.photoType == PhotoTypeWeb) {
-//        NSString *url = [NSString stringWithFormat:@"%@%@",HEADER_URI,model.thumbURL];
-//        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:url]
-//                        placeholderImage:nil];
         [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-        
-        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:@"http://47.104.136.6/soundapp/images/13787262399/approved/20180116172637/magazine-unlock-03-2.3.858-_8f339702240e4afca8056ace33b8761b.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSString *urlStr = [NSString stringWithFormat:@"%@/%@",HEADER_URI,model.originalURL];
+        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:urlStr] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             NSLog(@"%@",error);
         }];
     }else if (model.photoType == PhotoTypeLocal){

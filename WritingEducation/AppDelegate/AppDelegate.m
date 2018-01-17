@@ -14,6 +14,7 @@
 #import "PersonInfoViewController.h"
 #import "SignInViewController.h"
 #import "BaseNavigationViewController.h"
+#import "ProductDetailViewController.h"
 
 @interface AppDelegate ()
 

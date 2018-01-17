@@ -63,6 +63,6 @@ extern  NSString *const MYWORKS_LIST;
 
 @interface MyWorksListModel :RequestModel
 
-@property(nonatomic,strong)NSArray*myWorksMList;
+@property(nonatomic,strong)NSArray<MyWorks_MyWorksListModel*>*myWorksMList;
 
 @end

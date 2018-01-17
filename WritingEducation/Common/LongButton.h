@@ -14,6 +14,7 @@ typedef void(^tapHandler)(UIButton *sender);
 
 @property(nonatomic,strong)tapHandler hander;
 
+
 +(id)buttonWithType:(UIButtonType)buttonType title:(NSString *)title image:(NSString *)img handler:(tapHandler)hander;
 
 @end
