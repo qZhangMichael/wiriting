@@ -15,6 +15,7 @@
 #import "SignInViewController.h"
 #import "BaseNavigationViewController.h"
 #import "ProductDetailViewController.h"
+#import "LoginUnamePassModel.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    HomeViewController *vc = [[HomeViewController alloc]init];
+    
+    BaseViewController * vc ;
+    NSString *jsonStr = [KUserDefaults objectForKey:LOGIN_INFO];
+    if (!IsEmptyStr(jsonStr)) {
+        self.personInfoModel = [[LoginUnamePassModel yy_modelWithJSON:jsonStr]convertToPersonInfoModel];
+        vc = [HomeViewController new];
+    }else{
+        vc = [[LoginViewController alloc]init];
+    }
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
     LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
     UIViewController *rightMenuViewController = [[UIViewController alloc] init];

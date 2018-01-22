@@ -14,8 +14,10 @@ typedef NS_ENUM(NSInteger, AccountType){
 
 @interface PersonInfoModel : RequestModel
 
-//老师
+
 @property(nonatomic,assign)AccountType accountType;
+
+//老师
 @property(nonatomic,strong)NSString *identificationNumber;
 @property(nonatomic,strong)NSString *jobTitle;
 @property(nonatomic,strong)NSString *name;

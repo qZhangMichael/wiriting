@@ -30,6 +30,10 @@
 
 
 //默认函数
-#define KUserDefaults [NSUserDefaults standardUserDefaults]
 #define IsEmptyStr(string) (string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO)
+
+//全局
+#define KUserDefaults [NSUserDefaults standardUserDefaults]
+#define LOGIN_INFO  @"LOGIN_INFO"
+
 #endif /* DefineMacro_h */

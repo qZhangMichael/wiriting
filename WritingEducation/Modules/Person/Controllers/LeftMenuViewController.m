@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "LeftMenuCell.h"
 #import "PersonCenterViewController.h"
+#import "BaseNavigationViewController.h"
 
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
@@ -98,7 +99,7 @@ static NSString *LABLE_ICON = @"icon";
                    @{LABLE_ICON:@"leftMesu_1.png",LABLE_TEXT:@"个人中心"},
                    @{LABLE_ICON:@"leftMesu_2.png",LABLE_TEXT:@"修改密码"},
                    @{LABLE_ICON:@"leftMesu_3.png",LABLE_TEXT:@"关于我们"},
-                   @{LABLE_ICON:@"leftMesu_4.png",LABLE_TEXT:@"退出登陆"}];
+                   @{LABLE_ICON:@"leftMesu_4.png",LABLE_TEXT:@"退出登录"}];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -130,13 +131,11 @@ static NSString *LABLE_ICON = @"icon";
     BaseViewController *vc;
     if (indexPath.row == 0) {
         vc = [PersonCenterViewController new];
-    }else{
+    }else if(indexPath.row == 3){
         vc = [[LoginViewController alloc]init];
+        [KUserDefaults removeObjectForKey:LOGIN_INFO];
     }
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-    nav.navigationBar.barTintColor = NavigationColor;
-    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    nav.navigationBar.translucent = NO;
+    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
     [self.sideMenuViewController setContentViewController:nav animated:YES];
     [self.sideMenuViewController hideMenuViewController];
 }

@@ -38,7 +38,10 @@
         PhotoCollectionModel *photoModel = [PhotoCollectionModel new];
         photoModel.photoType = PhotoTypeWeb;
         photoModel.originalURL = model.imagePath;
-        [self.collectionView.dataArray addObject:photoModel];
+        [self.collectionView.dataArray insertObject:photoModel atIndex:0];
+    }
+    if (self.collectionView.dataArray.count>3) {
+        [self.collectionView.dataArray removeLastObject];
     }
 }
 
@@ -59,17 +62,17 @@
         make.size.mas_equalTo(CGSizeMake(100, 120));
     }];
     
-    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, height*2) dataArray:nil];
+    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, height*2) backgroudImg:@"ProductDetail_2.png"];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
         make.top.mas_equalTo(_scoreTextImg.mas_bottom).with.offset(updownGap);
         make.height.mas_equalTo(height*2);
     }];
-    PhotoCollectionModel *model = [PhotoCollectionModel new];
-    model.photoType = PhotoTypeDefault;
-    [_collectionView.dataArray addObject:model];
-    [_collectionView reloadData];
+//    PhotoCollectionModel *model = [PhotoCollectionModel new];
+//    model.photoType = PhotoTypeDefault;
+//    [_collectionView.dataArray addObject:model];
+//    [_collectionView reloadData];
     _collectionView.photoCollectionDelegate = self;
     
     _teacherCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:_productModel.changeTheResult.workEvaluation edg:UIEdgeInsetsMake(20, 20, 25, 25)];
@@ -109,6 +112,10 @@
     
 }
 
+-(void)didClickCollectionItem:(NSIndexPath *)indexPath{
+    
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

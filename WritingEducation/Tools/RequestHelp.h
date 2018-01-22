@@ -14,9 +14,7 @@
 #import "NSString+RequestHelp.h"
 
 //typedef void(^TokenBlock)(NSString *token,NSError *error);
-
 NS_ASSUME_NONNULL_BEGIN
-
 typedef void(^GetBlock)(id  responseObject);
 typedef void(^PostBlock)(id  responseObject);
 
@@ -28,12 +26,14 @@ typedef void(^SuccessBlock)(NSError *error);
 -(void)requestError:(NSError *)error;
 
 @end
+NS_ASSUME_NONNULL_END
 
+NS_ASSUME_NONNULL_BEGIN
 @interface RequestHelp : NSObject
 
 @property(nonatomic,weak)id<RequestHelpDelegate>delegate;
 
--(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock;
+-(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock delegate:(id)delegate;
 
 -(void)postUrl:(NSString *)url parameters:(id)parameters postBlock:(PostBlock)postBlock delegate:(id)delegate;
 

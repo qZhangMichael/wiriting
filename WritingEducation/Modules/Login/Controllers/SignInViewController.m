@@ -159,7 +159,7 @@
         make.size.mas_equalTo(CGSizeMake(Height, Height));
     }];
     
-    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) dataArray:nil];
+    _collectionView = [[PhotoCollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, Height*2) backgroudImg:nil];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -211,13 +211,36 @@
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        self.collectionView.dataArray =  [photos mutableCopy];
-        [self.collectionView reloadData];
-    }];
+    PhotoCollectionModel *photoModel = self.collectionView.dataArray[indexPath.row];
+    if (photoModel.photoType == PhotoTypeDefault) {
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            for (UIImage *img in photos) {
+                PhotoCollectionModel *model =[PhotoCollectionModel new];
+                model.photoType = PhotoTypeLocal;
+                model.thumbUIImage = img;
+                [self.collectionView.dataArray insertObject:model atIndex:0];
+            }
+            if (self.collectionView.dataArray.count>3) {
+                [self.collectionView.dataArray removeLastObject];
+            }
+            [self.collectionView reloadData];
+        }];
+    }else if(photoModel.photoType == PhotoTypeLocal){
+        imagePickerVc.maxImagesCount = 1;
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            if (photos.count>0) {
+                PhotoCollectionModel *model =[PhotoCollectionModel new];
+                model.photoType = PhotoTypeLocal;
+                model.thumbUIImage = photos.firstObject;
+                [self.collectionView.dataArray replaceObjectAtIndex:indexPath.row withObject:model];
+            }
+            [self.collectionView reloadData];
+        }];
+    }
     [self presentViewController:imagePickerVc animated:YES completion:nil];
-
 }
+
+
 
 -(void)switchSignPerson:(BOOL)isStudent{
     
@@ -243,7 +266,6 @@
 
 -(void)signBtnClick{
     
-    [self showLoading];
     NSDateFormatter *dateFor = [NSDateFormatter new];
     dateFor.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSString *requestStr;
@@ -263,8 +285,6 @@
     }else{
         TeacherInfoModel*model = [TeacherInfoModel new];
         model.accountType = @"teacher";
-        //   model.age =11;
-        //    model.gradeCode=2;
         model.identificationNumber= _levelImgView.textField.text ;
         model.name = _nameImgView.textField.text;
         model.password = _passImgView.textField.text;
@@ -275,16 +295,16 @@
         requestStr = [model yy_modelToJSONString];
         [self requestData:requestStr WithURL:SIGN_TEACHER];
     }
-    
 }
 
 -(void)requestData:(NSString *)requestStr WithURL:(NSString*)urlStr{
     
+    [self showLoading];
+    NSLog(@"%@",requestStr);
     RequestHelp *requestHelp = [RequestHelp new];
     [requestHelp postUrl:urlStr parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
+        NSLog(@"%@",responseObject);
         [self hideLoading];
-        NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"1111111%@",str);
         StudentInfoModel *model = [StudentInfoModel yy_modelWithJSON:responseObject];
         [self showAlert:model.msg];
     } delegate:self];

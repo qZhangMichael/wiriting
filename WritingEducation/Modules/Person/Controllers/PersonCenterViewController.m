@@ -133,6 +133,7 @@ static NSString *LABLE_ICON = @"icon";
     LoginViewController *vc =[ LoginViewController new];
     [self presentViewController:vc animated:YES
                      completion:nil];
+    [KUserDefaults removeObjectForKey:LOGIN_INFO];
     
 }
 

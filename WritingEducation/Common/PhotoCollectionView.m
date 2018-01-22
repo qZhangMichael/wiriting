@@ -13,22 +13,27 @@
 
 
 static NSString * identify = @"cell";
-NSString *const defaultImg = @"bg_register_certificate.png";
 
 @implementation PhotoCollectionView
 
--(instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)dataArray{
+-(instancetype)initWithFrame:(CGRect)frame backgroudImg:(NSString*)backgroudImg{
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     if ([super initWithFrame:frame collectionViewLayout:flowLayout]) {
         
         self.backgroundColor = [UIColor clearColor];
+        self.scrollEnabled = NO;
         self.scrollEnabled = YES;
         self.dataSource = self;
         self.delegate =self;
         [self registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:identify];
-        _dataArray = [NSMutableArray array];
+        self.backgroudImg = backgroudImg;
+        self.dataArray = [NSMutableArray array];
+        PhotoCollectionModel *model = [PhotoCollectionModel new];
+        model.photoType = PhotoTypeDefault;
+        model.backgroudImg = self.backgroudImg;
+        [self.dataArray addObject:model];
     }
     return self;
 }
@@ -60,21 +65,17 @@ NSString *const defaultImg = @"bg_register_certificate.png";
     }else if (model.photoType == PhotoTypeLocal){
         cell.imgView.image = model.thumbUIImage;
     }else {
-//       cell.imgView.image = [UIImage imageNamed:@"defaultImg"];
+       cell.bgImgView.image = [UIImage imageNamed:model.backgroudImg];
     }
   
     return cell;
 }
-
-
 
 #pragma mark  定义每个UICollectionView的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     return  CGSizeMake(self.frame.size.height,self.frame.size.height);
 }
-
-
 
 #pragma mark  定义整个CollectionViewCell与整个View的间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -107,6 +108,13 @@ NSString *const defaultImg = @"bg_register_certificate.png";
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+-(NSString*)backgroudImg{
+    if (_backgroudImg ==nil) {
+        _backgroudImg = @"bg_register_certificate.png";
+    }
+    return _backgroudImg;
 }
 
 

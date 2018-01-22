@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, PhotoType){
-    PhotoTypeDefault,
-    PhotoTypeLocal,
-    PhotoTypeWeb
+    PhotoTypeDefault,//默认没有选照片十几
+    PhotoTypeLocal, //照相机选择
+    PhotoTypeWeb //网上下载同步照片
 };
 
 @interface PhotoCollectionModel : BaseModel
@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, PhotoType){
 @property(nonatomic,assign)PhotoType photoType;
 
 //PhotoTypeDefault
-@property(nonatomic,strong)NSString *thumImg;
+@property(nonatomic,strong)NSString *backgroudImg;
 
 //PhotoTypeLocal
 @property(nonatomic,strong)UIImage *thumbUIImage;

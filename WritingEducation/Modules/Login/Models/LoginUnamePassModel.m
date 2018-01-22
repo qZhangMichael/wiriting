@@ -53,11 +53,11 @@ NSString *const LOGIN_UNAMEPASS  =  @"/soundapp/writer/login/unamepass";
         model.age = self.loginUserInfoM.student.age;
         model.gradeCode = self.loginUserInfoM.student.gradeCode;
         model.gradeDesc = self.loginUserInfoM.student.gradeDesc;
-        model.identificationNumber = self.loginUserInfoM.student.name;
-        model.identificationNumber = self.loginUserInfoM.student.password;
-        model.identificationNumber = self.loginUserInfoM.student.phoneNumber;
-        model.identificationNumber = self.loginUserInfoM.student.registeredTime;
-        model.identificationNumber = self.loginUserInfoM.student.schoolName;
+        model.name = self.loginUserInfoM.student.name;
+        model.password = self.loginUserInfoM.student.password;
+        model.phoneNumber = self.loginUserInfoM.student.phoneNumber;
+        model.registeredTime = self.loginUserInfoM.student.registeredTime;
+        model.schoolName = self.loginUserInfoM.student.schoolName;
     }
     return model;
 }

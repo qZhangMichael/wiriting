@@ -11,14 +11,19 @@
 
 @protocol PhotoCollectionViewDelegate <NSObject>
 
+//click cell
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath;
 
 @end
+
 @interface PhotoCollectionView : UICollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
-@property(nonatomic,weak)id<PhotoCollectionViewDelegate>photoCollectionDelegate;
--(instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)dataArray;
 
+@property(nonatomic,strong)NSString *backgroudImg; //默认资格证书
+
+@property(nonatomic,weak)id<PhotoCollectionViewDelegate>photoCollectionDelegate;
+
+-(instancetype)initWithFrame:(CGRect)frame backgroudImg:(NSString*)backgroudImg;
 
 @end

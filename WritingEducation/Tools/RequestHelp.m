@@ -45,7 +45,7 @@ static NSString *const tokenRequestStr = @"tokenStr";
             NSLog(@"------%@",model.access_token);
         }
         if(_getBlock){
-            [self getUrl:_requestUrl parameters:_requestObject getBlock:_getBlock];
+            [self getUrl:_requestUrl parameters:_requestObject getBlock:_getBlock delegate:_delegate];
         }
         if (_postBlock) {
             RequestHelp *request =[RequestHelp new];
@@ -57,12 +57,13 @@ static NSString *const tokenRequestStr = @"tokenStr";
     }];
 }
 
--(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock{
+-(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock delegate:(id)delegate{
     
     NSString *token = [KUserDefaults objectForKey:tokenRequestStr];
     _requestUrl = url;
     _requestObject = parameters;
     _getBlock = getBlock;
+    _delegate = delegate;
     if (!IsEmptyStr(token)) {
         AFHTTPSessionManager *afManager = [AFHTTPSessionManager manager];
         afManager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -72,10 +73,10 @@ static NSString *const tokenRequestStr = @"tokenStr";
         [afManager GET:urlStr parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
             NSLog(@"");
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-           
-            if ([self verificationResponse:responseObject error:nil]) {
+            NSString * responseStr = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+            if ([self verificationResponse:responseStr error:nil]) {
                 if (_getBlock) {
-                    _getBlock(responseObject);
+                    _getBlock(responseStr);
                 }
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -107,9 +108,10 @@ static NSString *const tokenRequestStr = @"tokenStr";
         [request setHTTPBody:body];
         [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *_Nonnull response, id _Nullable responseObject,NSError * _Nullable error){
             
-            if ([self verificationResponse:responseObject error:error]) {
+            NSString * responseStr = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+            if ([self verificationResponse:responseStr error:error]) {
                 if (_postBlock) {
-                    _postBlock(responseObject);
+                    _postBlock(responseStr);
                 }
             }
         }] resume];
@@ -120,9 +122,8 @@ static NSString *const tokenRequestStr = @"tokenStr";
 
 //验证返回信息
 -(BOOL)verificationResponse:(id)responseObject error:(NSError *)error{
-    NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",str);
-    if([str containsString:@"invalid_token"]){
+   
+    if([responseObject containsString:@"invalid_token"]){
         //token失效时返回了一个页面
         [self requestToken];
         return  NO;

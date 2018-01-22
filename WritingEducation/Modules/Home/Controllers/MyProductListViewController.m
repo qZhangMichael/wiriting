@@ -54,7 +54,8 @@
     
     [self showLoading];
     RequestHelp *requestHelp = [RequestHelp new];
-    [requestHelp getUrl:MYWORKS_LIST parameters:nil getBlock:^(id  _Nonnull responseObject) {
+    NSString *str = [NSString stringWithFormat:MYWORKS_LIST,self.appdelegate.personInfoModel.phoneNumber];
+    [requestHelp getUrl:str parameters:nil getBlock:^(id  _Nonnull responseObject) {
         [self hideLoading];
          self.work_Model  = [MyWorksListModel yy_modelWithJSON:responseObject];
         if ([self.work_Model verificationReturnParms]) {
@@ -62,7 +63,7 @@
             [self.tableView reloadData];
         }
 
-    }];
+    } delegate:self];
 }
 
 #pragma mark  ====== UITableViewDelegate =========

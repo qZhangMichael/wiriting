@@ -14,9 +14,9 @@
     
     if ([super initWithFrame:frame]) {
         
-        CGFloat height = 45*kPROPORTION;
-        CGFloat  sizeContent = 30*kPROPORTION;
-        CGFloat  gap = 4*kPROPORTION;
+        CGFloat height = 45;
+        CGFloat  sizeContent = 30;
+        CGFloat  gap = 4;
         
         _backImgView = [[UIImageView alloc]initWithFrame:CGRectZero];
         _backImgView.image = [UIImage imageNamed:backImg];
@@ -39,10 +39,18 @@
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, height+gap*2, 0, 0));
         }];
+        
+        _rightImgView = [[UIImageView alloc]init];
+        [self addSubview:_rightImgView];
+        [_rightImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self);
+            make.right.equalTo(_textField.mas_right).with.offset(-10);
+            make.size.mas_equalTo(CGSizeMake(20, 30));
+        }];
+        
     }
     return self;
 }
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
