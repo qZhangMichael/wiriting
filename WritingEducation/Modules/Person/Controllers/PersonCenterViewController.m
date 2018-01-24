@@ -137,8 +137,6 @@ static NSString *LABLE_ICON = @"icon";
     
 }
 
-
-
 -(void)returnButtonPressed{
     
     [self.sideMenuViewController presentLeftMenuViewController];

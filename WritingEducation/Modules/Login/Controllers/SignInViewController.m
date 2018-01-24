@@ -292,8 +292,21 @@
         model.registeredTime = [dateFor stringFromDate:[NSDate date]];
         model.schoolName = _schoolImgView.textField.text;
         model.jobTitle =  _technicalImgView.textField.text;
-        requestStr = [model yy_modelToJSONString];
-        [self requestData:requestStr WithURL:SIGN_TEACHER];
+//        requestStr = [model yy_modelToJSONString];
+//        [self requestData:requestStr WithURL:SIGN_TEACHER];
+        NSDictionary *dict = [model modelConvertDict];
+        RequestHelp *requestHelp  = [RequestHelp new];
+        NSMutableArray *mutArr = [NSMutableArray array];
+        for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
+            if (photoModel.photoType == PhotoTypeLocal) {
+                [mutArr addObject:photoModel.thumbUIImage];
+            }
+        }
+        [self showLoading];
+        [requestHelp postUrl:SIGN_TEACHER parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
+            [self hideLoading];
+            NSLog(@"%@",responseObject);
+        } delegate:self];
     }
 }
 
@@ -301,13 +314,15 @@
     
     [self showLoading];
     NSLog(@"%@",requestStr);
-    RequestHelp *requestHelp = [RequestHelp new];
-    [requestHelp postUrl:urlStr parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
-        NSLog(@"%@",responseObject);
-        [self hideLoading];
-        StudentInfoModel *model = [StudentInfoModel yy_modelWithJSON:responseObject];
-        [self showAlert:model.msg];
-    } delegate:self];
+//    RequestHelp *requestHelp = [RequestHelp new];
+//    [requestHelp postUrl:urlStr parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
+//        NSLog(@"%@",responseObject);
+//        [self hideLoading];
+//        StudentInfoModel *model = [StudentInfoModel yy_modelWithJSON:responseObject];
+//        [self showAlert:model.msg];
+//    } delegate:self];
+    
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

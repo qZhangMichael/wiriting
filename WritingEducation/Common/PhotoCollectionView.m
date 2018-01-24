@@ -58,7 +58,7 @@ static NSString * identify = @"cell";
     PhotoCollectionModel *model = _dataArray[indexPath.row];
     if (model.photoType == PhotoTypeWeb) {
         [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-        NSString *urlStr = [NSString stringWithFormat:@"%@/%@",HEADER_URI,model.originalURL];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/%@",HEADER_URI,model.thumbURL];
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:urlStr] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             NSLog(@"%@",error);
         }];

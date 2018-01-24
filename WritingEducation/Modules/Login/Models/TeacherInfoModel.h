@@ -19,4 +19,6 @@
 @property(nonatomic,strong)NSString *registeredTime;
 @property(nonatomic,strong)NSString *schoolName;
 
+-(NSDictionary*)modelConvertDict;
+
 @end

@@ -100,8 +100,8 @@
     model.phoneNumber = self.appdelegate.personInfoModel.phoneNumber;
     NSString * str = [model yy_modelToJSONString];
     [request postUrl:TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
-            [self hideLoading];
-            TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
+        [self hideLoading];
+        TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
         if ([responsemodel verificationReturnParms]&&responsemodel.teacherMList>0) {
             self.teacherMModel = responsemodel.teacherMList.firstObject;
             [self fillData];
@@ -119,7 +119,7 @@
         photoModel.photoType = PhotoTypeWeb;
         photoModel.originalURL = model.certificatePathDownload;
         photoModel.thumbURL = model.certificatePathView;
-        [self.collectionView.dataArray addObject:photoModel];
+        [self.collectionView.dataArray insertObject:photoModel atIndex:0];
     }
     [self.collectionView reloadData];
 }
@@ -141,11 +141,6 @@
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

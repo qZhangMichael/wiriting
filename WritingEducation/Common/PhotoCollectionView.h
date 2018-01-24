@@ -18,7 +18,7 @@
 
 @interface PhotoCollectionView : UICollectionView<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSMutableArray <PhotoCollectionModel*>*dataArray;
 
 @property(nonatomic,strong)NSString *backgroudImg; //默认资格证书
 

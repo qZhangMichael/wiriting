@@ -17,6 +17,8 @@ static NSString *const tokenRequestStr = @"tokenStr";
 @property(nonatomic,strong)ErrorBlock errorBlock;
 @property(nonatomic,strong)GetBlock  getBlock;
 @property(nonatomic,strong)PostBlock  postBlock;
+@property(nonatomic,strong)PostImgBlock postImgBlock;
+@property(nonatomic,strong)NSArray *imgArr;
 
 @property(nonatomic,strong)NSString *requestUrl;
 @property(nonatomic,strong)id requestObject;
@@ -50,6 +52,11 @@ static NSString *const tokenRequestStr = @"tokenStr";
         if (_postBlock) {
             RequestHelp *request =[RequestHelp new];
             [request postUrl:_requestUrl parameters:_requestObject postBlock:_postBlock delegate:_delegate];
+        }
+        if (_postImgBlock) {
+            RequestHelp *request =[RequestHelp new];
+            [request postUrl:_requestUrl parameters:_requestObject WithUIImageArray:_imgArr postImgBlock:_postImgBlock delegate:self];
+            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -119,6 +126,50 @@ static NSString *const tokenRequestStr = @"tokenStr";
         [self requestToken];
     }
 }
+
+-(void)postUrl:(NSString *)url parameters:(id)parameters WithUIImageArray:(NSArray<UIImage*> *)imgArr postImgBlock:(PostImgBlock)postImgBlock delegate:(id)delegate{
+    
+    NSString *token = [KUserDefaults objectForKey:tokenRequestStr];
+    _requestUrl = url;
+    _requestObject = parameters;
+    _postImgBlock = postImgBlock;
+    _delegate = delegate;
+    _imgArr = imgArr;
+    if (!IsEmptyStr(token)) {
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",nil];
+        manager.requestSerializer= [AFHTTPRequestSerializer serializer];
+        manager.responseSerializer= [AFHTTPResponseSerializer serializer];
+        [manager.requestSerializer setValue: [NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+        NSString *urlStr =[NSString stringWithFormat:@"%@%@",HEADER_URI,url];
+        [manager POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            NSDateFormatter *dateFor = [NSDateFormatter new];
+            dateFor.dateFormat = @"yyyyMMddHHmmss";
+            for (UIImage *image in imgArr) {
+                 NSData *data = UIImagePNGRepresentation(image);
+                NSString *str = @"image/png";
+                if (data==nil) {
+                    data = UIImageJPEGRepresentation(image,1);
+                    str = @"image/jpeg";
+                }
+                 [formData appendPartWithFileData:data name:@"files" fileName:[dateFor stringFromDate:[NSDate date]] mimeType:str];
+            }
+        } progress:^(NSProgress * _Nonnull uploadProgress) {
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSString * responseStr = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+            if ([self verificationResponse:responseStr error:nil]) {
+                if (_postImgBlock) {
+                    _postImgBlock(responseStr);
+                }
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self verificationResponse:nil error:error];
+        }];
+    }
+}
+
+
+
 
 //验证返回信息
 -(BOOL)verificationResponse:(id)responseObject error:(NSError *)error{

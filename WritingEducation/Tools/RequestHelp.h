@@ -17,6 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^GetBlock)(id  responseObject);
 typedef void(^PostBlock)(id  responseObject);
+typedef void(^PostImgBlock)(id responseObject);
 
 typedef void(^ErrorBlock)(NSError *error);
 typedef void(^SuccessBlock)(NSError *error);
@@ -32,10 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RequestHelp : NSObject
 
 @property(nonatomic,weak)id<RequestHelpDelegate>delegate;
-
+//get request
 -(void)getUrl:(NSString *)url parameters:(id)parameters getBlock:(GetBlock)getBlock delegate:(id)delegate;
-
+//post request
 -(void)postUrl:(NSString *)url parameters:(id)parameters postBlock:(PostBlock)postBlock delegate:(id)delegate;
+//post request  ArrayImg
+-(void)postUrl:(NSString *)url parameters:(id)parameters WithUIImageArray:(NSArray<UIImage*> *)imgArr postImgBlock:(PostImgBlock)postImgBlock delegate:(id)delegate;
 
 @end
 
