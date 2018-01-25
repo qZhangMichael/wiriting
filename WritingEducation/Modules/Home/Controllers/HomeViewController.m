@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 
     _updateBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"上传作文" normalImg:@"photo-12-1.png" selectImg:@"photo-9-1.png"];
     [self.view addSubview:_updateBtn];
-    _updateBtn.selected = YES;
+//    _updateBtn.selected = YES;
     _updateBtn.tag = HomeViewTypeUpdatePhoto;
     _updateBtn.delegate =self;
     [_updateBtn mas_makeConstraints:^(MASConstraintMaker *make) {

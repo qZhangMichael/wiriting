@@ -162,6 +162,10 @@
 		80B2653D20161E8E003B6A8A /* wiritingUpload_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B2652620161E8E003B6A8A /* wiritingUpload_14.png */; };
 		80B2653E20161E8E003B6A8A /* wiritingUpload_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B2652720161E8E003B6A8A /* wiritingUpload_15.png */; };
 		80B2653F20161E8E003B6A8A /* wiritingUpload_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B2652820161E8E003B6A8A /* wiritingUpload_6.png */; };
+		80B26542201A0826003B6A8A /* SubmitWorksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B26541201A0826003B6A8A /* SubmitWorksModel.m */; };
+		80B26548201A1C55003B6A8A /* TeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B26547201A1C55003B6A8A /* TeacherListViewController.m */; };
+		80B2654F201A1D86003B6A8A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B2654D201A1D86003B6A8A /* TeacherListCell.m */; };
+		80B26550201A1D86003B6A8A /* TeacherListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B2654E201A1D86003B6A8A /* TeacherListCell.xib */; };
 		80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */; };
 		80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A101FE94E7600C7FBDE /* BrowseListCell.m */; };
 		80C07A131FE9561400C7FBDE /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A121FE9561400C7FBDE /* list.png */; };
@@ -409,6 +413,13 @@
 		80B2652620161E8E003B6A8A /* wiritingUpload_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wiritingUpload_14.png; sourceTree = "<group>"; };
 		80B2652720161E8E003B6A8A /* wiritingUpload_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wiritingUpload_15.png; sourceTree = "<group>"; };
 		80B2652820161E8E003B6A8A /* wiritingUpload_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wiritingUpload_6.png; sourceTree = "<group>"; };
+		80B26540201A0826003B6A8A /* SubmitWorksModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitWorksModel.h; sourceTree = "<group>"; };
+		80B26541201A0826003B6A8A /* SubmitWorksModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmitWorksModel.m; sourceTree = "<group>"; };
+		80B26546201A1C55003B6A8A /* TeacherListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListViewController.h; sourceTree = "<group>"; };
+		80B26547201A1C55003B6A8A /* TeacherListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListViewController.m; sourceTree = "<group>"; };
+		80B2654C201A1D86003B6A8A /* TeacherListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
+		80B2654D201A1D86003B6A8A /* TeacherListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
+		80B2654E201A1D86003B6A8A /* TeacherListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherListCell.xib; sourceTree = "<group>"; };
 		80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowseListCell.h; sourceTree = "<group>"; };
@@ -809,6 +820,9 @@
 				8016C478200E24BB00EAC5D6 /* MessageCenterCell.h */,
 				8016C479200E24BB00EAC5D6 /* MessageCenterCell.m */,
 				8016C47A200E24BB00EAC5D6 /* MessageCenterCell.xib */,
+				80B2654C201A1D86003B6A8A /* TeacherListCell.h */,
+				80B2654D201A1D86003B6A8A /* TeacherListCell.m */,
+				80B2654E201A1D86003B6A8A /* TeacherListCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -826,6 +840,8 @@
 				8035D9721FE7F2F100D56B5E /* BrowseListViewController.m */,
 				8016C472200E235A00EAC5D6 /* MessageCenterViewController.h */,
 				8016C473200E235A00EAC5D6 /* MessageCenterViewController.m */,
+				80B26546201A1C55003B6A8A /* TeacherListViewController.h */,
+				80B26547201A1C55003B6A8A /* TeacherListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -835,6 +851,8 @@
 			children = (
 				80463A5A200797410088E821 /* MyWorksListModel.h */,
 				80463A5B200797410088E821 /* MyWorksListModel.m */,
+				80B26540201A0826003B6A8A /* SubmitWorksModel.h */,
+				80B26541201A0826003B6A8A /* SubmitWorksModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1312,6 +1330,7 @@
 				8036CA641FE161EA00AD2341 /* photo-2.png in Resources */,
 				8036CA631FE161EA00AD2341 /* photo-13.png in Resources */,
 				80B2653520161E8E003B6A8A /* wiritingUpload_10.png in Resources */,
+				80B26550201A1D86003B6A8A /* TeacherListCell.xib in Resources */,
 				80C07A211FEA869300C7FBDE /* leftMesu_4.png in Resources */,
 				8036CAA11FE2CA9500AD2341 /* bg_upload_btn_1.png in Resources */,
 				80B2652F20161E8E003B6A8A /* wiritingUpload_23.png in Resources */,
@@ -1502,6 +1521,7 @@
 				80463A522006623B0088E821 /* BaseNavigationViewController.m in Sources */,
 				80463A4C200637940088E821 /* RequestModel.m in Sources */,
 				8016C486200E30BC00EAC5D6 /* UserAccountModel.m in Sources */,
+				80B26548201A1C55003B6A8A /* TeacherListViewController.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
 				804661571FEAA4E8009A0904 /* PersonCenterViewController.m in Sources */,
 				80AD8642200F7B5F00AB718A /* TextImageView.m in Sources */,
@@ -1526,8 +1546,10 @@
 				80AD863E200F7A8100AB718A /* ProductDetailViewController.m in Sources */,
 				8035D96D1FE7F28800D56B5E /* MyProductListViewController.m in Sources */,
 				80463A2420038F960088E821 /* TokenModel.m in Sources */,
+				80B2654F201A1D86003B6A8A /* TeacherListCell.m in Sources */,
 				802D41781FDD7C860056FDF6 /* AppDelegate.m in Sources */,
 				8035D96A1FE7F25A00D56B5E /* UpdatePhotoViewController.m in Sources */,
+				80B26542201A0826003B6A8A /* SubmitWorksModel.m in Sources */,
 				80463A3A2003BDA60088E821 /* SignInViewController.m in Sources */,
 				8035D9651FE7E08F00D56B5E /* LeftMenuViewController.m in Sources */,
 				80463A19200388620088E821 /* RequestHelp.m in Sources */,

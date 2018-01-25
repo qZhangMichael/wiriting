@@ -8,15 +8,18 @@
 
 #import "UpdatePhotoViewController.h"
 #import "TZImagePickerController.h"
+#import "TeacherListViewController.h"
+
 #import "PhotoCollectionView.h"
 #import "InputImageView.h"
 #import "LongButton.h"
+
+#import "SubmitWorksModel.h"
 
 typedef NS_ENUM(NSInteger,InputClickType) {
     InputClickTypeReadWay,
     InputClickTypeSelectTeacher,
     InputClickTypeIsOpen
-    
 };
 
 @interface UpdatePhotoViewController ()<UITabBarDelegate,TZImagePickerControllerDelegate,PhotoCollectionViewDelegate,UITextFieldDelegate>
@@ -28,6 +31,9 @@ typedef NS_ENUM(NSInteger,InputClickType) {
 @property(nonatomic,strong)InputImageView *selectTeachrtView;//选择老师
 @property(nonatomic,strong)InputImageView *isOpenView;//是否公开
 @property(nonatomic,strong)InputImageView *moneyView;//金额
+
+@property(nonatomic,strong)SubmitWorksModel *worksModel;
+
 
 @end
 
@@ -74,7 +80,6 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _readWayView.textField.tag = InputClickTypeReadWay;
     _readWayView.textField.delegate = self;
     _readWayView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
-    _readWayView.textField.keyboardType = UIKeyboardTypePhonePad;
     [self.view addSubview:_readWayView];
     [_readWayView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -89,6 +94,7 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _selectTeachrtView.textField.tag = InputClickTypeSelectTeacher;
     _selectTeachrtView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
     _selectTeachrtView.textField.text = @"zhangq94";
+    _selectTeachrtView.textField.delegate = self;
     [self.view addSubview:_selectTeachrtView];
     [_selectTeachrtView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -101,6 +107,7 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _isOpenView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"wiritingUpload_22.png" contentImg:@""];
     _isOpenView.textField.tag = InputClickTypeIsOpen;
     _isOpenView.textField.placeholder = @"是否公开";
+    _isOpenView.textField.delegate = self;
     _isOpenView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
     _isOpenView.textField.text = @"2";
     [self.view addSubview:_isOpenView];
@@ -138,7 +145,47 @@ typedef NS_ENUM(NSInteger,InputClickType) {
 
 -(void)submitWriting{
     
-    
+//    taskTitle
+//    sumitter    15122223333
+//    agentStaff    13787262394
+//    submitTime    2018-01-25 20:32:30
+//    evaluationStatus    0
+//    paymentStatus    1
+//    reviewTheWay    在线  ---->>>>
+//    receiveTheFeeStaus    0
+//    phoneNumber    15122223333
+//    title
+//    creationTime    2018-01-25 20:32:30
+//    isItOpen    0
+//    amount    250
+//    timeOfOccurrence    2018-01-25 20:32:30  <<<<<------
+  
+    NSDateFormatter *dateForm = [NSDateFormatter new];
+    dateForm.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+
+#warning 未写完 -- 教师选择信息返回，接口调试等 
+    _worksModel.taskTitle = _titleImgView.textField.text;
+    _worksModel.sumitter = self.appdelegate.personInfoModel.phoneNumber ;
+//    model.agentStaff = _nameImgView.textField.text;
+    _worksModel.submitTime = [dateForm stringFromDate:[NSDate date]];
+    _worksModel.evaluationStatus = @"0";
+    _worksModel.paymentStatus = @"0";
+//    _worksModel.reviewTheWay =
+//    model.registeredTime = [dateFor stringFromDate:[NSDate date]];
+//    model.schoolName = _schoolImgView.textField.text;
+//    model.jobTitle =  _technicalImgView.textField.text;
+//    NSDictionary *dict = [model modelConvertDict];
+//    RequestHelp *requestHelp  = [RequestHelp new];
+//    NSMutableArray *mutArr = [NSMutableArray array];
+//    for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
+//        if (photoModel.photoType == PhotoTypeLocal) {
+//            [mutArr addObject:photoModel.thumbUIImage];
+//        }
+//    }
+//    [requestHelp postUrl:SIGN_TEACHER parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
+//        [self hideLoading];
+//        NSLog(@"%@",responseObject);
+//    } delegate:self];
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
@@ -177,15 +224,29 @@ typedef NS_ENUM(NSInteger,InputClickType) {
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
     if (textField.tag == InputClickTypeReadWay) {
+        [self toAlertSelect:textField titleArray:@[@"在线",@"离线"]];
         return NO;
     }else if(textField.tag == InputClickTypeSelectTeacher){
+        TeacherListViewController *vc = [TeacherListViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
         return NO;
     }else if(textField.tag == InputClickTypeIsOpen){
+       [self toAlertSelect:textField titleArray:@[@"是",@"否"]];
         return NO;
     }
     return YES;
 }
 
+-(void)toAlertSelect:(UITextField *)textField titleArray:(NSArray <NSString*> *)titleArray{
+    
+    UIAlertController *alerVc = [UIAlertController alertControllerWithTitle:textField.placeholder message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    for (NSString *title in titleArray) {
+        [alerVc addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            textField.text = action.title;
+        }]];
+    }
+    [self presentViewController:alerVc animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

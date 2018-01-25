@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4666F255DEA898DB6DF95A75A99C3095'
-               BlueprintName = 'TZImagePickerController'
+               BlueprintIdentifier = '755345325818102A8B1DDDD378EC9676'
+               BlueprintName = 'KxMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libTZImagePickerController.a'>
+               BuildableName = 'libKxMenu.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

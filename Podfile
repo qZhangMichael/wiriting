@@ -13,6 +13,7 @@ target 'WritingEducation' do
   pod 'TZImagePickerController', '~> 1.9.8'
   pod 'SDWebImage', '~> 4.2.3'
   pod 'DZNEmptyDataSet', '~> 1.8.1'
+  pod 'KxMenu', '~> 1'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing
