@@ -28,7 +28,6 @@
 #define TEXTFONT [UIFont systemFontOfSize:16]
 #define TIPTEXTFONT [UIFont systemFontOfSize:12]
 
-
 //默认函数
 #define IsEmptyStr(string) (string == nil || string == NULL ||[string isKindOfClass:[NSNull class]]|| [string isEqualToString:@""] ||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0 ? YES : NO)
 

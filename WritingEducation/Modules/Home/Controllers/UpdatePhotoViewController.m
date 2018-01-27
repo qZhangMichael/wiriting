@@ -32,9 +32,6 @@ typedef NS_ENUM(NSInteger,InputClickType) {
 @property(nonatomic,strong)InputImageView *isOpenView;//是否公开
 @property(nonatomic,strong)InputImageView *moneyView;//金额
 
-@property(nonatomic,strong)SubmitWorksModel *worksModel;
-
-
 @end
 
 @implementation UpdatePhotoViewController
@@ -145,47 +142,47 @@ typedef NS_ENUM(NSInteger,InputClickType) {
 
 -(void)submitWriting{
     
-//    taskTitle
-//    sumitter    15122223333
-//    agentStaff    13787262394
-//    submitTime    2018-01-25 20:32:30
-//    evaluationStatus    0
-//    paymentStatus    1
-//    reviewTheWay    在线  ---->>>>
-//    receiveTheFeeStaus    0
-//    phoneNumber    15122223333
-//    title
-//    creationTime    2018-01-25 20:32:30
-//    isItOpen    0
-//    amount    250
-//    timeOfOccurrence    2018-01-25 20:32:30  <<<<<------
-  
+    SubmitWorksModel *worksModel = [SubmitWorksModel new];
+    worksModel.taskTitle = _titleImgView.textField.text;
+    worksModel.sumitter = self.appdelegate.personInfoModel.phoneNumber;
+    worksModel.evaluationStatus = @"0";
+    worksModel.paymentStatus = @"0";
+    worksModel.reviewTheWay = _readWayView.textField.text;
+    worksModel.receiveTheFeeStaus = @"0";
+    worksModel.phoneNumber = self.appdelegate.personInfoModel.phoneNumber;
+    worksModel.title = _titleImgView.textField.text;
+    worksModel.isItOpen = [_isOpenView.textField.text isEqualToString:@"是"]?@"1":@"0";
+    worksModel.amount = _moneyView.textField.text.floatValue;
+    
     NSDateFormatter *dateForm = [NSDateFormatter new];
     dateForm.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-
-#warning 未写完 -- 教师选择信息返回，接口调试等 
-    _worksModel.taskTitle = _titleImgView.textField.text;
-    _worksModel.sumitter = self.appdelegate.personInfoModel.phoneNumber ;
-//    model.agentStaff = _nameImgView.textField.text;
-    _worksModel.submitTime = [dateForm stringFromDate:[NSDate date]];
-    _worksModel.evaluationStatus = @"0";
-    _worksModel.paymentStatus = @"0";
-//    _worksModel.reviewTheWay =
-//    model.registeredTime = [dateFor stringFromDate:[NSDate date]];
-//    model.schoolName = _schoolImgView.textField.text;
-//    model.jobTitle =  _technicalImgView.textField.text;
-//    NSDictionary *dict = [model modelConvertDict];
-//    RequestHelp *requestHelp  = [RequestHelp new];
-//    NSMutableArray *mutArr = [NSMutableArray array];
-//    for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
-//        if (photoModel.photoType == PhotoTypeLocal) {
-//            [mutArr addObject:photoModel.thumbUIImage];
-//        }
-//    }
-//    [requestHelp postUrl:SIGN_TEACHER parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
-//        [self hideLoading];
-//        NSLog(@"%@",responseObject);
-//    } delegate:self];
+    NSString *current = [dateForm stringFromDate:[NSDate date]];
+     worksModel.creationTime = current;
+     worksModel.submitTime = current;
+    worksModel.timeOfOccurrence = current;
+    
+    TeacherMModel *teacherModel = (TeacherMModel *)_selectTeachrtView.attributes;
+    worksModel.agentStaff = teacherModel.phoneNumber;
+    
+    NSDictionary *dict = [worksModel modelConvertDict];
+    RequestHelp *requestHelp  = [RequestHelp new];
+    NSMutableArray *mutArr = [NSMutableArray array];
+    for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
+        if (photoModel.photoType == PhotoTypeLocal) {
+            [mutArr addObject:photoModel.thumbUIImage];
+        }
+    }
+    
+    [self showLoading];
+    [requestHelp postUrl:URL_SUBMIT_WORKS parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
+        [self hideLoading];
+        RequestModel *reModel = [RequestModel yy_modelWithJSON:responseObject];
+        [self showAlert:reModel.msg];
+        if ([reModel verificationReturnParms]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        NSLog(@"%@",responseObject);
+    } delegate:self];
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
@@ -227,7 +224,13 @@ typedef NS_ENUM(NSInteger,InputClickType) {
         [self toAlertSelect:textField titleArray:@[@"在线",@"离线"]];
         return NO;
     }else if(textField.tag == InputClickTypeSelectTeacher){
+        @WeakObj(self);
         TeacherListViewController *vc = [TeacherListViewController new];
+        vc.teacherInfoBlock = ^(TeacherMModel *teacherModel) {
+            @StrongObj(self);
+            self.selectTeachrtView.textField.text = teacherModel.name;
+            self.selectTeachrtView.attributes = teacherModel;
+        };
         [self.navigationController pushViewController:vc animated:YES];
         return NO;
     }else if(textField.tag == InputClickTypeIsOpen){

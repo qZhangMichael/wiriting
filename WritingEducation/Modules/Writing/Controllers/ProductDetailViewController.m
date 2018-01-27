@@ -34,10 +34,11 @@
 
 -(void)initWithData{
     
-    for (MyWorks_ApprovedWorksListModel *model in _productModel.approvedWorksList) {
+    for (MyWorks_WorksListModel *model in _productModel.worksList) {
         PhotoCollectionModel *photoModel = [PhotoCollectionModel new];
         photoModel.photoType = PhotoTypeWeb;
-        photoModel.originalURL = model.imagePath;
+        photoModel.originalURL = model.imageContentPath;
+        photoModel.thumbURL = model.imageContentPath;
         [self.collectionView.dataArray insertObject:photoModel atIndex:0];
     }
     if (self.collectionView.dataArray.count>3) {
@@ -69,10 +70,6 @@
         make.top.mas_equalTo(_scoreTextImg.mas_bottom).with.offset(updownGap);
         make.height.mas_equalTo(height*2);
     }];
-//    PhotoCollectionModel *model = [PhotoCollectionModel new];
-//    model.photoType = PhotoTypeDefault;
-//    [_collectionView.dataArray addObject:model];
-//    [_collectionView reloadData];
     _collectionView.photoCollectionDelegate = self;
     
     _teacherCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:_productModel.changeTheResult.workEvaluation edg:UIEdgeInsetsMake(20, 20, 25, 25)];
@@ -101,7 +98,7 @@
         make.edges.equalTo(studentsInfoImgView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    _studentCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"111111asldladjalda dhlahfhkhkadlajslddsajdlajdlajdlac,zxcn,zadjlajdaljdzn,mncasdjaldjaajsdajdz,cn" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
+    _studentCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
     _studentCommentTextImg.contentText.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_studentCommentTextImg];
     [_studentCommentTextImg mas_makeConstraints:^(MASConstraintMaker *make) {

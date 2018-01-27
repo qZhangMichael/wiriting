@@ -42,6 +42,10 @@ extern  NSString *const MYWORKS_LIST;
 @property(nonatomic,strong)NSString *isItOpen;
 @property(nonatomic,strong)NSString *phoneNumber;
 @property(nonatomic,strong)NSString *title;
+@property(nonatomic,strong)NSString *uuid;
+@property(nonatomic,strong)NSString *content;
+@property(nonatomic,strong)NSString *imageContentPath;
+@property(nonatomic,strong)NSString *agentListUuid;
 
 @end
 

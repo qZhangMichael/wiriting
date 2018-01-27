@@ -8,7 +8,7 @@
 
 #import "TeacherResultListMModel.h"
 
-NSString *const TEACHER_LIST =@"/soundapp/writer/teacher/list";
+NSString *const URL_TEACHER_LIST =@"/soundapp/writer/teacher/list";
 
 @implementation TeacherResultListMModel
 

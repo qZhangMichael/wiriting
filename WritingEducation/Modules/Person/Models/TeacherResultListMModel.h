@@ -9,7 +9,7 @@
 #import "RequestModel.h"
 #import "TeacherMModel.h"
 
-extern NSString *const TEACHER_LIST;
+extern NSString *const URL_TEACHER_LIST;
 
 @interface TeacherResultListMModel : RequestModel
 

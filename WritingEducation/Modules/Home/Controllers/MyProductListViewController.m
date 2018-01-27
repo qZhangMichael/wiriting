@@ -17,8 +17,6 @@
 @property(nonatomic,strong)NSMutableArray *dataArr;
 @property(nonatomic,strong)MyWorksListModel *work_Model;
 
-
-
 @end
 
 @implementation MyProductListViewController
@@ -62,7 +60,6 @@
             _dataArr =  [self.work_Model.myWorksMList mutableCopy];
             [self.tableView reloadData];
         }
-
     } delegate:self];
 }
 
@@ -81,10 +78,10 @@
     }
     MyWorks_MyWorksListModel *model = _dataArr[indexPath.row];
     cell.writingTitleLb.text = model.taskTitle;
-    cell.scoreLb.text = [NSString stringWithFormat:@"%ld",model.changeTheResult.worksScore];
-    cell.teacherNameLb.text = model.teacher.name;
-    cell.statusLb.text = model.evaluationStatus;
-    cell.priceLb.text = [NSString stringWithFormat:@"%ld",model.costInfo.amount];
+    cell.scoreLb.text = [NSString stringWithFormat:@"分数:%ld",model.changeTheResult.worksScore];
+    cell.teacherNameLb.text = [NSString stringWithFormat:@"点评老师:%@",model.teacher.name];
+    cell.statusLb.text = [NSString stringWithFormat:@"点评状态:%@",model.evaluationStatus] ;
+    cell.priceLb.text = [NSString stringWithFormat:@"价格:%ld",model.costInfo.amount];
     return cell;
 }
 

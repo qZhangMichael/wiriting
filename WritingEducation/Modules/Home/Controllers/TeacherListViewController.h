@@ -7,7 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "TeacherResultListMModel.h"
+
+typedef void(^TeacherInfoBlock)(TeacherMModel *teacherModel);
 
 @interface TeacherListViewController : BaseViewController
+
+@property(nonatomic,copy)TeacherInfoBlock teacherInfoBlock;
 
 @end

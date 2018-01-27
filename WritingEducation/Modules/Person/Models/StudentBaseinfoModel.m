@@ -1,25 +1,21 @@
 //
-//  ClientUserModel.m
+//  StudentBaseInfoModel.m
 //  WritingEducation
 //
-//  Created by 张琼 on 2018/1/11.
+//  Created by 张琼 on 2018/1/27.
 //  Copyright © 2018年 qzhangmichael. All rights reserved.
 //
 
-#import "StudentBaseinfoModel.h"
+#import "StudentBaseInfoModel.h"
 
-NSString *const STUDENT_BASEINFO = @"/soundapp/writer/student/baseinfo/{%@}";
+NSString *const URL_STUDENT_BASEINFO = @"/soundapp/writer/student/baseinfo/%@";
 
-@implementation UserAccountModel
+@implementation StudentBaseInfoModel
 
-@end
-
-
-//@implementation StudentInfoModel
-//
-//@end
-
-
-@implementation StudentBaseinfoModel
++(NSDictionary *)modelContainerPropertyGenericClass{
+    return @{
+             @"studentInfo":[StudentInfoModel class]
+             };
+}
 
 @end

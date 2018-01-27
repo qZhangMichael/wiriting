@@ -10,6 +10,7 @@
 #import "PhotoCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RequestUrl.h"
+#import "MBProgressHUD+BJHubHelper.h"
 
 
 static NSString * identify = @"cell";
@@ -59,7 +60,9 @@ static NSString * identify = @"cell";
     if (model.photoType == PhotoTypeWeb) {
         [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
         NSString *urlStr = [NSString stringWithFormat:@"%@/%@",HEADER_URI,model.thumbURL];
+        [MBProgressHUD bjShowLoadingHubWithMessage:nil toView:cell.imgView];
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:urlStr] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [MBProgressHUD bjHideHubInView:cell.imgView];
             NSLog(@"%@",error);
         }];
     }else if (model.photoType == PhotoTypeLocal){

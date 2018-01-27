@@ -9,9 +9,11 @@
 #import "PersonCenterViewController.h"
 #import "LongButton.h"
 #import "PersonCenterCell.h"
-#import <RESideMenu/RESideMenu.h>
+
 #import "PersonInfoViewController.h"
 #import "LoginViewController.h"
+#import "BaseNavigationViewController.h"
+#import "HomeViewController.h"
 
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
@@ -34,14 +36,20 @@ static NSString *LABLE_ICON = @"icon";
     self.title = @"个人中心";
     [self initWithData];
     [self initWithView];
+    [self fillData];
 }
 
 -(void)initWithData{
     
-    _dataArray = @[
-                   @{LABLE_ICON:@"leftMesu_1.png",LABLE_TEXT:@"基本信息"},
-                   @{LABLE_ICON:@"leftMesu_2.png",LABLE_TEXT:@"待办已阅"},
-                   @{LABLE_ICON:@"leftMesu_3.png",LABLE_TEXT:@"我的钱包"}];
+    if (!IsStudentRole) {
+        _dataArray = @[
+                       @{LABLE_ICON:@"leftMesu_1.png",LABLE_TEXT:@"基本信息"},
+                       @{LABLE_ICON:@"leftMesu_2.png",LABLE_TEXT:@"待办已阅"},
+                       @{LABLE_ICON:@"leftMesu_3.png",LABLE_TEXT:@"我的钱包"}];
+    }else{
+        _dataArray = @[
+                       @{LABLE_ICON:@"leftMesu_1.png",LABLE_TEXT:@"基本信息"}];
+    }
 }
 
 -(void)initWithView{
@@ -128,17 +136,18 @@ static NSString *LABLE_ICON = @"icon";
     }];
 }
 
--(void)logOut{
+-(void)fillData{
     
-    LoginViewController *vc =[ LoginViewController new];
-    [self presentViewController:vc animated:YES
-                     completion:nil];
-    [KUserDefaults removeObjectForKey:LOGIN_INFO];
+    self.nameLabel.text = self.appdelegate.personInfoModel.name;
+    self.levelLabel.text = IsStudentRole?GlobalUserInfo.jobTitle:GlobalUserInfo.gradeDesc;
 }
 
--(void)returnButtonPressed{
+-(void)logOut{
     
-    [self.sideMenuViewController presentLeftMenuViewController];
+    LoginViewController *vc =[LoginViewController new];
+    [KUserDefaults removeObjectForKey:LOGIN_INFO];
+    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
+    self.sideMenuViewController.contentViewController = nav;    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -172,7 +181,12 @@ static NSString *LABLE_ICON = @"icon";
     return  60*kPROPORTION;
 }
 
-
+-(void)returnButtonPressed{
+    
+    HomeViewController *vc = [HomeViewController new];
+    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
+    self.sideMenuViewController.contentViewController = nav;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

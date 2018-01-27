@@ -8,6 +8,8 @@
 
 #import "BaseModel.h"
 
+extern NSString *const URL_SUBMIT_WORKS;
+
 @interface SubmitWorksModel : BaseModel
 
 @property(nonatomic,strong)NSString *taskTitle;//任务(作品)名称
@@ -21,7 +23,10 @@
 @property(nonatomic,strong)NSString *phoneNumber;//账号/手机号码/作品所有人
 @property(nonatomic,strong)NSString *title;//作品名称
 @property(nonatomic,strong)NSString *creationTime;//创作时间
-@property(nonatomic,strong)NSString *disItOpen;//是否公开 0:否 1:是
-@property(nonatomic,strong)NSString *amount;//金额
+@property(nonatomic,strong)NSString *isItOpen;//是否公开 0:否 1:是
+@property(nonatomic,assign)float amount;//金额
 @property(nonatomic,strong)NSString *timeOfOccurrence;//费用发生时间
+
+-(NSDictionary*)modelConvertDict;
+
 @end

@@ -77,7 +77,7 @@
     
     _nameImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
     _nameImgView.textField.placeholder = @"请输入学生姓名";
-    _nameImgView.textField.text = @"zhangq94";
+//    _nameImgView.textField.text = @"zhangq94";
     [self.view addSubview:_nameImgView];
     [_nameImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -89,7 +89,7 @@
     
     _phoneImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"15.png"];
     _phoneImgView.textField.placeholder = @"请输入手机号码";
-    _phoneImgView.textField.text = @"18100680066";
+//    _phoneImgView.textField.text = @"18100680066";
     _phoneImgView.textField.keyboardType = UIKeyboardTypePhonePad;
     [self.view addSubview:_phoneImgView];
     [_phoneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,7 +102,7 @@
     
     _passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png" contentImg:@"4.png"];
     _passImgView.textField.placeholder = @"请输入登录密码";
-    _passImgView.textField.text = @"zhangq94";
+//    _passImgView.textField.text = @"zhangq94";
     [self.view addSubview:_passImgView];
     [_passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -114,7 +114,7 @@
     
     _levelImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"11.png" contentImg:@"16.png"];
     _levelImgView.textField.placeholder = @"请输入学生年级";
-    _levelImgView.textField.text = @"2";
+//    _levelImgView.textField.text = @"2";
     [self.view addSubview:_levelImgView];
     [_levelImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -126,7 +126,7 @@
     
     _schoolImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"17.png"];
     _schoolImgView.textField.placeholder = @"请输入学生学校名称";
-    _schoolImgView.textField.text = @"Sany";
+//    _schoolImgView.textField.text = @"Sany";
     [self.view addSubview:_schoolImgView];
     [_schoolImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -138,7 +138,7 @@
     
     _technicalImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png" contentImg:@"19.png"];
     _technicalImgView.textField.placeholder = @"请输入您的职称";
-    _technicalImgView.textField.text = @"高中老师";
+//    _technicalImgView.textField.text = @"高中老师";
     [self.view addSubview:_technicalImgView];
     [_technicalImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -309,7 +309,11 @@
         }
         [requestHelp postUrl:SIGN_TEACHER parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
             [self hideLoading];
-            NSLog(@"%@",responseObject);
+            RequestModel *reModel = [RequestModel yy_modelWithJSON:responseObject];
+            [self showAlert:reModel.msg];
+            if ([reModel verificationReturnParms]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         } delegate:self];
     }
 }

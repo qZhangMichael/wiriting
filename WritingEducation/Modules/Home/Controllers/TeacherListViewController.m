@@ -52,7 +52,7 @@
     TeacherResultListMModel *model = [TeacherResultListMModel new];
 //    model.phoneNumber = self.appdelegate.personInfoModel.phoneNumber;
     NSString *str = [model yy_modelToJSONString];
-    [request postUrl:TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
+    [request postUrl:URL_TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
         [self hideLoading];
         TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
         if ([responsemodel verificationReturnParms]&&responsemodel.teacherMList>0) {
@@ -91,6 +91,14 @@
     return 80;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    TeacherMModel *model = _dataArr[indexPath.row];
+    if (_teacherInfoBlock) {
+        _teacherInfoBlock(model);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

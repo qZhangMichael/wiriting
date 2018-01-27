@@ -7,12 +7,11 @@
 //
 
 #import "LeftMenuViewController.h"
-#import <RESideMenu/RESideMenu.h>
 #import "LoginViewController.h"
 #import "LeftMenuCell.h"
 #import "PersonCenterViewController.h"
 #import "BaseNavigationViewController.h"
-
+#import "HomeViewController.h"
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
 
@@ -64,7 +63,7 @@ static NSString *LABLE_ICON = @"icon";
     _infoLabel = [UILabel new];
     _infoLabel.backgroundColor  = [UIColor clearColor];
     [headerView addSubview:_infoLabel];
-    _infoLabel.text = @"xxxx";
+    _infoLabel.text = GlobalUserInfo.name;
     _infoLabel.font = [UIFont systemFontOfSize:20];
     [_infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_infoImgView);
@@ -134,9 +133,12 @@ static NSString *LABLE_ICON = @"icon";
     }else if(indexPath.row == 3){
         vc = [[LoginViewController alloc]init];
         [KUserDefaults removeObjectForKey:LOGIN_INFO];
+    }else {
+        vc = [HomeViewController new];
     }
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
-    [self.sideMenuViewController setContentViewController:nav animated:YES];
+    self.sideMenuViewController.contentViewController = nav;
+    self.sideMenuViewController.interactivePopGestureRecognizerEnabled = NO;
     [self.sideMenuViewController hideMenuViewController];
 }
 

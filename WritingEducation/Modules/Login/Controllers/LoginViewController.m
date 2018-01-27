@@ -54,7 +54,7 @@
     
     _userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
     _userImgView.textField.placeholder = @"请输入用户名/手机号码";
-    _userImgView.textField.text = @"18100680011";
+    _userImgView.textField.text = @"15122223333";
     [self.view addSubview:_userImgView];
     [_userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);

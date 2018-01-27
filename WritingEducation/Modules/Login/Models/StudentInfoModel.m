@@ -10,4 +10,9 @@
 
 @implementation StudentInfoModel
 
++(NSDictionary *)modelContainerPropertyGenericClass{
+    return @{
+             @"UserAccount":[UserAccountModel class]
+             };
+}
 @end

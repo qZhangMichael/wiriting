@@ -8,8 +8,9 @@
 
 #import "SubmitWorksModel.h"
 
-@implementation SubmitWorksModel
+NSString *const URL_SUBMIT_WORKS = @"/soundapp/writer/submit/works";//作品提交
 
+@implementation SubmitWorksModel
 
 -(NSDictionary*)modelConvertDict{
     
@@ -25,8 +26,8 @@
     dict[@"phoneNumber"]  = self.phoneNumber;
     dict[@"title"]  = self.title;
     dict[@"creationTime"]  = self.creationTime;
-    dict[@"disItOpen"]  = self.disItOpen;
-    dict[@"amount"]  = self.amount;
+    dict[@"isItOpen"]  = self.isItOpen;
+    dict[@"amount"]  = [NSNumber numberWithFloat:self.amount];
     dict[@"timeOfOccurrence"]  = self.timeOfOccurrence;
     
     return (NSDictionary*)dict;

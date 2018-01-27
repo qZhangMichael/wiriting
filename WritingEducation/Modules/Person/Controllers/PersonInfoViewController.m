@@ -6,10 +6,15 @@
 //
 
 #import "PersonInfoViewController.h"
+#import "HomeViewController.h"
+#import "BaseNavigationViewController.h"
+#import "TZImagePickerController.h"
+
 #import "InputImageView.h"
 #import "PhotoCollectionView.h"
-#import "TZImagePickerController.h"
+
 #import "TeacherResultListMModel.h"
+#import "StudentBaseinfoModel.h"
 
 @interface PersonInfoViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
 
@@ -21,7 +26,6 @@
 @property(nonatomic,strong)PhotoCollectionView *collectionView;
 
 @property(nonatomic,strong)TeacherMModel *teacherMModel;
-
 
 @end
 
@@ -44,7 +48,7 @@
     
     _phoneImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"15.png"];
     _phoneImgView.textField.placeholder = @"请输入手机号码";
-    _phoneImgView.textField.text = self.appdelegate.personInfoModel.phoneNumber;
+    _phoneImgView.textField.text = GlobalUserInfo.phoneNumber;
     [self.view addSubview:_phoneImgView];
     [_phoneImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(topGap, aroundGap, 0, aroundGap));
@@ -53,7 +57,7 @@
     
     _cardImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png"  contentImg:@"16.png"];
     _cardImgView.textField.placeholder = @"XXXXXXXXXXXXXXXXXXX";
-    _cardImgView.textField.text = self.appdelegate.personInfoModel.identificationNumber;
+    _cardImgView.textField.text = GlobalUserInfo.identificationNumber;
     [self.view addSubview:_cardImgView];
     [_cardImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -63,7 +67,7 @@
     
     _schoolImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"11.png"  contentImg:@"17.png"];
     _schoolImgView.textField.placeholder = @"XX学校";
-    _schoolImgView.textField.text = self.appdelegate.personInfoModel.schoolName;
+    _schoolImgView.textField.text = GlobalUserInfo.schoolName;
     [self.view addSubview:_schoolImgView];
     [_schoolImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -73,7 +77,7 @@
     
     _levelImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png"  contentImg:@"19.png"];
     _levelImgView.textField.placeholder = @"金牌老师";
-    _levelImgView.textField.text = self.appdelegate.personInfoModel.jobTitle;
+    _levelImgView.textField.text = GlobalUserInfo.jobTitle;
     [self.view addSubview:_levelImgView];
     [_levelImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
@@ -89,42 +93,66 @@
         make.height.mas_equalTo(Height*2);
     }];
     _collectionView.photoCollectionDelegate = self;
-
 }
 
 -(void)requestData{
     
-    [self showLoading];
     RequestHelp *request = [RequestHelp new];
-    TeacherResultListMModel *model = [TeacherResultListMModel new];
-    model.phoneNumber = self.appdelegate.personInfoModel.phoneNumber;
-    NSString * str = [model yy_modelToJSONString];
-    [request postUrl:TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
-        [self hideLoading];
-        TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
-        if ([responsemodel verificationReturnParms]&&responsemodel.teacherMList>0) {
-            self.teacherMModel = responsemodel.teacherMList.firstObject;
-            [self fillData];
-        }else{
-            [self showAlert:[NSString stringWithFormat:@"%@%@",responsemodel.msg,responsemodel.flag]];
-        }
-    } delegate:self];
+    if (IsStudentRole) {
+        [self fillData];
+        //此段信息可以不用，从登录信息中之间获取
+//        NSString *url = [NSString stringWithFormat:URL_STUDENT_BASEINFO,GlobalUserInfo.phoneNumber];
+//        [request getUrl:url parameters:nil getBlock:^(id  _Nonnull responseObject) {
+//            [self hideLoading];
+//            StudentBaseInfoModel *studentModel = [StudentBaseInfoModel yy_modelWithJSON:responseObject];
+//            if ([studentModel verificationReturnParms]) {
+//                [self fillData];
+//            }else{
+//                [self showAlert:studentModel.msg];
+//            }
+//        } delegate:self];
+    }else{
+        [self showLoading];
+        TeacherResultListMModel *model = [TeacherResultListMModel new];
+        model.phoneNumber = GlobalUserInfo.phoneNumber;
+        NSString * str = [model yy_modelToJSONString];
+        [request postUrl:URL_TEACHER_LIST parameters:str postBlock:^(id  _Nonnull responseObject) {
+            [self hideLoading];
+            TeacherResultListMModel *responsemodel = [TeacherResultListMModel yy_modelWithJSON:responseObject];
+            if ([responsemodel verificationReturnParms]&&responsemodel.teacherMList>0) {
+                self.teacherMModel = responsemodel.teacherMList.firstObject;
+                [self fillData];
+            }else{
+                [self showAlert:[NSString stringWithFormat:@"%@%@",responsemodel.msg,responsemodel.flag]];
+            }
+        } delegate:self];
+    }
 }
 
 
 -(void)fillData{
     
-    for (QualificationCertificateModel *model in self.teacherMModel.qualificationCertificateList) {
-        PhotoCollectionModel *photoModel  = [PhotoCollectionModel new];
-        photoModel.photoType = PhotoTypeWeb;
-        photoModel.originalURL = model.certificatePathDownload;
-        photoModel.thumbURL = model.certificatePathView;
-        [self.collectionView.dataArray insertObject:photoModel atIndex:0];
+    if (IsStudentRole) {
+        self.collectionView.hidden = YES;
+        self.phoneImgView.textField.text = GlobalUserInfo.name;
+        self.phoneImgView.contentImgView.image = [UIImage imageNamed:@"3.png"];
+        self.cardImgView.textField.text = GlobalUserInfo.phoneNumber;
+        self.cardImgView.contentImgView.image = [UIImage imageNamed:@"15.png"];
+        self.schoolImgView.textField.text = GlobalUserInfo.gradeDesc;
+        self.schoolImgView.contentImgView.image = [UIImage imageNamed:@"16.png"];
+        self.levelImgView.textField.text = GlobalUserInfo.schoolName;
+        self.levelImgView.contentImgView.image = [UIImage imageNamed:@"17.png"];
+    }else{
+        for (QualificationCertificateModel *model in self.teacherMModel.qualificationCertificateList) {
+            PhotoCollectionModel *photoModel  = [PhotoCollectionModel new];
+            photoModel.photoType = PhotoTypeWeb;
+            photoModel.originalURL = model.certificatePathDownload;
+            photoModel.thumbURL = model.certificatePathView;
+            [self.collectionView.dataArray insertObject:photoModel atIndex:0];
+        }
+        [self.collectionView reloadData];
     }
-    [self.collectionView reloadData];
 }
-
-
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
@@ -141,6 +169,7 @@
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

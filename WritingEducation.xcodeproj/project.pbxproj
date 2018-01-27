@@ -166,6 +166,8 @@
 		80B26548201A1C55003B6A8A /* TeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B26547201A1C55003B6A8A /* TeacherListViewController.m */; };
 		80B2654F201A1D86003B6A8A /* TeacherListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B2654D201A1D86003B6A8A /* TeacherListCell.m */; };
 		80B26550201A1D86003B6A8A /* TeacherListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B2654E201A1D86003B6A8A /* TeacherListCell.xib */; };
+		80B26553201CC815003B6A8A /* StudentBaseInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B26552201CC815003B6A8A /* StudentBaseInfoModel.m */; };
+		80B26556201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B26555201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m */; };
 		80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */; };
 		80C07A111FE94E7600C7FBDE /* BrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C07A101FE94E7600C7FBDE /* BrowseListCell.m */; };
 		80C07A131FE9561400C7FBDE /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 80C07A121FE9561400C7FBDE /* list.png */; };
@@ -420,6 +422,10 @@
 		80B2654C201A1D86003B6A8A /* TeacherListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherListCell.h; sourceTree = "<group>"; };
 		80B2654D201A1D86003B6A8A /* TeacherListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherListCell.m; sourceTree = "<group>"; };
 		80B2654E201A1D86003B6A8A /* TeacherListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherListCell.xib; sourceTree = "<group>"; };
+		80B26551201CC815003B6A8A /* StudentBaseInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentBaseInfoModel.h; sourceTree = "<group>"; };
+		80B26552201CC815003B6A8A /* StudentBaseInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentBaseInfoModel.m; sourceTree = "<group>"; };
+		80B26554201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+BJHubHelper.h"; sourceTree = "<group>"; };
+		80B26555201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+BJHubHelper.m"; sourceTree = "<group>"; };
 		80C07A0C1FE94E5100C7FBDE /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		80C07A0D1FE94E5100C7FBDE /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		80C07A0F1FE94E7600C7FBDE /* BrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowseListCell.h; sourceTree = "<group>"; };
@@ -527,6 +533,8 @@
 				80AD8616200E31B200AB718A /* QualificationCertificateModel.m */,
 				80AD8618200E324000AB718A /* TeacherMModel.h */,
 				80AD8619200E324000AB718A /* TeacherMModel.m */,
+				80B26551201CC815003B6A8A /* StudentBaseInfoModel.h */,
+				80B26552201CC815003B6A8A /* StudentBaseInfoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -638,6 +646,8 @@
 		8036C9E11FDE815D00AD2341 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				80B26554201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.h */,
+				80B26555201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m */,
 				80463A1E20038A610088E821 /* NSString+Base64.h */,
 				80463A1F20038A610088E821 /* NSString+Base64.m */,
 				80AD8646200F91A000AB718A /* UITextView+Help.h */,
@@ -1520,6 +1530,7 @@
 				8036CA361FE018FC00AD2341 /* InputImageView.m in Sources */,
 				80463A522006623B0088E821 /* BaseNavigationViewController.m in Sources */,
 				80463A4C200637940088E821 /* RequestModel.m in Sources */,
+				80B26553201CC815003B6A8A /* StudentBaseInfoModel.m in Sources */,
 				8016C486200E30BC00EAC5D6 /* UserAccountModel.m in Sources */,
 				80B26548201A1C55003B6A8A /* TeacherListViewController.m in Sources */,
 				80C80C331FFBBC440008BDED /* PersonInfoViewController.m in Sources */,
@@ -1531,6 +1542,7 @@
 				80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */,
 				804661541FEA906A009A0904 /* LeftMenuCell.m in Sources */,
 				80C07A0E1FE94E5100C7FBDE /* BaseTableViewCell.m in Sources */,
+				80B26556201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m in Sources */,
 				80463A5C200797410088E821 /* MyWorksListModel.m in Sources */,
 				80463A69200A08D30088E821 /* TeacherInfoModel.m in Sources */,
 				80463A78200B0A8A0088E821 /* PersonUndoViewController.m in Sources */,

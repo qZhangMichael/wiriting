@@ -21,6 +21,8 @@
 //代理
 @property(nonatomic,weak)id delegate;
 
+@property(nonatomic,strong)id attributes;
+
 -(instancetype)initWithFrame:(CGRect)frame backImg:(NSString*)backImg contentImg:(NSString *)contentImg;
 
 @end
