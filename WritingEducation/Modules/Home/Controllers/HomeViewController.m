@@ -35,7 +35,6 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 
 @property(nonatomic,assign)HomeViewType homeViewType;
 
-@property(nonatomic,strong)BaseViewController *currentViewController;
 @end
 
 @implementation HomeViewController
@@ -143,13 +142,15 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 -(void)toViewController:(NSInteger)tag{
     
 //    if(tag == self.homeViewType&&self.currentViewController){
-        [self.currentViewController willMoveToParentViewController:nil];
-        [self.currentViewController removeFromParentViewController];
+//        [self.currentViewController willMoveToParentViewController:nil];
+//        [self.currentViewController removeFromParentViewController];
+
         [self.currentViewController.view removeFromSuperview];
-        self.currentViewController = nil;
+//        self.currentViewController = nil;
 //    }else{
         if (tag == HomeViewTypeUpdatePhoto) {
             self.currentViewController = self.updatePhotoViewController;
+            self.updatePhotoViewController.homeViewController = self;
         }else if (tag == HomeViewTypeMyProductList){
             self.currentViewController = self.myProductListViewController;
         }else if (tag ==HomeViewTypeBrowseList){

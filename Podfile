@@ -14,6 +14,7 @@ target 'WritingEducation' do
   pod 'SDWebImage', '~> 4.2.3'
   pod 'DZNEmptyDataSet', '~> 1.8.1'
   pod 'KxMenu', '~> 1'
+ pod 'MJExtension', '~> 3.0.13'
   target 'WritingEducationTests' do
     inherit! :search_paths
     # Pods for testing

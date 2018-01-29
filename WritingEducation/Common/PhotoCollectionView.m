@@ -62,6 +62,7 @@ static NSString * identify = @"cell";
         NSString *urlStr = [NSString stringWithFormat:@"%@/%@",HEADER_URI,model.thumbURL];
         [MBProgressHUD bjShowLoadingHubWithMessage:nil toView:cell.imgView];
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:urlStr] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            model.thumbURLImage = image;
             [MBProgressHUD bjHideHubInView:cell.imgView];
             NSLog(@"%@",error);
         }];

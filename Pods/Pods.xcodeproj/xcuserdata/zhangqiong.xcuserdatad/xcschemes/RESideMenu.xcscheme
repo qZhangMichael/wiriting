@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '73D26A6AA0B1509F98CEA1B3E03E5C66'
+               BlueprintIdentifier = 'E99F5C1A9BFDB5E9A1329348AACBCE9B'
                BlueprintName = 'RESideMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRESideMenu.a'>

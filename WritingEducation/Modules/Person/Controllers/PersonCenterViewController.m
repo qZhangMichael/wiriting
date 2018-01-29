@@ -14,6 +14,8 @@
 #import "LoginViewController.h"
 #import "BaseNavigationViewController.h"
 #import "HomeViewController.h"
+#import "PersonUndoViewController.h"
+#import "MyWalletViewController.h"
 
 static NSString *LABLE_TEXT = @"text";
 static NSString *LABLE_ICON = @"icon";
@@ -171,7 +173,13 @@ static NSString *LABLE_ICON = @"icon";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  
     if (indexPath.row == 0) {
-        PersonInfoViewController *vc =[PersonInfoViewController new];
+        PersonInfoViewController *vc = [PersonInfoViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if(indexPath.row == 1){
+        PersonUndoViewController *vc = [PersonUndoViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if(indexPath.row == 2){
+        MyWalletViewController *vc = [MyWalletViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -183,7 +191,7 @@ static NSString *LABLE_ICON = @"icon";
 
 -(void)returnButtonPressed{
     
-    HomeViewController *vc = [HomeViewController new];
+    BaseViewController *vc = IsStudentRole?[HomeViewController new]:[PersonUndoViewController new];
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
     self.sideMenuViewController.contentViewController = nav;
 }

@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+//#import "HomeViewController.m"
+@class HomeViewController;
 
 @interface UpdatePhotoViewController : BaseViewController
+
+@property(nonatomic,strong)HomeViewController *homeViewController;
 
 @end

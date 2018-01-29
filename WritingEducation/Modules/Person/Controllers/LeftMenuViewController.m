@@ -134,7 +134,8 @@ static NSString *LABLE_ICON = @"icon";
         vc = [[LoginViewController alloc]init];
         [KUserDefaults removeObjectForKey:LOGIN_INFO];
     }else {
-        vc = [HomeViewController new];
+        return;
+//        vc = [HomeViewController new];
     }
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:vc];
     self.sideMenuViewController.contentViewController = nav;

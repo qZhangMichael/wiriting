@@ -15,6 +15,8 @@
 #import "SignInViewController.h"
 #import "BaseNavigationViewController.h"
 #import "ProductDetailViewController.h"
+#import "PersonUndoViewController.h"
+
 #import "LoginUnamePassModel.h"
 
 @interface AppDelegate ()
@@ -31,7 +33,12 @@
     NSString *jsonStr = [KUserDefaults objectForKey:LOGIN_INFO];
     if (!IsEmptyStr(jsonStr)) {
         self.personInfoModel = [[LoginUnamePassModel yy_modelWithJSON:jsonStr]convertToPersonInfoModel];
-        vc = [HomeViewController new];
+        if (self.personInfoModel.accountType == AccountTypeStudent) {
+            vc = [HomeViewController new];
+        }else{
+            vc = [PersonUndoViewController new];
+        }
+        
     }else{
         vc = [[LoginViewController alloc]init];
     }

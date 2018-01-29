@@ -7,6 +7,9 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "TZImagePickerController.h"
+#import "ReadPhotoViewController.h"
+
 #import "TextImageView.h"
 #import "PhotoCollectionView.h"
 #import "LongButton.h"
@@ -111,7 +114,9 @@
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
-    
+    PhotoCollectionModel *model = self.collectionView.dataArray[indexPath.row];
+    ReadPhotoViewController* vc = [[ReadPhotoViewController alloc]init:model.thumbURLImage];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

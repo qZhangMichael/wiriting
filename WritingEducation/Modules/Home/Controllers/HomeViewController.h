@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 #import "RequestHelp.h"
+
 @interface HomeViewController : BaseViewController
+
+@property(nonatomic,strong)BaseViewController *currentViewController;
 
 @end

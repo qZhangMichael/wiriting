@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _selectTeachrtView.textField.placeholder = @"请选择老师";
     _selectTeachrtView.textField.tag = InputClickTypeSelectTeacher;
     _selectTeachrtView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
-    _selectTeachrtView.textField.text = @"zhangq94";
+//    _selectTeachrtView.textField.text = @"zhangq94";
     _selectTeachrtView.textField.delegate = self;
     [self.view addSubview:_selectTeachrtView];
     [_selectTeachrtView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _isOpenView.textField.placeholder = @"是否公开";
     _isOpenView.textField.delegate = self;
     _isOpenView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
-    _isOpenView.textField.text = @"2";
+//    _isOpenView.textField.text = @"2";
     [self.view addSubview:_isOpenView];
     [_isOpenView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -118,7 +118,8 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     
     _moneyView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"wiritingUpload_23.png" contentImg:@""];
     _moneyView.textField.placeholder = @"订单金额";
-    _moneyView.textField.text = @"Sany";
+    _moneyView.textField.keyboardType = UIKeyboardTypePhonePad;
+//    _moneyView.textField.text = @"Sany";
     [self.view addSubview:_moneyView];
     [_moneyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -179,7 +180,8 @@ typedef NS_ENUM(NSInteger,InputClickType) {
         RequestModel *reModel = [RequestModel yy_modelWithJSON:responseObject];
         [self showAlert:reModel.msg];
         if ([reModel verificationReturnParms]) {
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewXControllerAnimated:YES];
+//            [self.homeViewController.views removeFromSuperview ];
         }
         NSLog(@"%@",responseObject);
     } delegate:self];

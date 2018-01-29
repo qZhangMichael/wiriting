@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, PhotoType){
 //PhotoTypeWeb
 @property(nonatomic,strong)NSString *originalURL;
 @property(nonatomic,strong)NSString *thumbURL;
+@property(nonatomic,strong)UIImage  *thumbURLImage;
 
 
 @end

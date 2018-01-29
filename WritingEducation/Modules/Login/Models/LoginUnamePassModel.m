@@ -45,7 +45,9 @@ NSString *const LOGIN_UNAMEPASS  =  @"/soundapp/writer/login/unamepass";
         model.jobTitle = self.loginUserInfoM.teacher.jobTitle;
         model.name = self.loginUserInfoM.teacher.name;
         model.password = self.loginUserInfoM.teacher.password;
-        model.phoneNumber = self.loginUserInfoM.teacher.phoneNumber;
+#warning 此处是有争议需要讨论 错误点err.text 中3.4点
+//        model.phoneNumber = self.loginUserInfoM.teacher.phoneNumber;
+        model.phoneNumber = self.loginUserInfoM.phoneNumber;
         model.registeredTime = self.loginUserInfoM.teacher.registeredTime;
         model.schoolName = self.loginUserInfoM.teacher.schoolName;
     }else{

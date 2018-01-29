@@ -9,5 +9,7 @@
 #import "BaseTableViewCell.h"
 
 @interface PersonUndoCell : BaseTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
+@property (weak, nonatomic) IBOutlet UILabel *nameLb;
 
 @end

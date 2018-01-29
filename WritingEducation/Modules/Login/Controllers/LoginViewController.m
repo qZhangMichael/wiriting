@@ -8,9 +8,13 @@
 
 #import "LoginViewController.h"
 #import "SignInViewController.h"
+#import "BaseNavigationViewController.h"
+#import "PersonUndoViewController.h"
+#import "HomeViewController.h"
+//view
 #import "InputImageView.h"
 #import "LongButton.h"
-#import "HomeViewController.h"
+//model
 #import "LoginUnamePassModel.h"
 
 
@@ -54,7 +58,7 @@
     
     _userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
     _userImgView.textField.placeholder = @"请输入用户名/手机号码";
-    _userImgView.textField.text = @"15122223333";
+//    _userImgView.textField.text = @"15133332222";
     [self.view addSubview:_userImgView];
     [_userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -67,7 +71,7 @@
     _passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"4.png"];
     _passImgView.textField.placeholder = @"请输入登录密码";
     _passImgView.textField.secureTextEntry = YES;
-    _passImgView.textField.text = @"123456";
+//    _passImgView.textField.text = @"123456";
     [self.view addSubview:_passImgView];
     [_passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -189,13 +193,15 @@
             [KUserDefaults setObject:responseObject forKey:LOGIN_INFO];
             self.appdelegate.personInfoModel = [model convertToPersonInfoModel];
             [self showAlert:model.msg];
-            HomeViewController *vc =[HomeViewController new];
+            BaseViewController * vc=IsStudentRole?[HomeViewController new]:[PersonUndoViewController new];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             [self showAlert:[NSString stringWithFormat:@"%@%@",model.error_description,model.msg]];
         }
     } delegate:self];
 }
+
+
 
 -(void)dealloc{
     

@@ -250,7 +250,7 @@
     }];
     _technicalImgView.hidden = isStudent;
     _collectionView.hidden = isStudent;
-    _levelImgView.textField.text = isStudent?@"2":@"430902111114143333";
+//    _levelImgView.textField.text = isStudent?@"2":@"430902111114143333";
 }
 
 
