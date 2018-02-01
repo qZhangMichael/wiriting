@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0708FF2CEE4C5A2F8F6D24A8 /* libPods-WritingEducationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CC8CCBA6D48E768E9D4301 /* libPods-WritingEducationTests.a */; };
+		800B3B382021DAA500191612 /* BaseViewController+InputImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B3B372021DAA500191612 /* BaseViewController+InputImageView.m */; };
+		800B3B3B2021E49E00191612 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B3B3A2021E49E00191612 /* UITextView+Placeholder.m */; };
+		800B3B412022018100191612 /* ApprovedWorksRfcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B3B402022018100191612 /* ApprovedWorksRfcModel.m */; };
 		8016C471200E21BB00EAC5D6 /* writing.png in Resources */ = {isa = PBXBuildFile; fileRef = 8016C470200E21BB00EAC5D6 /* writing.png */; };
 		8016C474200E235A00EAC5D6 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8016C473200E235A00EAC5D6 /* MessageCenterViewController.m */; };
 		8016C47B200E24BB00EAC5D6 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8016C479200E24BB00EAC5D6 /* MessageCenterCell.m */; };
@@ -319,6 +322,12 @@
 		4F9D79B255D2064D420973A7 /* Pods-WritingEducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingEducation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingEducation/Pods-WritingEducation.debug.xcconfig"; sourceTree = "<group>"; };
 		596C5BAB8079C7BE3E6504F4 /* Pods-WritingEducationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingEducationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingEducationTests/Pods-WritingEducationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7708D7AB12BF04351C67E59B /* libPods-WritingEducationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WritingEducationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B3B362021DAA500191612 /* BaseViewController+InputImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+InputImageView.h"; sourceTree = "<group>"; };
+		800B3B372021DAA500191612 /* BaseViewController+InputImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+InputImageView.m"; sourceTree = "<group>"; };
+		800B3B392021E49E00191612 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		800B3B3A2021E49E00191612 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		800B3B3F2022018100191612 /* ApprovedWorksRfcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApprovedWorksRfcModel.h; sourceTree = "<group>"; };
+		800B3B402022018100191612 /* ApprovedWorksRfcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApprovedWorksRfcModel.m; sourceTree = "<group>"; };
 		8016C470200E21BB00EAC5D6 /* writing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writing.png; sourceTree = "<group>"; };
 		8016C472200E235A00EAC5D6 /* MessageCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
 		8016C473200E235A00EAC5D6 /* MessageCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
@@ -905,6 +914,8 @@
 				80AD8647200F91A000AB718A /* UITextView+Help.m */,
 				80B26582201DEBD0003B6A8A /* NSString+Help.h */,
 				80B26583201DEBD0003B6A8A /* NSString+Help.m */,
+				800B3B392021E49E00191612 /* UITextView+Placeholder.h */,
+				800B3B3A2021E49E00191612 /* UITextView+Placeholder.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -923,6 +934,8 @@
 				8036CA981FE2A52C00AD2341 /* BaseButton.m */,
 				80463A502006623A0088E821 /* BaseNavigationViewController.h */,
 				80463A512006623A0088E821 /* BaseNavigationViewController.m */,
+				800B3B362021DAA500191612 /* BaseViewController+InputImageView.h */,
+				800B3B372021DAA500191612 /* BaseViewController+InputImageView.m */,
 			);
 			name = Base;
 			path = WritingEducation/Base;
@@ -1234,6 +1247,8 @@
 		80AD8638200F7A3A00AB718A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				800B3B3F2022018100191612 /* ApprovedWorksRfcModel.h */,
+				800B3B402022018100191612 /* ApprovedWorksRfcModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2269,6 +2284,7 @@
 				80B265AE201DFFC4003B6A8A /* HBDrawModel.m in Sources */,
 				8016C47B200E24BB00EAC5D6 /* MessageCenterCell.m in Sources */,
 				80B265A8201DFFC4003B6A8A /* HBDrawSettingBoard.m in Sources */,
+				800B3B412022018100191612 /* ApprovedWorksRfcModel.m in Sources */,
 				8035D9731FE7F2F100D56B5E /* BrowseListViewController.m in Sources */,
 				802D41771FDD7C860056FDF6 /* main.m in Sources */,
 				80463A49200636620088E821 /* LoginUnamePassModel.m in Sources */,
@@ -2278,6 +2294,7 @@
 				80B26556201CE01D003B6A8A /* MBProgressHUD+BJHubHelper.m in Sources */,
 				80463A5C200797410088E821 /* MyWorksListModel.m in Sources */,
 				80463A69200A08D30088E821 /* TeacherInfoModel.m in Sources */,
+				800B3B3B2021E49E00191612 /* UITextView+Placeholder.m in Sources */,
 				80B265BB201E00E6003B6A8A /* PhotoViewController.m in Sources */,
 				80B265A7201DFFC4003B6A8A /* HBBackImageBoard.m in Sources */,
 				80B26559201D7FC3003B6A8A /* AgentMListModel.m in Sources */,
@@ -2317,6 +2334,7 @@
 				8036C9F81FDE830000AD2341 /* BaseViewController.m in Sources */,
 				8036CA7D1FE1695700AD2341 /* TabBarView.m in Sources */,
 				8036CA991FE2A52C00AD2341 /* BaseButton.m in Sources */,
+				800B3B382021DAA500191612 /* BaseViewController+InputImageView.m in Sources */,
 				80AD861D200E405200AB718A /* PhotoCollectionModel.m in Sources */,
 				80AD861A200E324000AB718A /* TeacherMModel.m in Sources */,
 				80AD8648200F91A000AB718A /* UITextView+Help.m in Sources */,

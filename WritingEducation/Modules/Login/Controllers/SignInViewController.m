@@ -15,7 +15,9 @@
 #import "TeacherInfoModel.h"
 #import "TZImagePickerController.h"
 
-@interface SignInViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate>
+
+
+@interface SignInViewController ()<PhotoCollectionViewDelegate,TZImagePickerControllerDelegate,UITextFieldDelegate>
 
 @property(nonatomic,strong)UIButton *studentBtn;
 @property(nonatomic,strong)UIButton *teacherBtn;
@@ -76,8 +78,7 @@
     }];
     
     _nameImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
-    _nameImgView.textField.placeholder = @"请输入学生姓名";
-//    _nameImgView.textField.text = @"zhangq94";
+//    _nameImgView.textField.placeholder = @"请输入学生姓名";
     [self.view addSubview:_nameImgView];
     [_nameImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -88,7 +89,6 @@
     }];
     
     _phoneImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"15.png"];
-    _phoneImgView.textField.placeholder = @"请输入手机号码";
 //    _phoneImgView.textField.text = @"18100680066";
     _phoneImgView.textField.keyboardType = UIKeyboardTypePhonePad;
     [self.view addSubview:_phoneImgView];
@@ -101,9 +101,9 @@
     }];
     
     _passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png" contentImg:@"4.png"];
-    _passImgView.textField.placeholder = @"请输入登录密码";
 //    _passImgView.textField.text = @"zhangq94";
     [self.view addSubview:_passImgView];
+    _passImgView.textField.secureTextEntry = YES;
     [_passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(_phoneImgView.mas_bottom).with.offset(topGap);
@@ -113,8 +113,8 @@
     }];
     
     _levelImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"11.png" contentImg:@"16.png"];
-    _levelImgView.textField.placeholder = @"请输入学生年级";
-//    _levelImgView.textField.text = @"2";
+    _levelImgView.textField.delegate = self;
+    _levelImgView.textField.tag = 111;
     [self.view addSubview:_levelImgView];
     [_levelImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -125,8 +125,6 @@
     }];
     
     _schoolImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"17.png"];
-    _schoolImgView.textField.placeholder = @"请输入学生学校名称";
-//    _schoolImgView.textField.text = @"Sany";
     [self.view addSubview:_schoolImgView];
     [_schoolImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -137,8 +135,8 @@
     }];
     
     _technicalImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"10.png" contentImg:@"19.png"];
-    _technicalImgView.textField.placeholder = @"请输入您的职称";
-//    _technicalImgView.textField.text = @"高中老师";
+    _technicalImgView.textField.delegate = self;
+    _technicalImgView.textField.tag = 222;
     [self.view addSubview:_technicalImgView];
     [_technicalImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -191,7 +189,7 @@
         make.height.mas_equalTo(Height);
     }];
     
-    [self switchSignPerson:YES];
+    [self selectType:_studentBtn];
 }
 
 -(void)selectType:(id)action{
@@ -200,12 +198,34 @@
     if (btn.tag ==111) {
         _studentBtn.selected = YES;
         _teacherBtn.selected = NO;
-        [self switchSignPerson:YES];
     }else{
         _studentBtn.selected = NO;
         _teacherBtn.selected = YES;
-        [self switchSignPerson:NO];
     }
+    if (_studentBtn.selected) {
+        _nameImgView.textField.placeholder = @"请输入学生姓名";
+        _phoneImgView.textField.placeholder = @"请输入手机号码";
+        _passImgView.textField.placeholder = @"请输入登录密码";
+        _levelImgView.textField.placeholder = @"请选择学生年级";
+        _levelImgView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
+        _schoolImgView.textField.placeholder = @"请输入学生学校名称";
+    }else{
+        _nameImgView.textField.placeholder = @"请输入老师姓名";
+        _phoneImgView.textField.placeholder = @"请输入手机号码";
+        _passImgView.textField.placeholder = @"请输入登录密码";
+        _levelImgView.textField.placeholder = @"请输入身份证号码";
+        _levelImgView.rightImgView.image = nil;
+        _levelImgView.textField.text = @"";
+        _schoolImgView.textField.placeholder = @"请输入学校名称";
+        _technicalImgView.textField.placeholder = @"请选择教师等级";
+        _technicalImgView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
+    }
+    CGFloat Height =_studentBtn.selected?0:45*kPROPORTION;
+    [_technicalImgView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(Height);
+    }];
+    _technicalImgView.hidden = _studentBtn.selected;
+    _collectionView.hidden = _studentBtn.selected;
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
@@ -238,19 +258,6 @@
         }];
     }
     [self presentViewController:imagePickerVc animated:YES completion:nil];
-}
-
-
-
--(void)switchSignPerson:(BOOL)isStudent{
-    
-    CGFloat Height = isStudent?0:45*kPROPORTION;
-    [_technicalImgView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(Height);
-    }];
-    _technicalImgView.hidden = isStudent;
-    _collectionView.hidden = isStudent;
-//    _levelImgView.textField.text = isStudent?@"2":@"430902111114143333";
 }
 
 
@@ -317,6 +324,19 @@
         } delegate:self];
     }
 }
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    if (textField.tag == 111&&_levelImgView.rightImgView.image!=nil) {
+        [self toAlertSelect:textField titleArray:@[@"一年级",@"二年级",@"三年级",@"四年级",@"五年级",@"六年级"]];
+        return NO;
+    }else if(textField.tag == 222){
+        [self toAlertSelect:textField titleArray:@[@"特级教师",@"一级教师",@"二级教师",@"三级教师"]];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

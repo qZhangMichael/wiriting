@@ -51,7 +51,7 @@ static NSString * const collectionCellID = @"collectionCellID";
     self.backImageView.hidden = YES;
     self.centerView.hidden = self.collectionView.hidden = NO;
     
-    self.pickImagebtn.hidden =YES;
+//    self.pickImagebtn.hidden =YES;
 
 }
 - (void)layoutSubviews
@@ -101,10 +101,10 @@ static NSString * const collectionCellID = @"collectionCellID";
 - (IBAction)openAlbum:(UIButton *)sender {
     
     
-    self.backImageView.hidden = NO;
-    self.centerView.hidden = self.collectionView.hidden = YES;
-
-    if (sender.tag) return;
+//    self.backImageView.hidden = NO;
+//    self.centerView.hidden = self.collectionView.hidden = YES;
+//
+//    if (sender.tag) return;
     
     if (self.stype) {
         self.stype(setTypeAlbum);

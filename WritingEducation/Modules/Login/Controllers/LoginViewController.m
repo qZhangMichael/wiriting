@@ -180,6 +180,11 @@
 
 -(void)clickLogin{
     
+    if (IsEmptyStr(_userImgView.textField.text)) {
+        [self showAlert:@"用户名不能为空"];return;
+    }else if(IsEmptyStr(_passImgView.textField.text)){
+        [self showAlert:@"密码不能为空"];return;
+    }
     [self showLoading];
     RequestHelp *requestHelp = [RequestHelp new];
     LoginUnamePassModel *model = [LoginUnamePassModel new];

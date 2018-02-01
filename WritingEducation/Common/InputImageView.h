@@ -8,6 +8,7 @@
 
 #import "BaseView.h"
 #import "DefineMacro.h"
+#import "BaseViewController+InputImageView.h"
 
 @interface InputImageView : BaseView <UITextFieldDelegate>
 //背景图片

@@ -13,11 +13,15 @@
 #import "TextImageView.h"
 #import "LongButton.h"
 
+#import "ApprovedWorksRfcModel.h"
+
 @interface TeacherProductDetailViewController ()<PhotoCollectionViewDelegate>
 
 @property(nonatomic,strong)PhotoCollectionView *collectionView;
 @property(nonatomic,strong)TextImageView *teacherCommentTextImg;
 @property(nonatomic,strong)TextImageView *scoreTextImg;
+
+@property(nonatomic,strong)PhotoCollectionModel *selectModel;
 
 @end
 
@@ -73,6 +77,7 @@
     _scoreTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"list.png" content:@"" edg:UIEdgeInsetsMake(0, 0, 0, 0)];
     _scoreTextImg.contentText.textAlignment = NSTextAlignmentCenter;
     _scoreTextImg.contentText.font = [UIFont systemFontOfSize:18];
+//    _scoreTextImg.contentText.placeholder = @"请输入文章分数0～100";
     [self.view addSubview:_scoreTextImg];
     [_scoreTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_teacherCommentTextImg.mas_bottom).with.offset(updownGap);
@@ -105,20 +110,53 @@
 
 -(void)clickSubmit:(id)sender{
     
+    ApprovedWorksRfcModel *worksModel = [ApprovedWorksRfcModel new];
+    worksModel.agentListUuid = _agentMModel.worksList.firstObject.agentListUuid;
+    worksModel.worksScore = _scoreTextImg.contentText.text;
+    worksModel.workEvaluation = _teacherCommentTextImg.contentText.text;
+    worksModel.dealer = GlobalUserInfo.phoneNumber;
     
+    NSDateFormatter *dateForm = [NSDateFormatter new];
+    dateForm.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *current = [dateForm stringFromDate:[NSDate date]];
+    worksModel.dealTime = current;
+    
+    NSDictionary *dict = [worksModel modelConvertDict];
+    RequestHelp *requestHelp  = [RequestHelp new];
+    NSMutableArray *mutArr = [NSMutableArray array];
+    for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
+        if (photoModel.photoType == PhotoTypeLocal) {
+            [mutArr addObject:photoModel.thumbUIImage];
+        }
+    }
+    
+    [self showLoading];
+    [requestHelp postUrl:URL_APPROVED_WORKS  parameters:dict WithUIImageArray:mutArr postImgBlock:^(id  _Nonnull responseObject) {
+        [self hideLoading];
+        RequestModel *reModel = [RequestModel yy_modelWithJSON:responseObject];
+        [self showAlert:reModel.msg];
+        if ([reModel verificationReturnParms]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        NSLog(@"%@",responseObject);
+    } delegate:self];
     
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
-    PhotoCollectionModel *model = self.collectionView.dataArray[indexPath.row];
-//    PhotoViewController * vc = [[PhotoViewController alloc]initWithBackImg:model.thumbURLImage Edtior:YES];
-    ReadPhotoViewController* vc = [[ReadPhotoViewController alloc]init:model.thumbURLImage];
-    [self.navigationController pushViewController:vc animated:YES];
-
-//    [self presentViewController:vc animated:YES completion:nil];
-    
+    _selectModel = self.collectionView.dataArray[indexPath.row];
+    if (_teacherProductType == TeacherProductDetailTypeReaded) {
+        ReadPhotoViewController * vc = [[ReadPhotoViewController alloc]init:_selectModel.thumbURLImage];
+        [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        PhotoViewController * vc = [[PhotoViewController alloc]initWithBackImg:_selectModel.thumbURLImage Edtior:YES editorImg:^(UIImage *img) {
+            _selectModel.thumbURLImage = img;
+        }];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

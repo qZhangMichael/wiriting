@@ -37,7 +37,7 @@
         cell.selectImage.hidden = NO;
         cell.layer.borderColor = [UIColor purpleColor].CGColor;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:ImageBoardNotification object:nil userInfo:[NSDictionary dictionaryWithObject:cell.imageName forKey:@"imageBoardName"]];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:ImageBoardNotification object:nil userInfo:[NSDictionary dictionaryWithObject:cell.imageName forKey:@"imageBoardName"]];
 
     }
     
@@ -60,7 +60,7 @@
     cell.selectImage.hidden = NO;
     cell.layer.borderColor = [UIColor purpleColor].CGColor;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:ImageBoardNotification object:nil userInfo:[NSDictionary dictionaryWithObject:cell.imageName forKey:@"imageBoardName"]];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:ImageBoardNotification object:nil userInfo:[NSDictionary dictionaryWithObject:cell.imageName forKey:@"imageBoardName"]];
 }
 
 - (UIImageView *)imageView

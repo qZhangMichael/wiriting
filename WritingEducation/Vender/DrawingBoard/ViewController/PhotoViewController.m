@@ -9,14 +9,15 @@
 #import "PhotoViewController.h"
 #import "ZYQAssetPickerController.h"
 #import "UIView+WHB.h"
-#import "HBDrawingBoard.h"
+
 #import "MJExtension.h"
 
-@interface PhotoViewController ()<ZYQAssetPickerControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,HBDrawingBoardDelegate>
+@interface PhotoViewController ()<ZYQAssetPickerControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,HBDrawingBoardDelegate,HBDrawingSaveImgDelegate>
 
-
-@property (nonatomic, strong) HBDrawingBoard *drawView;
 @property(nonatomic,strong)UIImage *backgroudImg;
+
+@property(nonatomic,strong)EditImgBlock editImgBlock;
+
 @end
 
 @implementation PhotoViewController
@@ -27,17 +28,28 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"PhotoViewController" bundle:nil];
         self = [sb instantiateViewControllerWithIdentifier:@"PhotoViewController"];
         self.backgroudImg = image;
+        
     }
     return self;
 }
 
+-(instancetype)initWithBackImg:(UIImage *)image Edtior:(BOOL)isEdtior editorImg:(EditImgBlock)editImgBlock{
+    if ([super init]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"PhotoViewController" bundle:nil];
+        self = [sb instantiateViewControllerWithIdentifier:@"PhotoViewController"];
+        self.backgroudImg = image;
+        self.editImgBlock = editImgBlock;
+    }
+    return self;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.drawView];
-    self.drawView.backImage.image = self.backgroudImg;
+//    self.drawView.backImage.image = self.backgroudImg;
     
 }
 - (void)viewDidLayoutSubviews
@@ -57,7 +69,7 @@
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
 //    self.drawView.backImage.image = image;
-    self.drawView.backImage.image = self.backgroudImg;
+//    self.drawView.backImage.image = self.backgroudImg;
     __weak typeof(self) weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         [weakSelf.drawView showSettingBoard];
@@ -94,12 +106,13 @@
     switch (action) {
         case actionOpenAlbum:
         {
-            ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc]init];
-            picker.maximumNumberOfSelection = 1;
-            picker.assetsFilter = [ALAssetsFilter allAssets];
-            picker.showEmptyGroups = NO;
-            picker.delegate = self;
-            [self presentViewController:picker animated:YES completion:nil];
+//            ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc]init];
+//            picker.maximumNumberOfSelection = 1;
+//            picker.assetsFilter = [ALAssetsFilter allAssets];
+//            picker.showEmptyGroups = NO;
+//            picker.delegate = self;
+            [self dismissViewControllerAnimated:YES completion:nil];
+           
         }
 
             break;
@@ -134,10 +147,21 @@
 {
     if (!_drawView) {
         _drawView = [[HBDrawingBoard alloc] initWithFrame:CGRectMake(0, 50, self.view.width, self.view.height-50)];
+        _drawView.backImage.image = self.backgroudImg;
         _drawView.delegate = self;
+        _drawView.saveDelegate = self;
         
     }
     return _drawView;
+}
+
+-(void)drawingSaveImg:(UIImage *)img{
+    
+    if (_editImgBlock) {
+        _editImgBlock(img);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end

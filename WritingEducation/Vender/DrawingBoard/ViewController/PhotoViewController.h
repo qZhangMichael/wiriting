@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HBDrawingBoard.h"
+
+typedef void(^EditImgBlock)(UIImage *img);
 
 @interface PhotoViewController : UIViewController
 
--(instancetype)initWithBackImg:(UIImage *)image Edtior:(BOOL)isEdtior;
+-(instancetype)initWithBackImg:(UIImage *)image Edtior:(BOOL)isEdtior editorImg:(EditImgBlock)editImgBlock;
+
+@property (nonatomic, strong) HBDrawingBoard *drawView;
+
 
 @end
 

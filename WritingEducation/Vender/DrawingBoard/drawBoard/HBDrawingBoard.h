@@ -27,7 +27,8 @@ typedef NS_ENUM(NSInteger, HBDrawingShapeType)
 };
 typedef NS_ENUM(NSInteger, actionOpen) {
     actionOpenAlbum,
-    actionOpenCamera
+    actionOpenCamera,
+    actionOpenSave
 };
 
 
@@ -42,6 +43,12 @@ typedef NS_ENUM(NSInteger, actionOpen) {
 
 @end
 
+@protocol HBDrawingSaveImgDelegate<NSObject>
+
+-(void)drawingSaveImg:(UIImage *)img;
+
+@end
+
 @interface HBDrawingBoard : UIView
 
 @property (nonatomic, assign) BOOL ise;
@@ -51,6 +58,9 @@ typedef NS_ENUM(NSInteger, actionOpen) {
 @property (nonatomic, strong) UIImageView *backImage;
 
 @property (nonatomic, weak) id<HBDrawingBoardDelegate> delegate;
+
+@property(nonatomic,weak)id<HBDrawingSaveImgDelegate>saveDelegate;
+
 /**
  *  根据点的集合绘制      
  *

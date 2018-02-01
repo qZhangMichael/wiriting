@@ -15,4 +15,5 @@
 @property(nonatomic,strong)NSString *imagePath;//(string) 评阅后的作品图片保存的路径
 @property(nonatomic,strong)NSString *uuid;//(string) 主键UUID
 
+
 @end

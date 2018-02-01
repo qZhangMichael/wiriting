@@ -9,6 +9,7 @@
 #import "UpdatePhotoViewController.h"
 #import "TZImagePickerController.h"
 #import "TeacherListViewController.h"
+#import "BaseViewController+InputImageView.h"
 
 #import "PhotoCollectionView.h"
 #import "InputImageView.h"
@@ -170,6 +171,8 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     NSMutableArray *mutArr = [NSMutableArray array];
     for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
         if (photoModel.photoType == PhotoTypeLocal) {
+//            photoModel.thumbUIImage.t
+//            photoModel.thumbUIImage.imageAsset.
             [mutArr addObject:photoModel.thumbUIImage];
         }
     }
@@ -242,16 +245,7 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     return YES;
 }
 
--(void)toAlertSelect:(UITextField *)textField titleArray:(NSArray <NSString*> *)titleArray{
-    
-    UIAlertController *alerVc = [UIAlertController alertControllerWithTitle:textField.placeholder message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    for (NSString *title in titleArray) {
-        [alerVc addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            textField.text = action.title;
-        }]];
-    }
-    [self presentViewController:alerVc animated:YES completion:nil];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

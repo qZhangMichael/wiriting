@@ -28,6 +28,6 @@
 @property(nonatomic,strong)CostInfoModel *costInfo;// (CostInfo, optional): 代办对应的缴费信息
 @property(nonatomic,strong)NSArray *approvedWorksList;// (Array[ApprovedWorks], optional): 作品评阅结果图片 ,
 @property(nonatomic,strong)NSArray *changeTheResult;// (Array[ChangeTheResult], optional): 评阅信息 ,
-@property(nonatomic,strong)NSArray *worksList;// (Array[Works], optional): 代办对应的作品
+@property(nonatomic,strong)NSArray <WorksModel *>*worksList;// (Array[Works], optional): 代办对应的作品
 
 @end

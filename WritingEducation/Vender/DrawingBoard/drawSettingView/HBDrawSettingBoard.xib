@@ -27,7 +27,7 @@
                         </button>
                         <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weZ-y2-mTf">
                             <rect key="frame" x="450" y="0.0" width="150" height="64"/>
-                            <state key="normal" image="baocun"/>
+                            <state key="normal" title="保存"/>
                             <connections>
                                 <action selector="saveImage:" destination="iN0-l3-epB" eventType="touchUpInside" id="9c1-Kt-gfu"/>
                             </connections>
@@ -41,7 +41,7 @@
                         </button>
                         <button opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="130-Zl-6bG">
                             <rect key="frame" x="300" y="0.0" width="150" height="64"/>
-                            <state key="normal" image="tupian"/>
+                            <state key="normal" title="返回"/>
                             <connections>
                                 <action selector="openAlbum:" destination="iN0-l3-epB" eventType="touchUpInside" id="9bh-eN-Ng8"/>
                             </connections>
@@ -269,13 +269,11 @@
         </view>
     </objects>
     <resources>
-        <image name="baocun" width="93" height="44"/>
         <image name="bi" width="93" height="44"/>
         <image name="chexiao" width="26" height="26"/>
         <image name="paizhao" width="93" height="44"/>
         <image name="qianjin" width="26" height="26"/>
         <image name="shanchu" width="26" height="26"/>
-        <image name="tupian" width="93" height="44"/>
         <image name="xiangce" width="31" height="27"/>
         <image name="xiangpica" width="26" height="26"/>
     </resources>

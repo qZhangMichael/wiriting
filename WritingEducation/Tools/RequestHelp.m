@@ -145,14 +145,16 @@ static NSString *const tokenRequestStr = @"tokenStr";
         [manager POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
             NSDateFormatter *dateFor = [NSDateFormatter new];
             dateFor.dateFormat = @"yyyyMMddHHmmss";
-            for (UIImage *image in imgArr) {
-                 NSData *data = UIImagePNGRepresentation(image);
+            for (int i =0;i<imgArr.count;i++) {
+                UIImage *image = imgArr[i];
+                NSData *data = UIImagePNGRepresentation(image);
                 NSString *str = @"image/png";
                 if (data==nil) {
                     data = UIImageJPEGRepresentation(image,1);
                     str = @"image/jpeg";
                 }
-                 [formData appendPartWithFileData:data name:@"files" fileName:[dateFor stringFromDate:[NSDate date]] mimeType:str];
+                NSString * strName = [NSString stringWithFormat:@"%@%d",[dateFor stringFromDate:[NSDate date]],i];
+                 [formData appendPartWithFileData:data name:@"files" fileName:strName mimeType:str];
             }
         } progress:^(NSProgress * _Nonnull uploadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

@@ -61,10 +61,10 @@
         
          __weak typeof(self) weakSelf = self;
         //接受背景图片修改的通知
-        [[NSNotificationCenter defaultCenter] addObserverForName:ImageBoardNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-            NSString *str = [note.userInfo objectForKey:@"imageBoardName"];
-             weakSelf.backImage.image = [UIImage imageNamed:str];
-        }];
+//        [[NSNotificationCenter defaultCenter] addObserverForName:ImageBoardNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+//            NSString *str = [note.userInfo objectForKey:@"imageBoardName"];
+//             weakSelf.backImage.image = [UIImage imageNamed:str];
+//        }];
         
 //        接受画笔修改的通知
         [[NSNotificationCenter defaultCenter] addObserverForName:SendColorAndWidthNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
@@ -354,9 +354,8 @@
                     break;
                 case setTypeAlbum:
                 {
-                    return;
-                    [self hideSettingBoard];
-
+//                    return;
+//                    [self hideSettingBoard];
                     if ([self.delegate respondsToSelector:@selector(drawBoard:action:)]) {
                         [self.delegate drawBoard:self action:actionOpenAlbum];
                     }
@@ -365,7 +364,12 @@
                 case setTypeSave:
                 {
                     [weakSelf.drawWindow hideWithAnimationTime:0.25];
-                    UIImageWriteToSavedPhotosAlbum([self screenshot:self], nil, nil, nil);
+                    UIImage *img = [self screenshot:self];
+                    if ([self.saveDelegate respondsToSelector:@selector(drawingSaveImg:)]) {
+                        [self.saveDelegate performSelector:@selector(drawingSaveImg:) withObject:img];
+                    }
+                    //保存到相册
+//                    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
                     NSLog(@"保存成功");
                 }
                     break;
