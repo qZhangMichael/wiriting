@@ -111,10 +111,9 @@
 //            picker.assetsFilter = [ALAssetsFilter allAssets];
 //            picker.showEmptyGroups = NO;
 //            picker.delegate = self;
+            [self.drawView hideSettingBoard];
             [self dismissViewControllerAnimated:YES completion:nil];
-           
         }
-
             break;
         case actionOpenCamera:
         {

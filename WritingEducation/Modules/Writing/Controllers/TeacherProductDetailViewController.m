@@ -44,9 +44,9 @@
         photoModel.thumbURL = model.imageContentPath;
         [self.collectionView.dataArray insertObject:photoModel atIndex:0];
     }
-    if (self.collectionView.dataArray.count>3) {
+//    if (self.collectionView.dataArray.count>3) {
         [self.collectionView.dataArray removeLastObject];
-    }
+//    }
 }
 
 -(void)initWithView{
@@ -64,8 +64,8 @@
     }];
     _collectionView.photoCollectionDelegate = self;
     
-    _teacherCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"11" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
-//    @"_productModel.changeTheResult.workEvaluation"
+    _teacherCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
+     _teacherCommentTextImg.contentText.placeholder = @"老师评论";
     _teacherCommentTextImg.contentText.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_teacherCommentTextImg];
     [_teacherCommentTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,10 +74,11 @@
         make.height.mas_equalTo(height*3);
     }];
     
-    _scoreTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"list.png" content:@"" edg:UIEdgeInsetsMake(0, 0, 0, 0)];
+    _scoreTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"list.png" content:@"" edg:UIEdgeInsetsMake(4, 0, 0, 0)];
     _scoreTextImg.contentText.textAlignment = NSTextAlignmentCenter;
     _scoreTextImg.contentText.font = [UIFont systemFontOfSize:18];
-//    _scoreTextImg.contentText.placeholder = @"请输入文章分数0～100";
+    _scoreTextImg.contentText.keyboardType = UIKeyboardTypeNumberPad;
+    _scoreTextImg.contentText.placeholder = @"请输入文章分数0～100";
     [self.view addSubview:_scoreTextImg];
     [_scoreTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_teacherCommentTextImg.mas_bottom).with.offset(updownGap);
@@ -125,8 +126,8 @@
     RequestHelp *requestHelp  = [RequestHelp new];
     NSMutableArray *mutArr = [NSMutableArray array];
     for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
-        if (photoModel.photoType == PhotoTypeLocal) {
-            [mutArr addObject:photoModel.thumbUIImage];
+        if (photoModel.photoType == PhotoTypeWeb) {
+            [mutArr addObject:photoModel.thumbURLImage];
         }
     }
     

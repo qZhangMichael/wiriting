@@ -13,6 +13,9 @@
 #define SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kPROPORTION  SCREEN_WIDTH/375                        //常规比例
 
+
+#define BUNDLEID  [[NSBundle mainBundle]bundleIdentifier]
+
 //随机颜色
 #define KRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 #define Color(R,G,B)  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
@@ -33,6 +36,10 @@
 
 //全局
 #define KUserDefaults [NSUserDefaults standardUserDefaults]
+#define KNotificationCenter [NSNotificationCenter defaultCenter]
 #define LOGIN_INFO  @"LOGIN_INFO"
+#define LOGIN_USERNAME  @"Username"
+#define LOGIN_PASSWORD  @"Password"
+
 
 #endif /* DefineMacro_h */

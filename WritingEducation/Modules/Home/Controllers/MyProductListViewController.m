@@ -28,7 +28,12 @@
     self.view.backgroundColor = [UIColor clearColor];
     [self initWithData];
     [self initWithView];
-    [self requestData];
+   
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+     [self requestData];
 }
 
 -(void)initWithData{

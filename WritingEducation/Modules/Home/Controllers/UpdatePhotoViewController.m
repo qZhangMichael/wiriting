@@ -20,7 +20,8 @@
 typedef NS_ENUM(NSInteger,InputClickType) {
     InputClickTypeReadWay,
     InputClickTypeSelectTeacher,
-    InputClickTypeIsOpen
+    InputClickTypeIsOpen,
+    InputClickTypeMoney
 };
 
 @interface UpdatePhotoViewController ()<UITabBarDelegate,TZImagePickerControllerDelegate,PhotoCollectionViewDelegate,UITextFieldDelegate>
@@ -107,7 +108,6 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     _isOpenView.textField.placeholder = @"是否公开";
     _isOpenView.textField.delegate = self;
     _isOpenView.rightImgView.image = [UIImage imageNamed:@"wiritingUpload_right.png"];
-//    _isOpenView.textField.text = @"2";
     [self.view addSubview:_isOpenView];
     [_isOpenView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -119,7 +119,9 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     
     _moneyView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"wiritingUpload_23.png" contentImg:@""];
     _moneyView.textField.placeholder = @"订单金额";
-    _moneyView.textField.keyboardType = UIKeyboardTypePhonePad;
+//    _moneyView.textField.keyboardType = UIKeyboardTypePhonePad;
+    _moneyView.textField.delegate = self;
+    _moneyView.textField.tag = InputClickTypeMoney;
 //    _moneyView.textField.text = @"Sany";
     [self.view addSubview:_moneyView];
     [_moneyView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -171,8 +173,6 @@ typedef NS_ENUM(NSInteger,InputClickType) {
     NSMutableArray *mutArr = [NSMutableArray array];
     for (PhotoCollectionModel *photoModel in self.collectionView.dataArray ) {
         if (photoModel.photoType == PhotoTypeLocal) {
-//            photoModel.thumbUIImage.t
-//            photoModel.thumbUIImage.imageAsset.
             [mutArr addObject:photoModel.thumbUIImage];
         }
     }
@@ -183,8 +183,8 @@ typedef NS_ENUM(NSInteger,InputClickType) {
         RequestModel *reModel = [RequestModel yy_modelWithJSON:responseObject];
         [self showAlert:reModel.msg];
         if ([reModel verificationReturnParms]) {
-//            [self.navigationController popViewXControllerAnimated:YES];
-//            [self.homeViewController.views removeFromSuperview ];
+            NSNumber *number = [NSNumber numberWithBool:YES];
+            [KNotificationCenter postNotificationName:@"InfoNotification" object:number];
         }
         NSLog(@"%@",responseObject);
     } delegate:self];
@@ -240,6 +240,9 @@ typedef NS_ENUM(NSInteger,InputClickType) {
         return NO;
     }else if(textField.tag == InputClickTypeIsOpen){
        [self toAlertSelect:textField titleArray:@[@"是",@"否"]];
+        return NO;
+    }else if(textField.tag == InputClickTypeMoney){
+        [self toAlertSelect:textField titleArray:@[@"💲5",@"💲10",@"💲20"]];
         return NO;
     }
     return YES;

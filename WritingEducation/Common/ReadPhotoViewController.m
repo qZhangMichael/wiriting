@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initWithView];
+    
 }
 
 -(void)initWithView{
@@ -35,7 +36,23 @@
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(40);
+        make.right.equalTo(self.view).with.offset(-20);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
 }
+
+-(void)btnClick:(id)action{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

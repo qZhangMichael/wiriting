@@ -49,14 +49,16 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 
 -(void)initWithView{
     
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"photo-1.png"] forState:UIControlStateNormal ];
     [leftBtn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setFrame:CGRectMake(0, 0, 30, 30)];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftItem;
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setBackgroundImage:[UIImage imageNamed:@"photo-2.png"] forState:UIControlStateNormal ];
+    [rightBtn setFrame:CGRectMake(0, 0, 30, 30)];
     [rightBtn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -68,15 +70,24 @@ typedef NS_ENUM(NSInteger, HomeViewType){
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    UIImageView *cameraImageView = [UIImageView new];
-    cameraImageView.image = [UIImage imageNamed:@"bg_camera.png"];
-    [self.view addSubview:cameraImageView];
-    [cameraImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *cameraBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cameraBtn setImage:[UIImage imageNamed:@"bg_camera.png"] forState:UIControlStateNormal];
+    [cameraBtn addTarget:self action:@selector(cameraBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cameraBtn];
+    [cameraBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.view).with.offset(200);
         make.size.mas_equalTo(CGSizeMake(200, 150));
     }];
     
+//    UIImageView *cameraImageView = [UIImageView new];
+//    cameraImageView.image = [UIImage imageNamed:@"bg_camera.png"];
+//    [self.view addSubview:cameraImageView];
+//    [cameraImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.view);
+//        make.top.equalTo(self.view).with.offset(200);
+//        make.size.mas_equalTo(CGSizeMake(200, 150));
+//    }];
 }
 
 #pragma mark - 切换viewController
@@ -85,7 +96,6 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 
     _updateBtn = [CloudButton buttonWithType:UIButtonTypeCustom title:@"上传作文" normalImg:@"photo-12-1.png" selectImg:@"photo-9-1.png"];
     [self.view addSubview:_updateBtn];
-//    _updateBtn.selected = YES;
     _updateBtn.tag = HomeViewTypeUpdatePhoto;
     _updateBtn.delegate =self;
     [_updateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,6 +126,14 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 }
 
 
+-(void)cameraBtnClick:(id)action{
+    
+    _updateBtn.selected=YES;
+    _writingBtn.selected=NO;
+    _browseBtn.selected=NO;
+    self.title =@"上传作文";
+    [self toViewController:HomeViewTypeUpdatePhoto];
+}
 
 -(void)cloudButtonClick:(id)action{
     
@@ -140,25 +158,39 @@ typedef NS_ENUM(NSInteger, HomeViewType){
 }
 
 -(void)toViewController:(NSInteger)tag{
-    
-//    if(tag == self.homeViewType&&self.currentViewController){
-//        [self.currentViewController willMoveToParentViewController:nil];
-//        [self.currentViewController removeFromParentViewController];
 
+        self.homeViewType = tag;
         [self.currentViewController.view removeFromSuperview];
-//        self.currentViewController = nil;
-//    }else{
         if (tag == HomeViewTypeUpdatePhoto) {
+            if (self.updatePhotoViewController == self.currentViewController) {
+                self.updatePhotoViewController = nil;
+                [self.currentViewController.view removeFromSuperview];
+                self.currentViewController = nil;
+                _updateBtn.selected = NO;
+                self.title = @"Home";
+                return;
+            }
+            [KNotificationCenter addObserver:self selector:@selector(InfoNotificationAction:) name:@"InfoNotification" object:nil];
             self.currentViewController = self.updatePhotoViewController;
-            self.updatePhotoViewController.homeViewController = self;
+            [self.view addSubview:self.currentViewController.view];
         }else if (tag == HomeViewTypeMyProductList){
             self.currentViewController = self.myProductListViewController;
+            [self.view addSubview:self.currentViewController.view];
         }else if (tag ==HomeViewTypeBrowseList){
             self.currentViewController = self.browseListViewController;
+            [self.view addSubview:self.currentViewController.view];
         }
-        self.homeViewType = tag;
-        [self.view addSubview:self.currentViewController.view];
-//    }
+}
+
+- (void)InfoNotificationAction:(NSNotification *)notification{
+    
+    NSLog(@"%@",notification.object);
+    NSNumber *number = notification.object;
+    self.updatePhotoViewController = nil;
+    if (number.boolValue) {
+        [self cloudButtonClick:_writingBtn];
+    }
+    [KNotificationCenter removeObserver:self];
 }
 
 -(void)leftBtnClick:(id)action{
@@ -188,7 +220,6 @@ typedef NS_ENUM(NSInteger, HomeViewType){
     if (!_updatePhotoViewController) {
         _updatePhotoViewController = [UpdatePhotoViewController new];
         [self addChildViewController:_updatePhotoViewController];
-        //    [_updatePhotoViewController didMoveToParentViewController:self];
         [_updatePhotoViewController.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.frame.size.height-TabBarHeight)];
     }
     return _updatePhotoViewController;

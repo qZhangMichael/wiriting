@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Tools/RequestHelp.m"
-            timestampString = "539136524.939362"
+            timestampString = "543763307.215258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Writing/Views/TextImageView.m"
-            timestampString = "537894267.383849"
+            timestampString = "541347975.721318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -121,56 +121,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Person/Controllers/PersonCenterViewController.m"
-            timestampString = "538843147.932974"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-initWithView"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PersonCenterViewController initWithView]"
-                  moduleName = "WritingEducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Person/Controllers/PersonCenterViewController.m"
-                  timestampString = "538759256.8075939"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "4255">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__42-[PersonCenterViewController initWithView]_block_invoke.143"
-                  moduleName = "WritingEducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Person/Controllers/PersonCenterViewController.m"
-                  timestampString = "538759256.809797"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Person/Controllers/LeftMenuViewController.m"
-            timestampString = "538843147.933648"
+            timestampString = "541348153.4765151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -186,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-            timestampString = "538843147.933979"
+            timestampString = "541348153.476591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-requestData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Login/Controllers/LoginViewController.m"
-            timestampString = "539136524.9396729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-clickLogin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -234,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-            timestampString = "538843147.934864"
+            timestampString = "541348153.476673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-requestData"
             landmarkType = "7">
             <Locations>
@@ -250,11 +186,11 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-                  timestampString = "539100400.826371"
+                  timestampString = "543763403.507444"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
                   offsetFromSymbolStart = "474">
                </Location>
                <Location
@@ -265,11 +201,11 @@
                   moduleName = "WritingEducation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-                  timestampString = "539100400.83043"
+                  timestampString = "543763403.511717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
@@ -282,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
-            timestampString = "538843147.935046"
+            timestampString = "541348153.476724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.940327"
+            timestampString = "541348153.476801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -330,76 +266,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.9406101"
+            timestampString = "541348153.476855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
             landmarkName = "-imagePickerControllerDidCancel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Home/Controllers/UpdatePhotoViewController.m"
-            timestampString = "539136524.9434071"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-didClickCollectionItem:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Home/Controllers/UpdatePhotoViewController.m"
-            timestampString = "539136524.943532"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "-submitWriting"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.943655"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-drawBoard:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/drawSettingView/HBDrawSettingBoard.m"
-            timestampString = "539136524.944441"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-openAlbum:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,86 +314,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingEducation/Vender/DrawingBoard/drawBoard/HBDrawingBoard.m"
-            timestampString = "539136524.9457541"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "-settingBoard"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.94663"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-drawingSaveImg:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.9468"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "-drawBoard:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.946923"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-drawBoard:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/ViewController/PhotoViewController.m"
-            timestampString = "539136524.947001"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-drawBoard:action:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Vender/DrawingBoard/drawBoard/HBDrawingBoard.m"
             timestampString = "539136524.9471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -537,46 +329,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WritingEducation/Modules/Writing/Controllers/TeacherProductDetailViewController.m"
-            timestampString = "539136524.948341"
+            filePath = "WritingEducation/Modules/Person/Controllers/PersonCenterViewController.m"
+            timestampString = "541093290.259801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-initWithData"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-returnButtonPressed"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TeacherProductDetailViewController initWithData]"
-                  moduleName = "WritingEducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Writing/Controllers/TeacherProductDetailViewController.m"
-                  timestampString = "539100401.047961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "55">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TeacherProductDetailViewController initWithData]"
-                  moduleName = "WritingEducation"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangqiong/Desktop/Writing/WritingEducation/WritingEducation/Modules/Writing/Controllers/TeacherProductDetailViewController.m"
-                  timestampString = "539100401.050818"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Person/Controllers/PersonInfoViewController.m"
+            timestampString = "541348153.477069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-didClickCollectionItem:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingEducation/Modules/Home/Controllers/MyProductListViewController.m"
+            timestampString = "543763675.1092809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,11 +7,11 @@
 //
 
 #import "BaseViewController.h"
-//#import "HomeViewController.m"
-@class HomeViewController;
+
+typedef void(^UpdatePhotoBlock)(BOOL isUpdate);
 
 @interface UpdatePhotoViewController : BaseViewController
 
-@property(nonatomic,strong)HomeViewController *homeViewController;
+@property(nonatomic,copy)UpdatePhotoBlock updatePhotoBlock;
 
 @end

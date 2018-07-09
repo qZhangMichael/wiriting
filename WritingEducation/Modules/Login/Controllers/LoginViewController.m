@@ -11,6 +11,7 @@
 #import "BaseNavigationViewController.h"
 #import "PersonUndoViewController.h"
 #import "HomeViewController.h"
+#import "SAMKeychain.h"
 //view
 #import "InputImageView.h"
 #import "LongButton.h"
@@ -39,6 +40,8 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"注册" forState:UIControlStateNormal];
     btn.titleLabel.textColor = [UIColor whiteColor];
+    btn.titleLabel.font=[UIFont systemFontOfSize:17];
+    [btn setFrame:CGRectMake(0, 0, 60, 30)];
     [btn addTarget:self action:@selector(signin:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = item;
@@ -58,7 +61,8 @@
     
     _userImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"2.png" contentImg:@"3.png"];
     _userImgView.textField.placeholder = @"请输入用户名/手机号码";
-//    _userImgView.textField.text = @"15133332222";
+    _userImgView.textField.text = self.appdelegate.personInfoModel.name;
+    
     [self.view addSubview:_userImgView];
     [_userImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -71,7 +75,7 @@
     _passImgView = [[InputImageView alloc]initWithFrame:CGRectZero backImg:@"5.png" contentImg:@"4.png"];
     _passImgView.textField.placeholder = @"请输入登录密码";
     _passImgView.textField.secureTextEntry = YES;
-//    _passImgView.textField.text = @"123456";
+    _passImgView.textField.text = self.appdelegate.personInfoModel.password;
     [self.view addSubview:_passImgView];
     [_passImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -80,6 +84,8 @@
         make.right.equalTo(self.view).with.offset(-leftGap);
         make.height.mas_equalTo(Height);
     }];
+    
+    [self getUsernameAndPassword];
     
     LongButton *loginBtn =[LongButton buttonWithType:UIButtonTypeCustom title:@"登  录" image:@"6.png" handler:^(UIButton *sender) {
         NSLog(@"登  陆");
@@ -170,12 +176,12 @@
 
 -(void)forgetBtnClick:(id)action{
     
-    
+    [self showAlert:@"功能暂未开放"];
 }
 
 -(void)didWeiXinBtnClick:(id)action{
     
-    
+    [self showAlert:@"功能暂未开放"];
 }
 
 -(void)clickLogin{
@@ -194,6 +200,7 @@
     [requestHelp postUrl:LOGIN_UNAMEPASS parameters:requestStr postBlock:^(id  _Nonnull responseObject) {
         [self hideLoading];
         LoginUnamePassModel *model = [LoginUnamePassModel yy_modelWithJSON:responseObject];
+        [self setUsernameAndPassword];
         if ([model verificationReturnParms]) {
             [KUserDefaults setObject:responseObject forKey:LOGIN_INFO];
             self.appdelegate.personInfoModel = [model convertToPersonInfoModel];
@@ -206,6 +213,18 @@
     } delegate:self];
 }
 
+-(void)setUsernameAndPassword{
+    
+    [SAMKeychain setPassword:_userImgView.textField.text forService:BUNDLEID account:LOGIN_USERNAME];
+    [SAMKeychain setPassword:_passImgView.textField.text forService:BUNDLEID account:LOGIN_PASSWORD];
+
+}
+
+-(void)getUsernameAndPassword{
+    
+    _userImgView.textField.text = [SAMKeychain passwordForService:BUNDLEID account:LOGIN_USERNAME];
+    _passImgView.textField.text = [SAMKeychain passwordForService:BUNDLEID account:LOGIN_PASSWORD];
+}
 
 
 -(void)dealloc{

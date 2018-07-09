@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "BaseNavigationViewController.h"
 #import "TZImagePickerController.h"
+#import "ReadPhotoViewController.h"
 
 #import "InputImageView.h"
 #import "PhotoCollectionView.h"
@@ -156,18 +157,21 @@
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
-    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        
-        for (UIImage *img in photos) {
-            PhotoCollectionModel *model = [PhotoCollectionModel new];
-            model.photoType = PhotoTypeLocal;
-            model.thumbUIImage = img;
-            [self.collectionView.dataArray addObject:model];
-        }
-        [self.collectionView reloadData];
-    }];
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
+//    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]initWithMaxImagesCount:3 delegate:self];
+//    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+//
+//        for (UIImage *img in photos) {
+//            PhotoCollectionModel *model = [PhotoCollectionModel new];
+//            model.photoType = PhotoTypeLocal;
+//            model.thumbUIImage = img;
+//            [self.collectionView.dataArray addObject:model];
+//        }
+//        [self.collectionView reloadData];
+//    }];
+//    [self presentViewController:imagePickerVc animated:YES completion:nil];
+    PhotoCollectionModel *model = self.collectionView.dataArray[indexPath.row];
+    ReadPhotoViewController* vc = [[ReadPhotoViewController alloc]init:model.thumbURLImage];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

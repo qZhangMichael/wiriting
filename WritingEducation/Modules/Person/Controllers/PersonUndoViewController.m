@@ -53,6 +53,7 @@
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"photo-1.png"] forState:UIControlStateNormal ];
     [leftBtn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setFrame:CGRectMake(0, 0, 30, 30)];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftItem;
     

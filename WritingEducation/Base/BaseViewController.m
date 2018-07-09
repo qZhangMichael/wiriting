@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 #import "RequestHelp.h"
 #import "LoginViewController.h"
+#import "SAMKeychain.h"
+
 @interface BaseViewController ()<RequestHelpDelegate,UIAlertViewDelegate,UIApplicationDelegate>
 
 
@@ -35,14 +37,17 @@
 -(void)setReturnButton{
     
     if (![self isKindOfClass:[LoginViewController class]]) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
         [button setTitle:@"<返回" forState:UIControlStateNormal];
+        button.titleLabel.font=[UIFont systemFontOfSize:17];
+//        [button setFrame:CGRectMake(0, 0, 30*2.5, 30)];
         // 设置返回按钮触发的事件
         [button addTarget:self action:@selector(returnButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         // 初始化一个BarButtonItem，并将其设置为返回的按钮的样式
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:button];
         // 将BarButtonItem添加到LeftBarButtonItem上
         self.navigationItem.leftBarButtonItem = backButton;
+        
     }
 }
 

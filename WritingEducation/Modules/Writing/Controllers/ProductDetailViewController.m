@@ -44,9 +44,9 @@
         photoModel.thumbURL = model.imageContentPath;
         [self.collectionView.dataArray insertObject:photoModel atIndex:0];
     }
-    if (self.collectionView.dataArray.count>3) {
+//    if (self.collectionView.dataArray.count>3) {
         [self.collectionView.dataArray removeLastObject];
-    }
+//    }
 }
 
 -(void)initWithView{
@@ -76,6 +76,7 @@
     _collectionView.photoCollectionDelegate = self;
     
     _teacherCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:_productModel.changeTheResult.workEvaluation edg:UIEdgeInsetsMake(20, 20, 25, 25)];
+    _teacherCommentTextImg.contentText.editable = NO;
     _teacherCommentTextImg.contentText.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_teacherCommentTextImg];
     [_teacherCommentTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,39 +85,41 @@
         make.height.mas_equalTo(height*3);
     }];
     
-    UIImageView*studentsInfoImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ProductDetail_3.png"]];
-    [self.view addSubview:studentsInfoImgView];
-    [studentsInfoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_teacherCommentTextImg.mas_bottom).with.offset(updownGap);
-        make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap*2, 0, aroundGap*2));
-        make.height.mas_equalTo(30);
-    }];
-    
-    UILabel *studentLb = [[UILabel alloc]init];
-    studentLb.backgroundColor = [UIColor clearColor];
-    studentLb.textAlignment = NSTextAlignmentCenter;
-    [studentsInfoImgView addSubview:studentLb];
-    studentLb.text = @"学生评价";
-    [studentLb mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(studentsInfoImgView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
-    
-    _studentCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
-    _studentCommentTextImg.contentText.font = [UIFont systemFontOfSize:14];
-    [self.view addSubview:_studentCommentTextImg];
-    [_studentCommentTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(studentsInfoImgView.mas_bottom).with.offset(updownGap);
-        make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
-        make.height.mas_equalTo(height*3);
-    }];
-    
+    if ([self.productModel.evaluationStatus isEqualToString:@"1"]) {//已评价
+        
+        UIImageView*studentsInfoImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ProductDetail_3.png"]];
+        [self.view addSubview:studentsInfoImgView];
+        [studentsInfoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_teacherCommentTextImg.mas_bottom).with.offset(updownGap);
+            make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap*2, 0, aroundGap*2));
+            make.height.mas_equalTo(30);
+        }];
+        
+        UILabel *studentLb = [[UILabel alloc]init];
+        studentLb.backgroundColor = [UIColor clearColor];
+        studentLb.textAlignment = NSTextAlignmentCenter;
+        [studentsInfoImgView addSubview:studentLb];
+        studentLb.text = @"学生评价";
+        [studentLb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(studentsInfoImgView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
+        _studentCommentTextImg = [[TextImageView alloc]initWithFrame:CGRectZero backgroudImg:@"ProductDetail_6.png" content:@"" edg:UIEdgeInsetsMake(20, 20, 25, 25)];
+        _studentCommentTextImg.contentText.font = [UIFont systemFontOfSize:14];
+        [self.view addSubview:_studentCommentTextImg];
+        [_studentCommentTextImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(studentsInfoImgView.mas_bottom).with.offset(updownGap);
+            make.left.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, aroundGap, 0, aroundGap));
+            make.height.mas_equalTo(height*3);
+        }];
+    }
 }
 
 -(void)didClickCollectionItem:(NSIndexPath *)indexPath{
     
     PhotoCollectionModel *model = self.collectionView.dataArray[indexPath.row];
     ReadPhotoViewController* vc = [[ReadPhotoViewController alloc]init:model.thumbURLImage];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
